@@ -19,7 +19,7 @@ Settings → Branches の「Add classic branch protection rule」で main のル
 
 ## 招待前の通し確認
 
-先生と別アカウント1つで、`add-quiz-<試験名>` ブランチに「先生の2問目」として公開後も残せる問題を1件追加し、PR → check → Approve → 作者マージ → Pages 反映を確認する。PR 作成後、別の PR を先にマージして main を進める。Settings → General → Pull Requests の「Always suggest updating pull request branches」を有効にしてから、試験 PR で Update branch を実行しても check が緑になることを確認し、マージする。別アカウントには、この確認のため事前にアクセスを用意する。
+先生と別アカウント1つで、`add-quiz-<試験名>` ブランチに「先生の2問目」として公開後も残せる問題を1件追加し、PR → check → Approve → 作者マージ → Pages 反映を確認する。PR 作成後、別アカウントが `add-quiz-<試験名2>` ブランチで公開後も残してよい問題を1件追加し、PR を作る。先生がその PR を Approve してマージし、main を進める。Settings → General → Pull Requests の「Always suggest updating pull request branches」を有効にしてから、試験 PR で Update branch を実行しても check が緑になることを確認し、マージする。別アカウントには、この確認のため事前にアクセスを用意する。
 
 ## 招待と準備
 

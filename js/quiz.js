@@ -10,7 +10,6 @@ function element(tag, text) {
   return el;
 }
 
-
 // 問題を選ぶ入口。作者名はテキストとして表示する。
 function showStart() {
   area.replaceChildren(element('h2', '問題を選ぶ'));
@@ -47,6 +46,12 @@ function showQuestion() {
       showQuestion();
     });
     area.append(retry);
+    if (new URLSearchParams(window.location.search).has('id')) {
+      const home = element('a', 'ほかの問題を選ぶ');
+      home.href = './';
+      area.append(element('p', ''));
+      area.lastElementChild.append(home);
+    }
     retry.focus();
     return;
   }
