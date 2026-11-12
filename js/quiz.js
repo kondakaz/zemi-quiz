@@ -105,7 +105,12 @@ fetch('questions.json', { cache: 'no-cache' })
     if (id !== null) {
       questions = data.filter(q => q.id === id);
       if (!questions.length) {
-        area.replaceChildren(element('p', 'まだ公開されていません。1〜2分おいて再読み込みしてください。'));
+        const home = element('a', '作者から選ぶ');
+        home.href = './';
+        area.replaceChildren(
+          element('p', '見つかりませんでした。公開の途中（1〜2分）か、URL のニックネームが違う可能性があります。'),
+          home
+        );
         return;
       }
       showQuestion();
