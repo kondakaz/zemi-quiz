@@ -113,6 +113,16 @@ footer {
 }
 
 /* クイズ */
-.choices { display: grid; gap: .75rem; margin: 1rem 0; }
-button { cursor: pointer; padding: .75rem 1rem; font: inherit; }
-button:disabled { cursor: default; }
+.choices {
+  display: grid;
+  gap: .75rem;
+  margin: 1rem 0;
+}
+button {
+  cursor: pointer;
+  padding: .75rem 1rem;
+  font: inherit;
+}
+button:disabled {
+  cursor: default;
+}
