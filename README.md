@@ -12,7 +12,7 @@
 6. 内容を確認して問題がなければ Approve し、修正が必要ならコメントする。自分の PR に5分たっても Approve が付かなければ先生に声をかけ、先生に Approve してもらう。承認が付き、検査が緑になったら自分でマージする。
 7. 1〜2分後にサイトで問題を解き、main に戻って pull する。
 
-詳しい手順は[講座の手順書（Markdown）](docs/handout.md)を参照してください。公開サイトでは[手順書（HTML）](https://kondakaz.github.io/zemi-quiz/docs/handout.html)も読めます。先生向けの設定は [teacher-setup.md](docs/teacher-setup.md) を参照。
+詳しい手順は[講座の手順書（Markdown）](docs/handout.md)を参照してください。公開サイトでは[手順書（HTML）](https://kondakaz.github.io/zemi-quiz/docs/handout.html)も読めます。事前準備（宿題）の説明は[スライド（docs/prep-slides.html）](docs/prep-slides.html)にもあります（公開サイト: https://kondakaz.github.io/zemi-quiz/docs/prep-slides.html ）。先生向けの設定は [teacher-setup.md](docs/teacher-setup.md) を参照。
 
 Issue の機能追加には `issue-<番号>-<短い名前>` ブランチを使います。この接頭辞のブランチでは、問題ファイル1件だけの差分検査を省略しますが、questions/ の変更は禁止です。
 

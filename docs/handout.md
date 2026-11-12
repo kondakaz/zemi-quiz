@@ -61,6 +61,8 @@
 
 当日の30分に収めるため、ここは先に済ませます。できていない人は、当日は隣の人の画面を一緒に見て、先生に知らせてください。
 
+説明スライドもあります: [事前準備のスライド](prep-slides.html)（講座の前に見て、家でも見返せます）。
+
 1. **GitHub アカウントを作る**。作ったら、2要素認証（パスワードのほかに、もう1つ確認する仕組み）をオンにします。GitHub の画面で、右上のアイコン → Settings → Password and authentication → Two-factor authentication → Enable two-factor authentication の順に進みます。スマホの認証アプリ（Google Authenticator や GitHub Mobile など）で、画面の QR コードを読み取ります。リカバリーコード（スマホをなくしたときの救済用の番号）は、必ず保存します。
 2. **Git と GitHub CLI（gh）を入れる**。Git は「セーブする道具」、gh は「ターミナルから GitHub を使う道具」です。
    - **Mac**: ターミナルで `git --version` と打ちます。ツールの導入画面が出たら、「インストール」を選びます。gh は https://cli.github.com から入れます。

@@ -73,7 +73,7 @@ try {
       await cp(resolve(root, item), resolve(out, item), { recursive: true });
     }
     await writeFile(resolve(out, 'questions.json'), JSON.stringify(questions, null, 2) + '\n');
-    for (const name of ['handout.html', 'slides.html']) {
+    for (const name of ['handout.html', 'slides.html', 'prep-slides.html']) {
       try {
         const source = resolve(root, 'docs', name);
         await mkdir(dirname(resolve(out, 'docs', name)), { recursive: true });
