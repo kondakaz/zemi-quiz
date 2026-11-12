@@ -16,7 +16,9 @@ pre{background:#1e2430;color:#eef;padding:.8rem 1rem;border-radius:6px;overflow-
 pre code{background:none;color:inherit;padding:0;font-size:.88rem}
 blockquote{margin:1rem 0;padding:.4rem 1rem;background:var(--warn);border-left:5px solid #e8a33d;border-radius:4px;break-inside:avoid}
 blockquote p{margin:.4rem 0}
-table{border-collapse:collapse;margin:1rem 0;width:100%;break-inside:avoid}
+table{border-collapse:collapse;margin:1rem 0;width:100%;break-inside:avoid;display:block;overflow-x:auto}
+td a[href^="#d"]{white-space:nowrap}
+@media (max-width:600px){main{padding:1rem .9rem 3rem}h1{margin:-1rem -.9rem 1rem;font-size:1.15rem}th,td{padding:.3rem .4rem;font-size:.9rem}}
 th,td{border:1px solid var(--line);padding:.35rem .6rem;text-align:left;vertical-align:top}
 th{background:#f3f6fb}
 a{color:var(--accent);word-break:break-all}
@@ -24,26 +26,30 @@ li{margin:.2rem 0}
 @media print{body{background:#fff;font-size:10.5pt}main{max-width:none;padding:0}h1{margin:0 0 1rem}pre{white-space:pre-wrap;background:#f4f4f4;color:#111;border:1px solid #bbb}a{color:#000}}
 </style></head><body><main>
 <h1 id="ゼミ-github-講座-手順書">ゼミ GitHub 講座 手順書</h1>
-<p>はじめて Git や GitHub を使う人向けの手順書です。むずかしい言葉は、たとえ話で先に説明します。コマンド（ターミナルに打つ命令）は、<strong>コピーして貼る</strong>だけで大丈夫です。</p>
+<p>はじめて Git や GitHub を使う人向けの手順書です。むずかしい言葉は、たとえ話で先に説明します。コマンド（ターミナルに打つ命令）は、<strong>コピーして貼り、<code>&lt;ニックネーム&gt;</code> のように <code>&lt; &gt;</code> で書いてある所だけ自分のものに直せば</strong>大丈夫です。</p>
 <p>この講座（30分）で、<strong>自分のクイズ問題を1問つくり、みんなのクイズサイトに出します</strong>。今日のゴールは「自分の問題がサイトに出た」まで。全員の問題を解くのは、時間が余ったときでよいです。</p>
 <ul><li>演習サイト: <a href="https://kondakaz.github.io/zemi-quiz/">https://kondakaz.github.io/zemi-quiz/</a></li>
 <li>リポジトリ（プロジェクトの置き場）: <a href="https://github.com/kondakaz/zemi-quiz">https://github.com/kondakaz/zemi-quiz</a></li>
 <li>この手順書は、演習サイトの <code>docs/</code> にも載ります（だれでも読めます）。個人名や内部の情報は書いていません。</li></ul>
 <h2 id="まず用語のたとえ表">まず、用語のたとえ表</h2>
 <p>読み飛ばしてもよいですが、困ったらここに戻ってください。</p>
-<table><thead><tr><th>用語</th><th>ひとことで言うと</th></tr></thead><tbody><tr><td>Git（ギット）</td><td>変更を記録する道具。<strong>ゲームのセーブ機能</strong>のようなもの</td></tr><tr><td>GitHub（ギットハブ）</td><td>記録をみんなで置く場所。<strong>Google ドライブのようなもの</strong></td></tr><tr><td>リポジトリ</td><td>プロジェクトのフォルダ＋変更の記録帳</td></tr><tr><td>clone（クローン）</td><td>共有の棚（GitHub）から、自分の PC に<strong>丸ごとコピー</strong>する</td></tr><tr><td>commit（コミット）</td><td><strong>セーブ</strong>する。いつでもその時点に戻れる。メッセージは「セーブデータの名前」</td></tr><tr><td>push（プッシュ）</td><td>自分のセーブを、共有の棚（GitHub）に<strong>置く</strong></td></tr><tr><td>pull（プル）</td><td>共有の棚から、最新のセーブを<strong>持ってくる</strong></td></tr><tr><td>main（メイン）</td><td><strong>本番</strong>のこと。サイトに出るのは、この main の中身</td></tr><tr><td>ブランチ</td><td>本番を汚さないための<strong>下書き用のコピー</strong></td></tr><tr><td>Pull Request（PR）</td><td>「この下書きを本番に入れていいですか？」という<strong>お願いの紙</strong></td></tr><tr><td>Approve（アプルーブ）</td><td>「見たよ、OK」の<strong>はんこ</strong></td></tr><tr><td>マージ</td><td>下書きを、本番に<strong>合流</strong>させる</td></tr><tr><td>GitHub Pages</td><td>GitHub に置いたファイルを、<strong>Web サイトとして見せる</strong>機能</td></tr><tr><td>検査（チェック）</td><td>ロボットが自動でする点検。緑＝OK、赤＝直す</td></tr><tr><td>Codex（コーデックス）</td><td>作業を手伝ってくれる AI アシスタント</td></tr><tr><td>ターミナル</td><td>文字で命令を打つ画面（Mac は「ターミナル」、Windows は「PowerShell」など）</td></tr></tbody></table>
+<table><thead><tr><th style="white-space:nowrap">用語</th><th style="white-space:nowrap">ひとことで言うと</th></tr></thead><tbody><tr><td>Git（ギット）</td><td>変更を記録する道具。<strong>ゲームのセーブ機能</strong>のようなもの</td></tr><tr><td>GitHub（ギットハブ）</td><td>記録をみんなで置く場所。<strong>Google ドライブのようなもの</strong>（ただし、自動では同期しません。push したときだけ置かれます）</td></tr><tr><td style="white-space:nowrap">リポジトリ</td><td>プロジェクトのフォルダ＋変更の記録帳</td></tr><tr><td>clone（クローン）</td><td>共有の棚（GitHub）から、自分の PC に<strong>丸ごとコピー</strong>する</td></tr><tr><td>commit（コミット）</td><td><strong>セーブ</strong>する。いつでもその時点に戻れる。メッセージは「セーブデータの名前」</td></tr><tr><td>push（プッシュ）</td><td>自分のセーブを、共有の棚（GitHub）に<strong>置く</strong></td></tr><tr><td>pull（プル）</td><td>共有の棚から、最新のセーブを<strong>持ってくる</strong></td></tr><tr><td>main（メイン）</td><td><strong>本番</strong>のこと。サイトに出るのは、この main の中身</td></tr><tr><td style="white-space:nowrap">ブランチ</td><td>本番を汚さないための<strong>下書き用のコピー</strong>（フォルダは増えません。同じフォルダのまま、下書きに切り替わります）</td></tr><tr><td>Pull Request（PR）</td><td>「この下書きを本番に入れていいですか？」という<strong>お願いの紙</strong></td></tr><tr><td>Approve（アプルーブ）</td><td>「見たよ、OK」の<strong>はんこ</strong></td></tr><tr><td style="white-space:nowrap">マージ</td><td>下書きを、本番に<strong>合流</strong>させる</td></tr><tr><td>GitHub Pages</td><td>GitHub に置いたファイルを、<strong>Web サイトとして見せる</strong>機能</td></tr><tr><td>検査（チェック）</td><td>ロボットが自動でする点検。緑＝OK、赤＝直す</td></tr><tr><td>Codex（コーデックス）</td><td>作業を手伝ってくれる AI アシスタント</td></tr><tr><td style="white-space:nowrap">ターミナル</td><td>文字で命令を打つ画面。開き方: <strong>Mac</strong> は ⌘（コマンド）キー＋スペースを押して「ターミナル」と入力し、Enter。<strong>Windows</strong> はスタートボタンを押して「PowerShell」と入力し、開きます。</td></tr><tr><td>cd（シーディー）</td><td>フォルダに入る命令。<code>cd Documents</code> で、「書類」フォルダに入ります</td></tr></tbody></table>
 <p>全体のイメージは、次のとおりです。</p>
 <pre><code> GitHub（共有の棚）          ← みんなのセーブが集まる
    ↑ push（置く）   ↓ clone（丸ごとコピー）／ pull（最新を持ってくる）
  自分の PC（ここで作業して、commit ＝ セーブ）</code></pre>
 <h2 id="この手順書の使い方">この手順書の使い方</h2>
-<table><thead><tr><th>部</th><th>中身</th><th>いつ読むか</th></tr></thead><tbody><tr><td>第1部 事前準備（宿題）</td><td>当日までに済ませること</td><td>講座の前</td></tr><tr><td>第2部 当日の短い流れ</td><td>9ステップ。<strong>打つコマンド・Codex への頼み方・ボタンの順が、全部ここにあります</strong></td><td>当日、これだけ見て進める</td></tr><tr><td>第3部 詳しい説明とつまずいたとき</td><td>各ステップの補足と、困ったときの直し方。各ステップの「詳しく」から開く</td><td>困ったとき、分からないとき</td></tr><tr><td>第4部 宿題（自分のアプリ）</td><td>自分のアプリをリポジトリにする手順</td><td>講座のあと</td></tr></tbody></table>
+<table><thead><tr><th style="white-space:nowrap">部</th><th style="white-space:nowrap">中身</th><th style="white-space:nowrap">いつ読むか</th></tr></thead><tbody><tr><td>第1部 事前準備（宿題）</td><td>当日までに済ませること</td><td style="white-space:nowrap">講座の前</td></tr><tr><td>第2部 当日の短い流れ</td><td>9ステップ。<strong>打つコマンド・Codex への頼み方・ボタンの順が、全部ここにあります</strong></td><td>当日、これだけ見て進める</td></tr><tr><td>第3部 詳しい説明とつまずいたとき</td><td>各ステップの補足と、困ったときの直し方。各ステップの「詳しく」から開く</td><td>困ったとき、分からないとき</td></tr><tr><td>第4部 宿題（自分のアプリ）</td><td>自分のアプリをリポジトリにする手順</td><td style="white-space:nowrap">講座のあと</td></tr></tbody></table>
 <h2 id="30分の進み方">30分の進み方</h2>
-<table><thead><tr><th>時間</th><th>中身</th></tr></thead><tbody><tr><td>説明 5分</td><td>スライド2〜7（今日のゴール・セーブと棚・ブランチ・お願いの紙（PR）・今日の流れ・公開される注意）を見る。スライド8〜14は、事前に読むか、公開待ちと最後に見る</td></tr><tr><td>演習 21分</td><td>第2部のステップ1〜8（ステップ8まで進めばゴール。ステップ9は余った時間か、講座のあと）。clone と、問題の文を考えることは、事前に済んでいる前提</td></tr><tr><td>待ち・やり直し 4分</td><td>検査の待ち、はんこ（Approve）の待ち、公開の待ち、検査が赤のときの直し</td></tr></tbody></table>
+<table><thead><tr><th style="white-space:nowrap">時間</th><th style="white-space:nowrap">中身</th></tr></thead><tbody><tr><td style="white-space:nowrap">説明 5分</td><td>スライド2〜7（今日のゴール・セーブと棚・ブランチ・お願いの紙（PR）・今日の流れ・公開される注意）を見る。スライド8〜14は、事前に読むか、公開待ちと最後に見る</td></tr><tr><td style="white-space:nowrap">演習 21分</td><td>第2部のステップ1〜8（ステップ8まで進めばゴール。ステップ9は余った時間か、講座のあと）。clone と、問題の文を考えることは、事前に済んでいる前提</td></tr><tr><td>待ち・やり直し 4分</td><td>検査の待ち、はんこ（Approve）の待ち、公開の待ち、検査が赤のときの直し</td></tr></tbody></table>
 <h2 id="第1部-事前準備宿題講座の前に済ませる">第1部 事前準備（宿題・講座の前に済ませる）</h2>
 <p>当日の30分に収めるため、ここは先に済ませます。できていない人は、当日は隣の人の画面を一緒に見て、先生に知らせてください。</p>
-<ol><li><strong>GitHub アカウントを作る</strong>。作ったら、2要素認証（パスワードのほかに、もう1つ確認する仕組み）をオンにします。GitHub の画面で、右上のアイコン → Settings → Password and authentication → Two-factor authentication → Enable two-factor authentication の順に進みます。リカバリーコード（スマホをなくしたときの救済用の番号）は、必ず保存します。</li>
-<li><strong>Git を入れる</strong>。確認: ターミナルで <code>git --version</code> と打って、バージョンが出ればOKです。あわせて <strong>Node.js</strong>（検査を手元で動かすための道具）も入れておくと便利です。任意です。入っていなくても、PR の検査で確かめられます。</li>
+<ol><li><strong>GitHub アカウントを作る</strong>。作ったら、2要素認証（パスワードのほかに、もう1つ確認する仕組み）をオンにします。GitHub の画面で、右上のアイコン → Settings → Password and authentication → Two-factor authentication → Enable two-factor authentication の順に進みます。スマホの認証アプリ（Google Authenticator や GitHub Mobile など）で、画面の QR コードを読み取ります。リカバリーコード（スマホをなくしたときの救済用の番号）は、必ず保存します。</li>
+<li><strong>Git と GitHub CLI（gh）を入れる</strong>。Git は「セーブする道具」、gh は「ターミナルから GitHub を使う道具」です。
+<ul><li><strong>Mac</strong>: ターミナルで <code>git --version</code> と打ちます。ツールの導入画面が出たら、「インストール」を選びます。gh は <a href="https://cli.github.com">https://cli.github.com</a> から入れます。</li>
+<li><strong>Windows</strong>: <a href="https://git-scm.com">https://git-scm.com</a> の「Git for Windows」と、<a href="https://cli.github.com">https://cli.github.com</a> の gh を入れます。入れたあと、<strong>PowerShell を開き直します</strong>。</li></ul>
+<p>確認: <code>git --version</code> と <code>gh --version</code> を打って、どちらもバージョンが出ればOKです。あわせて <strong>Node.js</strong>（検査を手元で動かすための道具）も入れておくと便利です。任意です。入っていなくても、PR の検査で確かめられます。</p>
+</li>
 <li><strong>Codex デスクトップアプリを入れる</strong>。サインインして、起動できる状態にしておきます。</li>
 <li><strong>自分の名前とメールアドレスを Git に登録する</strong>。セーブ（commit）に書き込まれ、<strong>公開されます</strong>。先に、メールアドレスを公開しない設定にします。
 <ol><li>GitHub の画面で、右上のアイコン → Settings → Emails を開き、<strong>Keep my email addresses private</strong>（メールアドレスを公開しない）を選びます。</li>
@@ -53,14 +59,15 @@ li{margin:.2rem 0}
 git config --global user.email "控えた noreply アドレス"</code></pre>
 <p>確認: <code>git config --global user.name</code> と <code>git config --global user.email</code> で、入れた値が出ればOKです。本名や、ふだんのメールアドレスは入れません（理由は、後ろの「公開されるものに注意」）。</p>
 </li>
-<li><strong>GitHub へのログインを済ませる</strong>。ターミナルで <code>gh auth login</code> を打ち、質問に答えます。選ぶものは、GitHub.com、Git の操作は HTTPS、Git の認証に GitHub のログインを使うかには Yes、ログイン方法は Web ブラウザです。ブラウザが開いたら、画面の指示に従います。確認: <code>gh auth status</code> で、ログイン済みと出ればOKです。（<code>gh</code> が入っていないときは、GitHub CLI を先に入れます。）</li>
+<li><strong>GitHub へのログインを済ませる</strong>。ターミナルで <code>gh auth login</code> を打ち、質問に答えます。質問は、矢印キーで選んで Enter を押します。選ぶものは、GitHub.com、Git の操作は HTTPS、Git の認証に GitHub のログインを使うかには Yes、ログイン方法は Web ブラウザです。途中で <strong>8文字のコード</strong>が出るので、控えます。ブラウザが開いたら、そのコードを貼って、<strong>Authorize</strong>（許可）を押します。確認: <code>gh auth status</code> で、ログイン済みと出ればOKです。（<code>gh</code> が入っていないときは、GitHub CLI を先に入れます。）</li>
 <li><strong>ニックネームを決めて、先生に届ける</strong>。このニックネームを、ファイル名とブランチ名に使います（例: <code>taro-k</code>）。使える文字は <strong>半角の英小文字・数字・ハイフンだけ</strong>。<strong>ほかの人と重ならないもの</strong>にします。先生に届けて、重複がないか確かめてもらいます。同じニックネームの人がいると、あとから出した PR が止まってしまいます。届けた名前は、当日は変えません。</li>
-<li><strong>先生からの招待を承認する</strong>。先生が、あなたの GitHub のユーザー名あてに、リポジトリ <code>kondakaz/zemi-quiz</code> への collaborator（共同作業者）の招待を送ります。登録したメールに届く招待メールのリンクから開いて、承認します（メールが見つからないときは、GitHub の通知からも開けます）。承認すると、<code>https://github.com/kondakaz/zemi-quiz</code> に書き込めるようになります。招待には期限（7日）があるので、早めに承認します。</li>
-<li><strong>clone する（自分でコマンドを打つ）</strong>。clone は「共有の棚から、自分の PC に丸ごとコピー」です。ターミナルで、作業用のフォルダに移ってから打ちます。
-<pre><code>git clone https://github.com/kondakaz/zemi-quiz.git
+<li><strong>先生からの招待を承認する</strong>。先生が、あなたの GitHub のユーザー名あてに、リポジトリ <code>kondakaz/zemi-quiz</code> への collaborator（共同作業者）の招待を送ります。登録したメールに届く招待メールのリンクから開いて、<strong>Accept invitation</strong>（招待を受ける）を押します（メールが見つからないときは、GitHub の通知からも開けます）。承認すると、<code>https://github.com/kondakaz/zemi-quiz</code> に書き込めるようになります。招待には期限（7日）があるので、早めに承認します。</li>
+<li><strong>clone する（自分でコマンドを打つ）</strong>。clone は「共有の棚から、自分の PC に丸ごとコピー」です。まず <code>cd Documents</code>（cd ＝ フォルダに入る命令）で「書類」フォルダに入ってから、次を打ちます。
+<pre><code>cd Documents
+git clone https://github.com/kondakaz/zemi-quiz.git
 cd zemi-quiz
 git status</code></pre>
-<p>確認: <code>git status</code> に <code>On branch main</code>（いま本番にいる）と出ます。フォルダの中に <code>index.html</code> と <code>questions/</code> があります。そのあと、<strong>この <code>zemi-quiz</code> フォルダを、Codex アプリで開き直します</strong>（Codex の作業フォルダを、このフォルダにします）。</p>
+<p>確認: <code>git status</code> に <code>On branch main</code>（いま本番にいる）と出ます。フォルダの中に <code>index.html</code> と <code>questions/</code> があります。そのあと、<strong>この <code>zemi-quiz</code> フォルダを、Codex アプリで開き直します</strong>。<code>pwd</code>（いまいる場所を表示する命令）で、フォルダの場所を確かめます。Codex アプリで作業フォルダを選ぶところで、その <code>zemi-quiz</code> フォルダを選びます。</p>
 </li>
 <li><strong>問題の文を考えてくる</strong>。次の4つを、メモにまとめておきます。当日は、これを写すだけにします。
 <ul><li>問題文</li>
@@ -69,7 +76,7 @@ git status</code></pre>
 <li>解説（1〜2文）</li></ul>
 <p>テーマは自由です。Codex に考えてもらってもよいですが、<strong>答えが本当に正しいかは、自分で確かめます</strong>。公開されるので、本名・学籍番号は入れません。</p>
 </li>
-<li><strong>次の「読んでおく」を読む</strong>（3分）。</li></ol>
+<li><strong>次の「読んでおく」と、第3部の「<a href="#dcodex">Codex に頼むときの約束</a>」を読む</strong>（3分）。</li></ol>
 <h3 id="読んでおく-なぜバージョン管理かgit-と-github">読んでおく: なぜバージョン管理か／Git と GitHub</h3>
 <ul><li><strong>なぜバージョン管理か</strong>: <code>app_v2_最終_本当に最終.py</code> のように、ファイル名で版を分けると、どれが最新か、何を変えたか、前に戻せるかが分からなくなります。Git を使うと、ファイルは1つのまま、セーブ（記録）が積み重なります。いつでも前のセーブに戻せて、だれが・いつ・何を変えたかも残ります。</li>
 <li><strong>Git は道具、GitHub は置き場</strong>: Git は、自分の PC の中で動く、セーブ機能です。GitHub は、そのセーブをみんなで置く、インターネット上の場所（Google ドライブのようなもの）です。</li>
@@ -84,36 +91,41 @@ git status</code></pre>
 <li>すでに本名のユーザー名でアカウントを作っている人は、先生に相談します。</li></ul>
 <h2 id="第2部-当日の短い流れ">第2部 当日の短い流れ</h2>
 <a id="part2"></a>
-<p><code>&lt;ニックネーム&gt;</code> は、先生に届けた自分のニックネームに読み替えます。<strong>どのステップも、「Codex に頼む」「自分で打つ」「GitHub の画面」のどれか1つだけ</strong>でやります。同じことを両方でやりません。各ステップの「詳しく」は、第3部の同じ番号へのリンクです。</p>
-<table><thead><tr><th>#</th><th>やること</th><th>やり方</th><th>目安</th><th>詳しく</th></tr></thead><tbody><tr><td>1</td><td>main（本番）を最新にして始める（clone は済んでいる）</td><td>自分で打つ</td><td>2分</td><td><a href="#d1">第3部 1</a></td></tr><tr><td>2</td><td>ブランチ（下書き）<code>add-quiz-&lt;ニックネーム&gt;</code> を作る</td><td>自分で打つ</td><td>1分</td><td><a href="#d2">第3部 2</a></td></tr><tr><td>3</td><td>問題ファイル <code>questions/&lt;ニックネーム&gt;.json</code> を書く</td><td>Codex に頼む</td><td>5分</td><td><a href="#d3">第3部 3</a></td></tr><tr><td>4</td><td>セーブ（commit）して、棚に送る（push）</td><td>Codex に頼む</td><td>3分</td><td><a href="#d4">第3部 4</a></td></tr><tr><td>5</td><td>Pull Request（PR・お願いの紙）を作る</td><td>GitHub の画面</td><td>2分</td><td><a href="#d5">第3部 5</a></td></tr><tr><td>6</td><td>名簿の次の人の PR を見て Approve（はんこ）する</td><td>GitHub の画面</td><td>3分</td><td><a href="#d6">第3部 6</a></td></tr><tr><td>7</td><td>自分の PR に Approve が付き、検査が緑なら、<strong>自分で</strong>マージする</td><td>GitHub の画面</td><td>2分</td><td><a href="#d7">第3部 7</a></td></tr><tr><td>8</td><td>1〜2分後に、サイトで自分の問題を見る　<strong>← ゴール</strong></td><td>ブラウザ</td><td>3分</td><td><a href="#d8">第3部 8</a></td></tr><tr><td>9</td><td>main に戻って pull する（余った時間か、講座のあと）</td><td>自分で打つ</td><td>1分</td><td><a href="#d9">第3部 9</a></td></tr></tbody></table>
+<p><code>&lt;ニックネーム&gt;</code> は、先生に届けた自分のニックネームに<strong>置き換えます。<code>&lt;</code> と <code>&gt;</code> も消して</strong>置き換えます。例: ニックネームが <code>taro-k</code> なら、<code>git switch -c add-quiz-&lt;ニックネーム&gt;</code> は <code>git switch -c add-quiz-taro-k</code> になります。<strong>どのステップも、「Codex に頼む」「自分で打つ」「GitHub の画面」のどれか1つだけ</strong>でやります。同じことを両方でやりません。「できた印」のコマンドは、どのステップでも、Codex の入力欄ではなく、<strong>ターミナルに自分で打ちます</strong>（見るだけです）。各ステップの「詳しく」は、第3部の同じ番号へのリンクです。</p>
+<table><thead><tr><th style="white-space:nowrap">#</th><th style="white-space:nowrap">やること</th><th style="white-space:nowrap">やり方</th><th style="white-space:nowrap">目安</th><th style="white-space:nowrap">詳しく</th></tr></thead><tbody><tr><td style="white-space:nowrap">1</td><td>main（本番）を最新にして始める（clone は済んでいる）</td><td style="white-space:nowrap">自分で打つ</td><td style="white-space:nowrap">2分</td><td><a href="#d1">→1</a></td></tr><tr><td style="white-space:nowrap">2</td><td>ブランチ（下書き）<code>add-quiz-&lt;ニックネーム&gt;</code> を作る</td><td style="white-space:nowrap">自分で打つ</td><td style="white-space:nowrap">1分</td><td><a href="#d2">→2</a></td></tr><tr><td style="white-space:nowrap">3</td><td>問題ファイル <code>questions/&lt;ニックネーム&gt;.json</code> を書く</td><td>Codex に頼む</td><td style="white-space:nowrap">5分</td><td><a href="#d3">→3</a></td></tr><tr><td style="white-space:nowrap">4</td><td>セーブ（commit）して、棚に送る（push）</td><td>Codex に頼む</td><td style="white-space:nowrap">3分</td><td><a href="#d4">→4</a></td></tr><tr><td style="white-space:nowrap">5</td><td>Pull Request（PR・お願いの紙）を作る</td><td>GitHub の画面</td><td style="white-space:nowrap">2分</td><td><a href="#d5">→5</a></td></tr><tr><td style="white-space:nowrap">6</td><td>名簿の次の人の PR を見て Approve（はんこ）する</td><td>GitHub の画面</td><td style="white-space:nowrap">3分</td><td><a href="#d6">→6</a></td></tr><tr><td style="white-space:nowrap">7</td><td>自分の PR に Approve が付き、検査が緑なら、<strong>自分で</strong>マージする</td><td>GitHub の画面</td><td style="white-space:nowrap">2分</td><td><a href="#d7">→7</a></td></tr><tr><td style="white-space:nowrap">8</td><td>1〜2分後に、サイトで自分の問題を見る　<strong>← ゴール</strong></td><td style="white-space:nowrap">ブラウザ</td><td style="white-space:nowrap">3分</td><td><a href="#d8">→8</a></td></tr><tr><td style="white-space:nowrap">9</td><td>main に戻って pull する（余った時間か、講座のあと）</td><td style="white-space:nowrap">自分で打つ</td><td style="white-space:nowrap">1分</td><td><a href="#d9">→9</a></td></tr></tbody></table>
 <p><strong>守ること</strong></p>
 <ol><li><strong>main（本番）では作業しません。main に直接 push しません。</strong> 必ず自分のブランチ（下書き）で作業します。</li>
 <li><strong>Codex への最初の頼み（ステップ3）には、約束の一文を先頭に付けます。</strong> ステップ3の文には、もう入っています。</li>
 <li><strong>Codex が git や gh を動かすとき、「実行してよいですか？」と承認を求められることがあります。</strong> コマンドの中身を読んでから承認します。<code>push --force</code>・<code>reset --hard</code>・<code>main</code> への push は、承認せず、止めて先生に聞きます。</li>
 <li><strong>自分の PR だけを、自分でマージします。</strong> ほかの人の PR のマージボタンは押しません。</li></ol>
-<p><strong>レビューの順番（輪番）</strong>: 名簿は、先生が前日までに配ります。<strong>自分の PR を出したら、すぐ名簿の次の人の PR を見に行きます</strong>（最後の人は、最初の人の PR）。次の人の PR がまだ出ていなければ、その次の人の PR のうち、Approve が付いていないものを見ます。<strong>1つ見れば OK</strong> です。欠席の人は、名簿から飛ばします。自分の PR に <strong>5分たっても Approve が付かなければ、先生に声をかけます</strong>。先生が Approve します。</p>
+<p><strong>レビューの順番（輪番）</strong>: 名簿は、先生が前日までに配ります。<strong>自分の PR を出したら、すぐ名簿の次の人の PR を見に行きます</strong>（最後の人は、最初の人の PR）。次の人の PR がまだ出ていなければ、名簿をさらに先へたどって、Approve がまだ付いていない PR を<strong>1つ</strong>見ます。<strong>1つ見れば OK</strong> です。欠席の人は、名簿から飛ばします。自分の PR に <strong>5分たっても Approve が付かなければ、先生に声をかけます</strong>。先生が Approve します。</p>
 <p><strong>困ったら</strong>: <a href="#trouble">つまずいたとき</a>。検査が赤い、push が拒否された、マージボタンが押せない、のどれも、そこにあります。同じニックネームの人がいるときは、先生に声をかけます。</p>
 <a id="s1"></a>
 <h3 id="ステップ1-main本番を最新にして始める自分で打つ">ステップ1: main（本番）を最新にして始める（自分で打つ）</h3>
 <p><strong>いま何をしているか</strong>: 本番の最新版を、自分の PC に持ってきます。</p>
-<p>clone した <code>zemi-quiz</code> フォルダで、次を打ちます。</p>
-<pre><code>git switch main
+<p>次を打ちます。1行目の <code>cd</code> で、clone した <code>zemi-quiz</code> フォルダに入ります（フォルダの外にいると、このあとのコマンドが動きません）。</p>
+<pre><code>cd Documents/zemi-quiz
+git switch main
 git pull</code></pre>
-<p><strong>できた印</strong>: <code>git branch --show-current</code>（いまいる場所を表示する命令）を打つと <code>main</code> と出ます。　→ <a href="#d1">詳しく</a></p>
+<p><strong>できた印</strong>: <code>git branch --show-current</code>（いまいるブランチを表示する命令）を打つと <code>main</code> と出ます。<code>git pull</code> に <code>Already up to date.</code>（もう最新です）と出ても、正常です。　→ <a href="#d1">詳しく</a></p>
 <a id="s2"></a>
 <h3 id="ステップ2-ブランチ下書きを作る自分で打つ">ステップ2: ブランチ（下書き）を作る（自分で打つ）</h3>
 <p><strong>いま何をしているか</strong>: 本番を汚さないために、下書き用のコピー（ブランチ）を作って、そこに移ります。</p>
 <pre><code>git switch -c add-quiz-&lt;ニックネーム&gt;</code></pre>
+<p>例: ニックネームが <code>taro-k</code> なら、<code>git switch -c add-quiz-taro-k</code> と打ちます。</p>
 <p><strong>できた印</strong>: <code>git branch --show-current</code> を打つと <code>add-quiz-&lt;ニックネーム&gt;</code> と出ます。　→ <a href="#d2">詳しく</a></p>
 <a id="s3"></a>
 <h3 id="ステップ3-問題ファイルを書くcodex-に頼む">ステップ3: 問題ファイルを書く（Codex に頼む）</h3>
 <p><strong>いま何をしているか</strong>: 下書きの中に、自分のクイズのファイルを作ります。作業は Codex（AI アシスタント）に頼みます。</p>
-<p>次の文を、Codex にそのまま頼みます（<code>&lt;ニックネーム&gt;</code> と、問題の4項目は自分のものに直します）。<strong>先頭の約束の一文は、消しません。</strong></p>
+<p>次の文をコピーして、（ ）の中と <code>&lt;ニックネーム&gt;</code> を自分のものに直して、Codex に頼みます。<strong>先頭の約束の一文は、消しません。</strong></p>
 <blockquote><p>約束: 作業は、このリポジトリの中だけで行ってください。main ブランチには直接 commit も push もしないでください。force push（<code>--force</code>）は使わないでください。git や gh のコマンドは、実行する前に私に見せてください。commit と push は、私が頼んだときだけ行ってください。</p>
 <p>依頼: <code>questions/_template.json</code> を <code>questions/&lt;ニックネーム&gt;.json</code> にコピーして、中身を、次の問題に書き換えてください。作者名（author）は <code>&lt;ニックネーム&gt;</code> にしてください。ほかのファイルは変更しないでください。</p>
-<p>問題文: （考えてきた問題文）<br>選択肢: （4つ）<br>正解の番号（0から数える）: （番号）<br>解説: （1〜2文）</p>
+<ul><li>問題文: （考えてきた問題文）</li>
+<li>選択肢: （4つ）</li>
+<li>正解の番号（0から数える）: （番号）</li>
+<li>解説: （1〜2文）</li></ul>
 </blockquote>
-<p><strong>できた印</strong>: 次を打ちます。<code>git status</code>（いまの状況を表示する命令）の <strong>Untracked files</strong>（まだ記録していない新しいファイル）の下に、<code>questions/&lt;ニックネーム&gt;.json</code> が1つだけ出ます。検査は <code>2件の問題を確認しました</code> のように出ます（Node.js が無ければ、検査は飛ばしてOKです）。</p>
+<p><strong>できた印</strong>: 次を打ちます。<code>git status</code>（いまの状況を表示する命令）の <strong>Untracked files</strong>（まだ記録していない新しいファイル）の下に、<code>questions/&lt;ニックネーム&gt;.json</code> が1つだけ出ます。<code>modified:</code>（変更した）の行が出ていないことも見ます（ほかのファイルを変えていない印です）。検査は <code>2件の問題を確認しました</code> のように出ます（Node.js が無ければ、検査は飛ばしてOKです）。</p>
 <pre><code>git status
 node scripts/build.mjs --check</code></pre>
 <p>→ <a href="#d3">詳しく</a>（書き方の見本・検査で赤になるもの）</p>
@@ -132,16 +144,16 @@ git status</code></pre>
 <a id="s5"></a>
 <h3 id="ステップ5-pull-requestお願いの紙を作るgithub-の画面">ステップ5: Pull Request（お願いの紙）を作る（GitHub の画面）</h3>
 <p><strong>いま何をしているか</strong>: 「この下書きを本番に入れていいですか？」というお願いの紙（PR）を出します。</p>
-<ol><li><a href="https://github.com/kondakaz/zemi-quiz">https://github.com/kondakaz/zemi-quiz</a> を開きます。ファイル一覧の上の黄色いバナーの <strong>Compare &amp; pull request</strong>（比べて PR を作る）を押します。バナーが出ないときは、ブランチを選んで、Pull requests タブから新しい PR を作ります。</li>
+<ol><li><a href="https://github.com/kondakaz/zemi-quiz">https://github.com/kondakaz/zemi-quiz</a> を開きます。ファイル一覧の上の黄色いバナーの <strong>Compare &amp; pull request</strong>（比べて PR を作る）を押します。バナーが出ないときは、<strong>Pull requests</strong> タブ → <strong>New pull request</strong> を押し、compare で自分のブランチを選んで、<strong>Create pull request</strong> を押します。</li>
 <li>base（入れる先）が <code>main</code>、compare（入れたい下書き）が <code>add-quiz-&lt;ニックネーム&gt;</code> になっていることを確かめます。タイトルは「クイズを追加: &lt;ニックネーム&gt;」にします。</li>
-<li>説明の欄の <strong>作者の確認</strong> の4項目を確かめて、<code>[ ]</code> を <code>[x]</code> にします。</li>
+<li>説明の欄の <strong>作者の確認</strong> の4項目を確かめて、<code>[ ]</code> を <code>[x]</code> にします。<strong>レビュアーへのお願い</strong> の欄は、レビューする人用なので、触りません。</li>
 <li><strong>Create pull request</strong>（PR を作る）を押します。</li></ol>
-<p><strong>できた印</strong>: PR のページが開き、タイトルの横に番号（<code>#12</code> など）が付きます。しばらくすると、検査が走って、緑のチェックが付きます。赤のときは、<a href="#trouble-red">PR に検査の赤が付いた</a>を見ます。　→ <a href="#d5">詳しく</a></p>
+<p><strong>できた印</strong>: PR のページが開き、タイトルの横に番号（<code>#12</code> など）が付きます。しばらくすると、検査が走って、緑のチェックが付きます。赤のときは、<a href="#trouble-red">PR に検査の赤が付いた</a>を見ます。PR を出した直後に、<strong>Review required</strong>（レビューが必要）や <strong>Merging is blocked</strong>（マージできません）と出るのは、正常です（Approve が付くまでの表示です）。　→ <a href="#d5">詳しく</a></p>
 <a id="s6"></a>
 <h3 id="ステップ6-名簿の次の人の-pr-を見て-approve-するgithub-の画面">ステップ6: 名簿の次の人の PR を見て Approve する（GitHub の画面）</h3>
 <p><strong>いま何をしているか</strong>: 相手のお願いの紙を見て、「見たよ、OK」のはんこ（Approve）を押します。</p>
-<p>見る PR は、<strong>名簿の次の人の PR</strong> です（最後の人は、最初の人の PR）。まだ出ていなければ、その次の人の PR のうち、Approve が付いていないものを見ます。1つ見れば OK です。自分の PR は、自分では Approve できません。</p>
-<ol><li><strong>Pull requests</strong> タブを開き、相手の PR を開きます。</li>
+<p>見る PR は、<strong>名簿の次の人の PR</strong> です（最後の人は、最初の人の PR）。まだ出ていなければ、名簿をさらに先へたどって、Approve がまだ付いていない PR を1つ見ます。1つ見れば OK です。自分の PR は、自分では Approve できません。</p>
+<ol><li><strong>Pull requests</strong> タブを開き、相手の PR を開きます。タイトルが「クイズを追加: &lt;相手のニックネーム&gt;」の PR です。</li>
 <li><strong>Files changed</strong>（変更されたファイル）タブを開き、変更を読みます。見る点: 変更が <code>questions/&lt;相手のニックネーム&gt;.json</code> の1ファイルだけ／本名・学籍番号が無い／選択肢が4つで、<code>answer</code> の番号（0から数える）が正解を指している／検査が緑。</li>
 <li><strong>Review changes</strong>（レビューする）を押します。</li>
 <li>一言コメントを書きます。</li>
@@ -161,7 +173,10 @@ git status</code></pre>
 <p><strong>いま何をしているか</strong>: 本番に入った問題が、自動でサイトになります（GitHub Pages）。自分の問題が出るか、確かめます。</p>
 <p>マージの <strong>1〜2分後</strong>に、ブラウザで次を開きます（<code>&lt;ニックネーム&gt;</code> は自分のものです）。</p>
 <pre><code>https://kondakaz.github.io/zemi-quiz/?id=&lt;ニックネーム&gt;</code></pre>
-<p>自分の問題だけが出ます。<strong>見つかりませんでした。公開の途中（1〜2分）か、URL のニックネームが違う可能性があります。</strong> と出たら、まず1分待って、再読み込みします。<strong>2分たっても出ないとき</strong>は、URL のニックネームの綴り（大文字・小文字も）が合っているか確かめます。その画面の <strong>作者から選ぶ</strong> のリンク（<code>?id=</code> を付けないトップページ）から開くこともできます。リポジトリの <strong>Actions</strong> タブで、<strong>Pages 公開</strong> の作業（実行中は黄色、成功は緑）が見られます。続けてマージすると、途中の作業が <strong>Cancelled</strong>（取り消し）になることがありますが、問題ありません（最後の作業に、全員分が入ります）。</p>
+<p>自分の問題だけが出ます。出ないときは、次の順に試します。</p>
+<ol><li><strong>見つかりませんでした。公開の途中（1〜2分）か、URL のニックネームが違う可能性があります。</strong> と出たら、まず1分待って、再読み込みします。</li>
+<li>2分たっても出ないときは、URL のニックネームの綴り（大文字・小文字も）が合っているか確かめます。</li>
+<li>その画面の <strong>作者から選ぶ</strong> のリンク（<code>?id=</code> を付けないトップページ）から開きます。</li></ol>
 <p><strong>できた印</strong>: 自分の問題が出ます（作者のニックネーム付き）。ここまでが、今日のゴールです。時間が余ったら、結果画面の <strong>ほかの問題を選ぶ</strong> や、<code>?id=</code> を付けないトップページから、全員の問題を解きます（任意）。　→ <a href="#d8">詳しく</a></p>
 <a id="s9"></a>
 <h3 id="ステップ9-main-に戻って-pull-する自分で打つ余った時間か講座のあと">ステップ9: main に戻って pull する（自分で打つ・余った時間か、講座のあと）</h3>
@@ -186,8 +201,7 @@ ls questions</code></pre>
 <p>事前準備で clone してから、本番（main）が進んでいることがあります。<code>git pull</code> で、最新にしてから始めます。<code>git status</code> に <code>nothing to commit, working tree clean</code>（変更なし・きれいな状態）と出れば、準備OKです。　→ <a href="#s1">第2部 ステップ1</a></p>
 <a id="d2"></a>
 <h3 id="詳しく-ステップ2-ブランチ下書きを作る">詳しく ステップ2: ブランチ（下書き）を作る</h3>
-<p>main は、サイトに出る本番です。本番では作業せず、自分用の下書き（ブランチ）を作ります。ブランチ名の先頭は <code>add-quiz-</code> にします。</p>
-<p><strong>機能追加のブランチは、小文字の <code>issue-</code> で始めます</strong>（今日は使いません）。<code>issue-</code> で始まるブランチで、<code>questions/</code> の中を変更する PR は、検査で赤になります（<code>issue- ブランチでは questions/ を変更できません</code> と出ます）。　→ <a href="#s2">第2部 ステップ2</a></p>
+<p>main は、サイトに出る本番です。本番では作業せず、自分用の下書き（ブランチ）を作ります。ブランチ名の先頭は <code>add-quiz-</code> にします。　→ <a href="#s2">第2部 ステップ2</a></p>
 <a id="d3"></a>
 <h3 id="詳しく-ステップ3-問題ファイルを書く">詳しく ステップ3: 問題ファイルを書く</h3>
 <p><code>questions/_template.json</code> が、書き方の見本です。これを写して、自分のファイルにします。</p>
@@ -223,18 +237,19 @@ ls questions</code></pre>
 <li>本名や学籍番号を書いていない</li>
 <li>答えと解説は正しい</li>
 <li>Files changed は questions/ の自分の問題ファイル1つの追加だけ</li></ul>
+<p><strong>レビュアーへのお願い</strong> の欄は、レビューする人のための観点の一覧です。作者は触りません（レビューの結果は、レビューのコメントに書きます）。PR を出した直後に <strong>Review required</strong> や <strong>Merging is blocked</strong> と出るのは、正常です。Approve が付いて、検査が緑になると、マージできるようになります。</p>
 <p>ターミナルで <code>gh pr view add-quiz-&lt;ニックネーム&gt;</code> と打つと、PR の状態が出ます（見るだけです。画面で見るだけでもOKです）。　→ <a href="#s5">第2部 ステップ5</a></p>
 <a id="d6"></a>
 <h3 id="詳しく-ステップ6-名簿の次の人の-pr-を見て-approve-する">詳しく ステップ6: 名簿の次の人の PR を見て Approve する</h3>
 <p><strong>だれの PR を見るか</strong>: レビューは、<strong>名簿の次の人の PR を見る輪番</strong>です。最後の人は、最初の人の PR を見ます。名簿は、先生が前日までに配ります。欠席の人は、名簿から飛ばします。</p>
 <p>待ちが続かないように、次の流れで動きます。</p>
 <ol><li>自分の PR を出したら、<strong>すぐ</strong>名簿の次の人の PR を見に行きます。</li>
-<li>次の人の PR がまだ出ていなければ、その次の人の PR のうち、Approve が付いていないものを見ます。<strong>1つ見れば OK</strong> です。</li>
+<li>次の人の PR がまだ出ていなければ、名簿をさらに先へたどって、Approve がまだ付いていない PR を1つ見ます。<strong>1つ見れば OK</strong> です。</li>
 <li>自分の PR に <strong>5分たっても Approve が付かなければ</strong>、先生に声をかけます。先生が Approve します。</li></ol>
 <p>自分の PR は、自分では Approve できません。</p>
 <p><strong>今日は、Approve か Comment だけを使います。Request changes は選びません。</strong> Request changes を選ぶと、マージが止まってしまいます。誤って選んだら、先生に相談します。</p>
 <p><strong>レビューの見どころ</strong></p>
-<p>PR の説明には、先生が用意した <strong>レビュアーへのお願い</strong> の3項目があります。それに、名前の確認を足したものが、見る点です。</p>
+<p>PR の説明には、先生が用意した <strong>レビュアーへのお願い</strong> の3項目があります。これは、見る点の一覧です（四角にチェックを付けなくてOK。結果は、レビューのコメントに書きます）。それに、名前の確認を足したものが、見る点です。</p>
 <ul><li><strong>ファイル</strong>（お願い1）: Files changed を開き、変更が <code>questions/&lt;ニックネーム&gt;.json</code> の1ファイルだけ（追加）であることを確かめます。</li>
 <li><strong>答えと解説</strong>（お願い2）: <code>choices</code> が4つ。<code>answer</code> の番号（0から数える）が、本当の正解を指している。自分で問題を解いて確かめます。解説は1〜2文で、答えと合っている。</li>
 <li><strong>検査</strong>（お願い3）: PR の検査が緑である。赤のときは、赤の理由を作者に伝えます。</li>
@@ -255,6 +270,7 @@ ls questions</code></pre>
 <p>pull した main で、サイトを自分の PC の中で作って、見ることができます（Node.js と Python が要ります）。<code>index.html</code> を直接開くと、問題を読み込めません。小さなサーバーを立てて、開きます。</p>
 <pre><code>node scripts/build.mjs
 python3 -m http.server --directory _site 8000</code></pre>
+<p>Windows では、<code>python3</code> の代わりに <code>py</code> と打ちます（<code>py -m http.server --directory _site 8000</code>）。</p>
 <p>ブラウザで <code>http://localhost:8000/</code> を開きます。止めるときは、ターミナルで <code>Ctrl+C</code> を押します。<code>_site/</code> は作業用のフォルダで、セーブ（commit）には入りません。　→ <a href="#s9">第2部 ステップ9</a></p>
 <a id="trouble"></a>
 <h3 id="つまずいたとき">つまずいたとき</h3>
@@ -277,6 +293,10 @@ python3 -m http.server --directory _site 8000</code></pre>
 <li><strong>ブランチ名がすでにある</strong>
 <ul><li><strong>どうするか</strong>: 別の名前（<code>add-quiz-&lt;ニックネーム&gt;-2</code> など）にします。</li></ul>
 </li></ul>
+<a id="trouble-cd"></a>
+<h4 id="fatal-not-a-git-repository-と出た"><code>fatal: not a git repository</code> と出た</h4>
+<ul><li><strong>何が起きたか</strong>: <code>zemi-quiz</code> フォルダの外で、git のコマンドを打ちました。</li>
+<li><strong>どうするか</strong>: <code>cd Documents/zemi-quiz</code> を打って、フォルダに入ってから、もう一度打ちます。<code>pwd</code> で、いまいる場所が見られます。</li></ul>
 <a id="trouble-auth"></a>
 <h4 id="認証エラーログインできていない">認証エラー（ログインできていない）</h4>
 <ul><li><code>gh auth status</code> を打って、ログインできているか見ます。</li>
@@ -287,20 +307,19 @@ python3 -m http.server --directory _site 8000</code></pre>
 <p><strong>何が起きたか</strong>: ロボットの検査が、問題を見つけました。</p>
 <p><strong>まず、理由を見ます</strong>: <strong>PR のページの Checks タブ、または検査の欄の Details</strong>（詳細）を開きます。エラーの文が、そこに出ます。Files changed タブの該当ファイルの上に注記が出ることもありますが、出ないこともあります。</p>
 <p>そのうえで、エラーの種類で、手元での調べ方が違います。</p>
-<ul><li><strong>JSON の中身・ファイル名のエラー</strong>（下の表の2行目以降）は、手元の <code>node scripts/build.mjs --check</code> でも同じ文が出ます。手元で直して、確かめられます。</li>
-<li><strong>「1ファイル追加だけ」のエラー</strong>（下の表の1行目）は、手元の <code>node scripts/build.mjs --check</code> には出ません。次のコマンドで調べます（見るだけです）。
+<ul><li><strong>JSON の中身のエラー</strong>（下の表で「手元と PR」と付いた文）は、手元の <code>node scripts/build.mjs --check</code> でも同じ文が出ます。手元で直して、確かめられます。</li>
+<li><strong>「1ファイル追加だけ」のエラー</strong>（下の表の1・2行目）は、手元の <code>node scripts/build.mjs --check</code> には出ません。次のコマンドで調べます（見るだけです）。
 <pre><code>git fetch origin
-git diff --name-status origin/main...HEAD</code></pre>
-<p><code>A questions/&lt;ニックネーム&gt;.json</code> の1行だけで、ファイル名が正しい形（半角英小文字・数字・ハイフン＋小文字の <code>.json</code>）なら、OKです。それ以外の行（<code>M</code>＝変更、<code>D</code>＝削除、<code>A</code>＝別のファイルの追加）があるのが原因です。1行だけなのに赤いときは、ファイル名の形が原因です（下の表の1行目）。（<code>HEAD</code> は「いま自分がいる下書きの最新の状態」のことです。）</p>
+git diff --no-renames --name-status origin/main...HEAD</code></pre>
+<p><code>A questions/&lt;ニックネーム&gt;.json</code> の1行だけで、ファイル名が正しい形（半角英小文字・数字・ハイフン＋小文字の <code>.json</code>）なら、OKです。それ以外の行（<code>M</code>＝変更、<code>D</code>＝削除、<code>A</code>＝別のファイルの追加）があるのが原因です。1行だけなのに赤いときは、ファイル名の形が原因です（下の表の2行目）。（<code>HEAD</code> は「いま自分がいる下書きの最新の状態」のことです。）</p>
 </li></ul>
 <p><strong>どうするか</strong>: 出た文ごとに、次の表で直します。</p>
-<table><thead><tr><th>出る文（一部）</th><th>何が起きたか</th><th>どうするか</th></tr></thead><tbody><tr><td><code>questions/&lt;ニックネーム&gt;.json を1つ追加するだけにしてください</code>（Checks の注記にも、Details のログにも出る）。ログには、続けて変更一覧（A・M・D）が出る。問題ファイルの追加が1件もないときだけ、<code>機能追加なら小文字の issue- で始まるブランチ名にしてください</code> の一行も出る</td><td>PR の変更が、問題ファイル1つの追加だけではありません。ほかのファイルを変えた・消した・2つ以上追加した、またはファイル名の形が違います。<code>issue-</code> の一行は機能追加用の案内で、今日は使いません。<strong>ファイル名の形が違うとき（大文字など）も、PR ではこの文が出て、一覧が <code>A: questions/…</code> の1行だけになります。</strong></td><td>一覧に別のファイルがあるときは、下の「余計な変更を取り除く」を見ます。<strong>一覧が <code>A: questions/…</code> の1行だけなら、ファイル名が原因です。</strong> <code>git mv 古い名前 新しい名前</code> で、小文字のニックネーム＋ <code>.json</code> に直して、commit・push します。</td></tr><tr><td><code>エラー: PR の差分を取得できませんでした</code>（<code>issue-</code> で始まるブランチでは <code>エラー: questions/ の差分を取得できませんでした</code>）</td><td>検査が、変更の一覧を取れませんでした。</td><td>自分では直せません。先生に知らせます。</td></tr><tr><td><code>ファイル名は半角英小文字・数字・ハイフンと .json にしてください</code></td><td>ファイル名に、大文字・<code>_</code>・空白・日本語、または <code>.JSON</code> などが入っています。</td><td>ファイル名を、小文字のニックネーム＋ <code>.json</code> に直します（<code>git mv 古い名前 新しい名前</code>）。</td></tr><tr><td><code>author をテンプレートから書き換えてください</code>（<code>question</code>、<code>explanation</code>、<code>choices</code> も同じ）</td><td>見本の値のままです。</td><td>その項目を、自分の内容に書き換えます。</td></tr><tr><td><code>choices に重複があります</code></td><td>同じ選択肢が2つあります。</td><td>4つが全部違う文になるように直します。</td></tr><tr><td><code>choices は空でない文字列をちょうど4つ指定してください</code></td><td>4つでない、または空の選択肢があります。</td><td>4つにそろえます。</td></tr><tr><td><code>answer は 0 から 3 の整数にしてください</code></td><td><code>answer</code> が 0〜3 の整数ではありません（<code>4</code>、<code>"1"</code>、<code>1.5</code> など）。</td><td>0〜3 の数字にします（引用符で囲みません）。</td></tr><tr><td><code>JSON の構文が正しくありません</code></td><td><code>,</code> や <code>"</code> の書き間違いです。</td><td>書き方の見本と見比べて直します。Codex に「JSON の構文だけ直して」と頼んでもOKです。</td></tr></tbody></table>
+<table><thead><tr><th style="white-space:nowrap">出る文（一部）</th><th style="white-space:nowrap">何が起きたか</th><th style="white-space:nowrap">どうするか</th></tr></thead><tbody><tr><td>（PR の検査）<code>questions/&lt;ニックネーム&gt;.json を1つ追加するだけにしてください</code>。Checks の注記にも、Details のログにも出ます。ログには、続けて変更一覧（A・M・D）が出ます。問題ファイルの追加が1件もないときだけ、<code>機能追加なら小文字の issue- で始まるブランチ名にしてください</code> の一行も出ます</td><td>一覧に、問題ファイル以外の行があります。ほかのファイルを変えた・消した・2つ以上追加した、などです。<code>issue-</code> の一行は機能追加用の案内で、今日は使いません。</td><td>下の「余計な変更を取り除く」を見ます。</td></tr><tr><td>（PR の検査）上と同じ文。ただし、一覧が <code>A: questions/…</code> の<strong>1行だけ</strong></td><td>ファイル名の形が違います（大文字・<code>_</code>・空白・日本語、<code>.JSON</code> など）。</td><td><code>git mv 古い名前 新しい名前</code> で、小文字のニックネーム＋ <code>.json</code> に直して、commit・push します。</td></tr><tr><td>（PR の検査）<code>エラー: PR の差分を取得できませんでした</code>（<code>issue-</code> で始まるブランチでは <code>エラー: questions/ の差分を取得できませんでした</code>）</td><td>検査が、変更の一覧を取れませんでした。</td><td>自分では直せません。先生に知らせます。</td></tr><tr><td>（手元だけ）<code>ファイル名は半角英小文字・数字・ハイフンと .json にしてください</code></td><td>手元の検査でだけ出る文です。PR では、上の2行目の形で出ます。</td><td>2行目と同じ。<code>git mv</code> で直します。</td></tr><tr><td>（手元と PR）<code>author をテンプレートから書き換えてください</code>（<code>question</code>、<code>explanation</code>、<code>choices</code> も同じ）</td><td>見本の値のままです。</td><td>その項目を、自分の内容に書き換えます。</td></tr><tr><td>（手元と PR）<code>author は空でない文字列にしてください</code>（<code>question</code>、<code>explanation</code> も同じ）</td><td>その項目が、空、または文字ではありません。</td><td>文字を入れます（<code>""</code> のままにしません）。</td></tr><tr><td>（手元と PR）<code>choices に重複があります</code></td><td>同じ選択肢が2つあります。</td><td>4つが全部違う文になるように直します。</td></tr><tr><td>（手元と PR）<code>choices は空でない文字列をちょうど4つ指定してください</code></td><td>4つでない、または空の選択肢があります。</td><td>4つにそろえます。</td></tr><tr><td>（手元と PR）<code>answer は 0 から 3 の整数にしてください</code></td><td><code>answer</code> が 0〜3 の整数ではありません（<code>4</code>、<code>"1"</code>、<code>1.5</code> など）。</td><td>0〜3 の数字にします（引用符で囲みません）。</td></tr><tr><td>（手元と PR）<code>JSON の構文が正しくありません</code></td><td><code>,</code> や <code>"</code> の書き間違いです。</td><td>書き方の見本と見比べて直します。この文の後ろに、英語の説明が続くことがありますが、気にしなくてOKです。Codex に「JSON の構文だけ直して」と頼んでもOKです。</td></tr></tbody></table>
 <p><strong>直し方（共通）</strong>: ブランチ（下書き）のファイルを直して、commit・push します。<strong>PR は作り直さなくてOK</strong>です。push すると、同じ PR が更新されて、検査がもう一度走ります。</p>
-<p><strong>余計な変更を取り除く</strong>: Codex に、次のように頼みます。</p>
+<p><strong>余計な変更を取り除く</strong>: Codex に、次のように頼みます（共通祖先 ＝ 下書きを作った時点の本番の状態）。</p>
 <blockquote><p>私のブランチの変更を、<code>questions/&lt;ニックネーム&gt;.json</code> を1つ追加しただけの状態にしてください。<code>git merge-base origin/main HEAD</code> で出る共通祖先の commit の状態に、それ以外のファイルを戻してください。私が余計に足したファイルは、消してください。そのあと commit して、ブランチ <code>add-quiz-&lt;ニックネーム&gt;</code> を push してください。main への push と force push はしないでください。実行する前に、コマンドを見せてください。</p>
 </blockquote>
-<p>直ったかは、上の <code>git diff --name-status origin/main...HEAD</code> で確かめます（<code>A questions/&lt;ニックネーム&gt;.json</code> の1行だけになります）。</p>
-<p>（共通祖先 ＝ 自分の下書きを作った時点の、本番の状態です。ファイルを戻すときは、最新の <code>origin/main</code> ではなく、この時点の状態に戻すのがこつです。最新の main に戻すと、ほかの人が本番に入れた変更が、自分の変更として混ざることがあります。）</p>
+<p>直ったかは、上の <code>git diff --no-renames --name-status origin/main...HEAD</code> で確かめます（<code>A questions/&lt;ニックネーム&gt;.json</code> の1行だけになります）。</p>
 <a id="trouble-merge"></a>
 <h4 id="マージボタンが押せない">マージボタンが押せない</h4>
 <ul><li><strong>Approve（はんこ）がまだ</strong>
@@ -318,6 +337,8 @@ git diff --name-status origin/main...HEAD</code></pre>
 <ul><li><strong>どうするか</strong>: 直して push し、相手に見直しを頼みます。</li></ul>
 </li>
 <li>ボタンの近くに、足りない条件が書かれています。読んでも分からなければ、先生に見せます。</li></ul>
+<h3 id="機能追加のブランチ名issue-">機能追加のブランチ名（issue-）</h3>
+<p>機能追加のブランチは、小文字の <code>issue-</code> で始めます（今日は使いません）。<code>issue-</code> で始まるブランチで、<code>questions/</code> の中を変更する PR は、検査で赤になります（<code>issue- ブランチでは questions/ を変更できません</code> と出ます）。</p>
 <h2 id="第4部-宿題-自分のアプリをリポジトリにする">第4部 宿題: 自分のアプリをリポジトリにする</h2>
 <p>今日の流れは、そのまま自分のアプリに使えます。先に決めておくこと: <strong>秘密は、最初のセーブ（commit）にも入れません</strong>。一度 GitHub に上げた秘密は、あとから消しても、記録帳（履歴）に残ります。その場合は、キーを無効にして作り直します。</p>
 <h3 id="手順">手順</h3>

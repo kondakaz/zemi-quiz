@@ -113,34 +113,35 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
 <section class="slide">
   <div class="head"><h2>セーブと共有の棚：4つの動き</h2><span class="tag now">当日</span></div>
   <div class="body">
-    <svg viewBox="0 0 1168 440" width="1168" height="440" role="img" aria-label="clone で棚から手元へコピー、commit でセーブ、push で棚へ、pull で棚から最新を持ってくる">
+    <svg viewBox="0 0 1168 440" width="1168" height="440" role="img" aria-label="clone で棚から手元へコピー、commit でセーブ、push で棚の自分の下書きへ、pull で棚の最新を持ってくる">
       <defs>
         <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1a5fb4"/></marker>
       </defs>
-      <rect x="10" y="20" width="350" height="330" rx="16" fill="#fff" stroke="#1a5fb4" stroke-width="3"/>
-      <text x="185" y="64" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">GitHub ＝ 共有の棚</text>
-      <rect x="45" y="100" width="280" height="64" rx="10" fill="#eaf1fb" stroke="#bcd2f0"/>
-      <text x="185" y="142" text-anchor="middle" font-size="26">みんなのセーブ (main)</text>
-      <text x="185" y="214" text-anchor="middle" font-size="24" fill="#5a6270">だれでも見られる（public）</text>
-      <text x="185" y="256" text-anchor="middle" font-size="24" fill="#5a6270">ここに入れたものが</text>
-      <text x="185" y="290" text-anchor="middle" font-size="24" fill="#5a6270">サイトになる</text>
-      <rect x="808" y="20" width="350" height="330" rx="16" fill="#fff" stroke="#222" stroke-width="3"/>
-      <text x="983" y="64" text-anchor="middle" font-size="30" font-weight="700">自分の PC</text>
+      <rect x="10" y="20" width="350" height="340" rx="16" fill="#fff" stroke="#1a5fb4" stroke-width="3"/>
+      <text x="185" y="62" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">GitHub ＝ 共有の棚</text>
+      <rect x="45" y="80" width="280" height="56" rx="10" fill="#eaf1fb" stroke="#bcd2f0"/>
+      <text x="185" y="118" text-anchor="middle" font-size="26">main（本番）</text>
+      <rect x="45" y="194" width="280" height="56" rx="10" fill="#eef8f1" stroke="#9fd2ae"/>
+      <text x="185" y="232" text-anchor="middle" font-size="23">自分の下書き（ブランチ）</text>
+      <text x="185" y="284" text-anchor="middle" font-size="23" fill="#5a6270">main に合流したものだけが</text>
+      <text x="185" y="316" text-anchor="middle" font-size="23" fill="#5a6270">サイトになる</text>
+      <rect x="808" y="20" width="350" height="340" rx="16" fill="#fff" stroke="#222" stroke-width="3"/>
+      <text x="983" y="62" text-anchor="middle" font-size="30" font-weight="700">自分の PC</text>
       <rect x="843" y="96" width="280" height="64" rx="10" fill="#f4f4f4" stroke="#ccc"/>
       <text x="983" y="138" text-anchor="middle" font-size="26">① ファイルを直す</text>
       <path d="M983,164 v36" stroke="#222" stroke-width="3" marker-end="url(#ah)"/>
       <rect x="843" y="204" width="280" height="64" rx="10" fill="#eef8f1" stroke="#9fd2ae"/>
       <text x="983" y="246" text-anchor="middle" font-size="26">② commit ＝ セーブ</text>
       <text x="983" y="312" text-anchor="middle" font-size="22" fill="#5a6270">いつでもこの時点に戻れる</text>
-      <path d="M370,100 H798" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
-      <text x="584" y="84" text-anchor="middle" font-size="28" font-weight="700" fill="#1a5fb4">clone：棚から丸ごとコピー</text>
-      <text x="584" y="132" text-anchor="middle" font-size="22" fill="#5a6270">最初に1回（宿題で済み）</text>
-      <path d="M798,226 H370" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
-      <text x="584" y="208" text-anchor="middle" font-size="28" font-weight="700" fill="#1a5fb4">push：セーブを棚に置く</text>
-      <text x="584" y="262" text-anchor="middle" font-size="22" fill="#5a6270">自分のセーブを共有する</text>
-      <path d="M370,318 H798" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
-      <text x="584" y="304" text-anchor="middle" font-size="28" font-weight="700" fill="#1a5fb4">pull：棚の最新を持ってくる</text>
-      <text x="584" y="352" text-anchor="middle" font-size="22" fill="#5a6270">ほかの人のセーブも手元へ</text>
+      <path d="M370,108 H798" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
+      <text x="584" y="88" text-anchor="middle" font-size="28" font-weight="700" fill="#1a5fb4">clone：棚から丸ごとコピー</text>
+      <text x="584" y="136" text-anchor="middle" font-size="22" fill="#5a6270">最初に1回（宿題で済み）</text>
+      <path d="M798,224 H370" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
+      <text x="584" y="206" text-anchor="middle" font-size="28" font-weight="700" fill="#1a5fb4">push：セーブを下書きに置く</text>
+      <text x="584" y="262" text-anchor="middle" font-size="22" fill="#5a6270">本番（main）には入らない</text>
+      <path d="M370,330 H798" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
+      <text x="584" y="314" text-anchor="middle" font-size="28" font-weight="700" fill="#1a5fb4">pull：棚の最新を持ってくる</text>
+      <text x="584" y="372" text-anchor="middle" font-size="22" fill="#5a6270">ほかの人のセーブも手元へ</text>
     </svg>
     <div class="note blue"><b>commit は手元でセーブしただけ。</b>　push するまで、GitHub には何も出ない。</div>
   </div>
@@ -157,7 +158,7 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
       <circle cx="260" cy="74" r="14" fill="#1a5fb4"/>
       <circle cx="400" cy="74" r="14" fill="#1a5fb4"/>
       <circle cx="1080" cy="74" r="14" fill="#1a5fb4"/>
-      <text x="780" y="42" text-anchor="middle" font-size="24" fill="#5a6270">この間、本番（サイト）はそのまま</text>
+      <text x="760" y="42" text-anchor="middle" font-size="24" fill="#5a6270">下書きをいくら直しても、本番（サイト）は変わらない</text>
       <path d="M400,74 C450,74 460,230 520,230 H800 C860,230 860,74 910,74" fill="none" stroke="#2a8a4a" stroke-width="6"/>
       <circle cx="580" cy="230" r="14" fill="#2a8a4a"/>
       <circle cx="720" cy="230" r="14" fill="#2a8a4a"/>
@@ -166,7 +167,7 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
       <text x="650" y="190" text-anchor="middle" font-size="24" fill="#5a6270">ここで好きなだけ直す</text>
       <text x="1160" y="122" text-anchor="end" font-size="26" font-weight="700" fill="#2a8a4a">マージ＝本番に合流</text>
     </svg>
-    <div class="note"><b>本番（main）には直接書かない。</b>　下書きで作って、あとで本番に合流させる。</div>
+    <div class="note"><b>本番（main）には直接書かない。</b><br>フォルダは増えず、同じフォルダで下書きに切り替わる。</div>
   </div>
   <div class="pg" data-n=" 4"></div>
 </section>
@@ -175,16 +176,16 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
 <section class="slide">
   <div class="head"><h2>Pull Request：「本番に入れていいですか？」</h2><span class="tag now">当日</span></div>
   <div class="body">
-    <svg viewBox="0 0 1168 410" width="1168" height="410" role="img" aria-label="お願いの紙を出す、名簿で前の人が見る、Approve のはんこ、本人がマージ">
+    <svg viewBox="0 0 1168 330" width="1168" height="330" role="img" aria-label="お願いの紙を出す、名簿で前の人が見る、Approve のはんこ、本人がマージ">
       <defs><marker id="ah4" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#5a6270"/></marker></defs>
       <g font-size="26">
         <rect x="0" y="30" width="262" height="160" rx="14" fill="#fff" stroke="#d5dbe5" stroke-width="3"/>
         <text x="131" y="76" text-anchor="middle" font-weight="700">あなた</text>
         <text x="131" y="116" text-anchor="middle">下書きを送って</text>
-        <text x="131" y="152" text-anchor="middle">お願いの紙(PR)</text>
+        <text x="131" y="152" text-anchor="middle">お願いの紙（PR）</text>
         <path d="M266,110 H312" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
         <rect x="316" y="30" width="262" height="160" rx="14" fill="#eaf1fb" stroke="#1a5fb4" stroke-width="3"/>
-        <text x="447" y="76" text-anchor="middle" font-weight="700" fill="#1a5fb4">名簿で前の人</text>
+        <text x="447" y="76" text-anchor="middle" font-weight="700" fill="#1a5fb4">レビューする人</text>
         <text x="447" y="116" text-anchor="middle">紙の中身を</text>
         <text x="447" y="152" text-anchor="middle">チェックする</text>
         <path d="M582,110 H628" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
@@ -198,10 +199,8 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
         <text x="1058" y="116" text-anchor="middle">本番に合流</text>
         <text x="1058" y="152" text-anchor="middle">→ サイトへ</text>
       </g>
-      <text x="0" y="248" font-size="27" fill="#5a6270">・自分の紙に、自分ではんこは押せない。名簿の次の人の紙を見る（最後の人は最初の人）。</text>
-      <text x="0" y="292" font-size="27" fill="#5a6270">・まだ紙が出ていなければ、その次の人の紙。1つ見れば OK。</text>
-      <text x="0" y="336" font-size="27" fill="#5a6270">・検査（ロボットのチェック）は 緑＝OK、赤＝直す。</text>
-      <text x="0" y="380" font-size="27" fill="#5a6270">・5分待ってもはんこが付かなければ、先生に声をかける。</text>
+      <text x="0" y="248" font-size="27" fill="#5a6270">・あなたは、名簿の次の人の紙を見る（あなたの紙は、1つ前の人が見る）。</text>
+            <text x="0" y="292" font-size="27" fill="#5a6270">・自分の紙に、自分ではんこは押せない。検査（ロボット）は 緑＝OK、赤＝直す。</text>
     </svg>
     <div class="note blue"><b>見てもらってから、本番に入れる。</b>　マージは、自分の紙だけ、自分で押す約束。</div>
   </div>
@@ -282,7 +281,7 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
       <div class="card hl">
         <h3>GitHub（ギットハブ）</h3>
         <p class="big accent" style="font-size:38px;margin-bottom:10px">記録をみんなで置く場所</p>
-        <p>Google ドライブのようなもの。<br>みんなで共有して、見合える。<br>サイトとして公開もできる。</p>
+        <p>Google ドライブのようなもの。<br>自動では同期しない。<br>push したときだけ置かれる。<br>サイトとして公開もできる。</p>
       </div>
     </div>
     <div class="note"><b>リポジトリ ＝ プロジェクトのフォルダ＋変更の記録帳。</b>　GitHub に置く単位。</div>
@@ -381,7 +380,7 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
       <div class="card hl" style="padding:14px 28px"><p><b>下書き（ブランチ）で作って、セーブ（commit）して、棚（GitHub）に送る（push）。</b></p></div>
       <div class="card hl" style="padding:14px 28px"><p><b>本番（main）には直接入れない。</b>　お願いの紙（PR）→ はんこ（Approve）→ マージ。</p></div>
       <div class="card hl" style="padding:14px 28px"><p><b>秘密は入れない。本名も書かない。</b></p></div>
-      <div class="card hl" style="padding:14px 28px"><p>手順は、<b>手順書</b>に全部ある。困ったら、手順書の「つまずいたとき」。</p></div>
+      <div class="card hl" style="padding:14px 28px"><p>手順は、<a href="handout.html"><b>手順書</b></a>に全部ある。困ったら、手順書の「つまずいたとき」。</p></div>
     </div>
   </div>
   <div class="pg" data-n="14"></div>
@@ -410,7 +409,7 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
     else if(k==='Home'){show(0);}
     else if(k==='End'){show(slides.length-1);}
   });
-  document.addEventListener('click',function(e){ if(e.clientX>window.innerWidth/2) show(cur+1); else show(cur-1); });
+  document.addEventListener('click',function(e){ if(e.target.closest&&e.target.closest('a')) return; if(e.clientX>window.innerWidth/2) show(cur+1); else show(cur-1); });
   window.addEventListener('resize',fit);
   var h=parseInt(location.hash.slice(1),10);
   fit(); show(isNaN(h)?0:h-1);
