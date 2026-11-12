@@ -71,116 +71,141 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
 <body>
 <div id="stage">
 
-<!-- タイトル -->
+<!-- 表紙 -->
 <section class="slide title-slide">
   <h1>自分のアプリを<br>GitHub で管理しよう</h1>
-  <p>ゼミ GitHub 講座（30分）<br>今日は、みんなで1つのクイズサイトをつくる</p>
-  <div class="legend"><b>当日</b> 2〜6（合計4分）　／　<b>事前に読む</b> 7〜9　／　<b>公開待ち・最後に・宿題</b> 10〜13</div>
+  <p>ゼミ GitHub 講座（30分）<br>はじめてでも大丈夫。たとえ話で、1つずつ進める</p>
+  <div class="legend"><b>当日</b> 2〜7（合計5分）　／　<b>事前に読む</b> 8〜10　／　<b>公開待ち・最後に・宿題</b> 11〜14</div>
   <div class="url mono">kondakaz.github.io/zemi-quiz/</div>
   <div class="pg" data-n=" 1"></div>
 </section>
 
-<!-- 手元と GitHub -->
+<!-- 今日のゴール -->
 <section class="slide">
-  <div class="head"><h2>手元と GitHub：4つの動き</h2><span class="tag now">当日</span></div>
+  <div class="head"><h2>今日のゴール</h2><span class="tag now">当日</span></div>
   <div class="body">
-    <svg viewBox="0 0 1168 440" width="1168" height="440" role="img" aria-label="clone で GitHub から手元へ、commit で手元に記録、push で手元から GitHub へ、pull で GitHub から手元へ">
-      <defs>
-        <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1a5fb4"/></marker>
-      </defs>
-      <!-- GitHub -->
-      <rect x="10" y="20" width="360" height="330" rx="16" fill="#fff" stroke="#1a5fb4" stroke-width="3"/>
-      <text x="190" y="64" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">GitHub（置き場）</text>
-      <rect x="50" y="100" width="280" height="64" rx="10" fill="#eaf1fb" stroke="#bcd2f0"/>
-      <text x="190" y="142" text-anchor="middle" font-size="26">みんなの記録 (main)</text>
-      <text x="190" y="214" text-anchor="middle" font-size="24" fill="#5a6270">だれでも見られる（public）</text>
-      <text x="190" y="256" text-anchor="middle" font-size="24" fill="#5a6270">ここに入れたものが</text>
-      <text x="190" y="290" text-anchor="middle" font-size="24" fill="#5a6270">サイトになる</text>
-      <!-- 手元 -->
-      <rect x="798" y="20" width="360" height="330" rx="16" fill="#fff" stroke="#222" stroke-width="3"/>
-      <text x="978" y="64" text-anchor="middle" font-size="30" font-weight="700">手元（自分のPC）</text>
-      <rect x="838" y="96" width="280" height="64" rx="10" fill="#f4f4f4" stroke="#ccc"/>
-      <text x="978" y="138" text-anchor="middle" font-size="26">① ファイルを直す</text>
-      <path d="M978,164 v36" stroke="#222" stroke-width="3" marker-end="url(#ah)"/>
-      <rect x="838" y="204" width="280" height="64" rx="10" fill="#eef8f1" stroke="#9fd2ae"/>
-      <text x="978" y="246" text-anchor="middle" font-size="26">② commit（記録）</text>
-      <text x="978" y="312" text-anchor="middle" font-size="22" fill="#5a6270">記録は、まず手元にたまる</text>
-      <!-- 矢印 -->
-      <path d="M380,100 H788" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
-      <text x="584" y="88" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">clone</text>
-      <text x="584" y="132" text-anchor="middle" font-size="22" fill="#5a6270">最初に1回（宿題で済み）</text>
-      <path d="M788,230 H380" stroke="#1a5fb4" stroke-width="5" fill="none" marker-end="url(#ah)"/>
-      <text x="584" y="212" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">push</text>
-      <text x="584" y="262" text-anchor="middle" font-size="22" fill="#5a6270">手元の記録を、GitHub へ送る</text>
-      <path d="M380,310 H788" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
-      <text x="584" y="298" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">pull</text>
-      <text x="584" y="340" text-anchor="middle" font-size="22" fill="#5a6270">更新を、手元へ受け取る</text>
+    <p class="lead">自分のクイズを1問つくって、<br>みんなのクイズサイトに出す。</p>
+    <svg viewBox="0 0 1168 230" width="1168" height="230" role="img" aria-label="つくる、送る、サイトに出る の3段階">
+      <defs><marker id="g1" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#5a6270"/></marker></defs>
+      <g font-size="28" text-anchor="middle">
+        <rect x="0" y="20" width="340" height="190" rx="16" fill="#fff" stroke="#d5dbe5" stroke-width="3"/>
+        <text x="170" y="72" font-size="34" font-weight="700">① つくる</text>
+        <text x="170" y="122">自分のクイズを</text>
+        <text x="170" y="160">1問 書く</text>
+        <path d="M350,115 H414" stroke="#5a6270" stroke-width="5" marker-end="url(#g1)"/>
+        <rect x="414" y="20" width="340" height="190" rx="16" fill="#eaf1fb" stroke="#1a5fb4" stroke-width="3"/>
+        <text x="584" y="72" font-size="34" font-weight="700" fill="#1a5fb4">② 送る</text>
+        <text x="584" y="122">GitHub（みんなの</text>
+        <text x="584" y="160">共有の棚）に置く</text>
+        <path d="M764,115 H828" stroke="#5a6270" stroke-width="5" marker-end="url(#g1)"/>
+        <rect x="828" y="20" width="340" height="190" rx="16" fill="#eef8f1" stroke="#2a8a4a" stroke-width="3"/>
+        <text x="998" y="72" font-size="34" font-weight="700" fill="#2a8a4a">③ 出る</text>
+        <text x="998" y="122">クイズサイトに</text>
+        <text x="998" y="160">自分の問題が出る</text>
+      </g>
     </svg>
-    <div class="note blue" style="bottom:0"><b>commit は手元だけ。</b>　push するまで、GitHub には何も出ない。</div>
+    <div class="note blue"><b>むずかしい言葉は、たとえで1つずつ。</b>今は流れだけつかめばOK。</div>
   </div>
   <div class="pg" data-n=" 2"></div>
 </section>
 
-<!-- ブランチ -->
+<!-- セーブと共有の棚 -->
 <section class="slide">
-  <div class="head"><h2>ブランチ：main を壊さずに作業する</h2><span class="tag now">当日</span></div>
+  <div class="head"><h2>セーブと共有の棚：4つの動き</h2><span class="tag now">当日</span></div>
   <div class="body">
-    <svg viewBox="0 0 1168 330" width="1168" height="330" role="img" aria-label="main の線から作業用ブランチが枝分かれし、作業後に main へ合流する">
-      <defs><marker id="ah3" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2a8a4a"/></marker></defs>
-      <text x="0" y="82" font-size="30" font-weight="700" fill="#1a5fb4">main</text>
-      <line x1="110" y1="74" x2="1160" y2="74" stroke="#1a5fb4" stroke-width="6"/>
-      <circle cx="170" cy="74" r="14" fill="#1a5fb4"/>
-      <circle cx="330" cy="74" r="14" fill="#1a5fb4"/>
-      <circle cx="1060" cy="74" r="14" fill="#1a5fb4"/>
-      <text x="750" y="48" text-anchor="middle" font-size="24" fill="#5a6270">この間、main はそのまま（サイトも壊れない）</text>
-      <path d="M330,74 C380,74 390,230 450,230 H790 C850,230 850,74 900,74" fill="none" stroke="#2a8a4a" stroke-width="6" stroke-dasharray="0"/>
-      <circle cx="520" cy="230" r="14" fill="#2a8a4a"/>
-      <circle cx="680" cy="230" r="14" fill="#2a8a4a"/>
-      <circle cx="900" cy="74" r="14" fill="#2a8a4a"/>
-      <text x="600" y="290" text-anchor="middle" font-size="30" font-weight="700" fill="#2a8a4a">add-quiz-ニックネーム</text>
-      <text x="600" y="190" text-anchor="middle" font-size="22" fill="#5a6270">ここで好きなだけ直す</text>
-      <text x="940" y="118" font-size="26" font-weight="700" fill="#2a8a4a">マージ</text>
+    <svg viewBox="0 0 1168 440" width="1168" height="440" role="img" aria-label="clone で棚から手元へコピー、commit でセーブ、push で棚へ、pull で棚から最新を持ってくる">
+      <defs>
+        <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1a5fb4"/></marker>
+      </defs>
+      <rect x="10" y="20" width="350" height="330" rx="16" fill="#fff" stroke="#1a5fb4" stroke-width="3"/>
+      <text x="185" y="64" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">GitHub ＝ 共有の棚</text>
+      <rect x="45" y="100" width="280" height="64" rx="10" fill="#eaf1fb" stroke="#bcd2f0"/>
+      <text x="185" y="142" text-anchor="middle" font-size="26">みんなのセーブ (main)</text>
+      <text x="185" y="214" text-anchor="middle" font-size="24" fill="#5a6270">だれでも見られる（public）</text>
+      <text x="185" y="256" text-anchor="middle" font-size="24" fill="#5a6270">ここに入れたものが</text>
+      <text x="185" y="290" text-anchor="middle" font-size="24" fill="#5a6270">サイトになる</text>
+      <rect x="808" y="20" width="350" height="330" rx="16" fill="#fff" stroke="#222" stroke-width="3"/>
+      <text x="983" y="64" text-anchor="middle" font-size="30" font-weight="700">自分の PC</text>
+      <rect x="843" y="96" width="280" height="64" rx="10" fill="#f4f4f4" stroke="#ccc"/>
+      <text x="983" y="138" text-anchor="middle" font-size="26">① ファイルを直す</text>
+      <path d="M983,164 v36" stroke="#222" stroke-width="3" marker-end="url(#ah)"/>
+      <rect x="843" y="204" width="280" height="64" rx="10" fill="#eef8f1" stroke="#9fd2ae"/>
+      <text x="983" y="246" text-anchor="middle" font-size="26">② commit ＝ セーブ</text>
+      <text x="983" y="312" text-anchor="middle" font-size="22" fill="#5a6270">いつでもこの時点に戻れる</text>
+      <path d="M370,100 H798" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
+      <text x="584" y="84" text-anchor="middle" font-size="28" font-weight="700" fill="#1a5fb4">clone：棚から丸ごとコピー</text>
+      <text x="584" y="132" text-anchor="middle" font-size="22" fill="#5a6270">最初に1回（宿題で済み）</text>
+      <path d="M798,226 H370" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
+      <text x="584" y="208" text-anchor="middle" font-size="28" font-weight="700" fill="#1a5fb4">push：セーブを棚に置く</text>
+      <text x="584" y="262" text-anchor="middle" font-size="22" fill="#5a6270">自分のセーブを共有する</text>
+      <path d="M370,318 H798" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
+      <text x="584" y="304" text-anchor="middle" font-size="28" font-weight="700" fill="#1a5fb4">pull：棚の最新を持ってくる</text>
+      <text x="584" y="352" text-anchor="middle" font-size="22" fill="#5a6270">ほかの人のセーブも手元へ</text>
     </svg>
-    <div class="note"><b>main には直接 push しない。</b>　ブランチで作って、PR で main に入れる。</div>
+    <div class="note blue"><b>commit は手元でセーブしただけ。</b>　push するまで、GitHub には何も出ない。</div>
   </div>
   <div class="pg" data-n=" 3"></div>
 </section>
 
-<!-- PR と相互レビュー -->
+<!-- ブランチ -->
 <section class="slide">
-  <div class="head"><h2>Pull Request：見てもらってから、入れる</h2><span class="tag now">当日</span></div>
+  <div class="head"><h2>ブランチ：本番を汚さない下書き</h2><span class="tag now">当日</span></div>
   <div class="body">
-    <svg viewBox="0 0 1168 385" width="1168" height="385" role="img" aria-label="ブランチを push、PR を作る、別の人が Approve、本人がマージ">
-      <defs><marker id="ah4" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#5a6270"/></marker></defs>
-      <g font-size="26">
-        <rect x="0" y="40" width="250" height="150" rx="14" fill="#fff" stroke="#d5dbe5" stroke-width="3"/>
-        <text x="125" y="84" text-anchor="middle" font-weight="700">あなた</text>
-        <text x="125" y="124" text-anchor="middle">ブランチを</text>
-        <text x="125" y="158" text-anchor="middle">push して PR</text>
-        <path d="M254,115 H306" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
-        <rect x="310" y="40" width="270" height="150" rx="14" fill="#eaf1fb" stroke="#1a5fb4" stroke-width="3"/>
-        <text x="445" y="84" text-anchor="middle" font-weight="700" fill="#1a5fb4">組の相手が見る</text>
-        <text x="445" y="124" text-anchor="middle">Files changed で</text>
-        <text x="445" y="158" text-anchor="middle">中身を読む</text>
-        <path d="M584,115 H636" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
-        <rect x="640" y="40" width="250" height="150" rx="14" fill="#eef8f1" stroke="#2a8a4a" stroke-width="3"/>
-        <text x="765" y="84" text-anchor="middle" font-weight="700" fill="#2a8a4a">OK なら Approve</text>
-        <text x="765" y="124" text-anchor="middle">検査が緑なら</text>
-        <text x="765" y="158" text-anchor="middle">マージできる</text>
-        <path d="M894,115 H946" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
-        <rect x="950" y="40" width="218" height="150" rx="14" fill="#fff" stroke="#222" stroke-width="3"/>
-        <text x="1059" y="84" text-anchor="middle" font-weight="700">本人がマージ</text>
-        <text x="1059" y="124" text-anchor="middle">main に入る</text>
-        <text x="1059" y="158" text-anchor="middle">→ サイトへ</text>
-      </g>
-      <text x="0" y="246" font-size="26" fill="#5a6270">・自分の PR は、自分では Approve できない。だから、組の相手と見合う</text>
-      <text x="0" y="286" font-size="26" fill="#5a6270">・組は先生が前日までに決める（2人1組。奇数なら3人で輪番）</text>
-      <text x="0" y="326" font-size="26" fill="#5a6270">・検査: 「問題ファイル1つの追加だけ」と書き方を機械が確かめる（緑＝OK、赤＝直す）</text>
-      <text x="0" y="366" font-size="26" fill="#5a6270">・欠席・遅れで Approve が付かないときは、先生が Approve する</text>
+    <svg viewBox="0 0 1168 330" width="1168" height="330" role="img" aria-label="main（本番）から下書きのブランチが枝分かれし、作業後に本番へ合流する">
+      <text x="0" y="82" font-size="30" font-weight="700" fill="#1a5fb4">main（本番）</text>
+      <line x1="210" y1="74" x2="1160" y2="74" stroke="#1a5fb4" stroke-width="6"/>
+      <circle cx="260" cy="74" r="14" fill="#1a5fb4"/>
+      <circle cx="400" cy="74" r="14" fill="#1a5fb4"/>
+      <circle cx="1080" cy="74" r="14" fill="#1a5fb4"/>
+      <text x="780" y="42" text-anchor="middle" font-size="24" fill="#5a6270">この間、本番（サイト）はそのまま</text>
+      <path d="M400,74 C450,74 460,230 520,230 H800 C860,230 860,74 910,74" fill="none" stroke="#2a8a4a" stroke-width="6"/>
+      <circle cx="580" cy="230" r="14" fill="#2a8a4a"/>
+      <circle cx="720" cy="230" r="14" fill="#2a8a4a"/>
+      <circle cx="910" cy="74" r="14" fill="#2a8a4a"/>
+      <text x="640" y="290" text-anchor="middle" font-size="30" font-weight="700" fill="#2a8a4a">add-quiz-ニックネーム（下書き）</text>
+      <text x="650" y="190" text-anchor="middle" font-size="24" fill="#5a6270">ここで好きなだけ直す</text>
+      <text x="1160" y="122" text-anchor="end" font-size="26" font-weight="700" fill="#2a8a4a">マージ＝本番に合流</text>
     </svg>
-    <div class="note blue"><b>相互に見て、OK を出し合う。入れるボタンは、作者本人が押す約束。</b></div>
+    <div class="note"><b>本番（main）には直接書かない。</b>　下書きで作って、あとで本番に合流させる。</div>
   </div>
   <div class="pg" data-n=" 4"></div>
+</section>
+
+<!-- Pull Request -->
+<section class="slide">
+  <div class="head"><h2>Pull Request：「本番に入れていいですか？」</h2><span class="tag now">当日</span></div>
+  <div class="body">
+    <svg viewBox="0 0 1168 410" width="1168" height="410" role="img" aria-label="お願いの紙を出す、名簿で前の人が見る、Approve のはんこ、本人がマージ">
+      <defs><marker id="ah4" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#5a6270"/></marker></defs>
+      <g font-size="26">
+        <rect x="0" y="30" width="262" height="160" rx="14" fill="#fff" stroke="#d5dbe5" stroke-width="3"/>
+        <text x="131" y="76" text-anchor="middle" font-weight="700">あなた</text>
+        <text x="131" y="116" text-anchor="middle">下書きを送って</text>
+        <text x="131" y="152" text-anchor="middle">お願いの紙(PR)</text>
+        <path d="M266,110 H312" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
+        <rect x="316" y="30" width="262" height="160" rx="14" fill="#eaf1fb" stroke="#1a5fb4" stroke-width="3"/>
+        <text x="447" y="76" text-anchor="middle" font-weight="700" fill="#1a5fb4">名簿で前の人</text>
+        <text x="447" y="116" text-anchor="middle">紙の中身を</text>
+        <text x="447" y="152" text-anchor="middle">チェックする</text>
+        <path d="M582,110 H628" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
+        <rect x="632" y="30" width="262" height="160" rx="14" fill="#eef8f1" stroke="#2a8a4a" stroke-width="3"/>
+        <text x="763" y="76" text-anchor="middle" font-weight="700" fill="#2a8a4a">OK なら Approve</text>
+        <text x="763" y="116" text-anchor="middle">「見たよ、OK」</text>
+        <text x="763" y="152" text-anchor="middle">のはんこ</text>
+        <path d="M898,110 H944" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
+        <rect x="948" y="30" width="220" height="160" rx="14" fill="#fff" stroke="#222" stroke-width="3"/>
+        <text x="1058" y="76" text-anchor="middle" font-weight="700">あなたがマージ</text>
+        <text x="1058" y="116" text-anchor="middle">本番に合流</text>
+        <text x="1058" y="152" text-anchor="middle">→ サイトへ</text>
+      </g>
+      <text x="0" y="248" font-size="27" fill="#5a6270">・自分の紙に、自分ではんこは押せない。名簿の次の人の紙を見る（最後の人は最初の人）。</text>
+      <text x="0" y="292" font-size="27" fill="#5a6270">・まだ紙が出ていなければ、その次の人の紙。1つ見れば OK。</text>
+      <text x="0" y="336" font-size="27" fill="#5a6270">・検査（ロボットのチェック）は 緑＝OK、赤＝直す。</text>
+      <text x="0" y="380" font-size="27" fill="#5a6270">・5分待ってもはんこが付かなければ、先生に声をかける。</text>
+    </svg>
+    <div class="note blue"><b>見てもらってから、本番に入れる。</b>　マージは、自分の紙だけ、自分で押す約束。</div>
+  </div>
+  <div class="pg" data-n=" 5"></div>
 </section>
 
 <!-- 今日の流れ -->
@@ -188,31 +213,31 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
   <div class="head"><h2>今日の流れ：9ステップ</h2><span class="tag now">当日</span></div>
   <div class="body">
     <ol class="steps">
-      <li><b>1</b><span>main を最新にして始める<small>clone は宿題で済んでいる</small></span></li>
-      <li><b>2</b><span>ブランチを作る<small><code>add-quiz-ニックネーム</code>（先生に届けた名前）</small></span></li>
+      <li><b>1</b><span>本番の最新を持ってくる<small>main を最新にする（clone は宿題で済み）</small></span></li>
+      <li><b>2</b><span>下書き用のコピーを作る<small>ブランチ <code>add-quiz-ニックネーム</code></small></span></li>
       <li><b>3</b><span>問題ファイルを書く<small><code>questions/ニックネーム.json</code>（文は考えてきた）</small></span></li>
-      <li><b>4</b><span>commit して push<small>自分のブランチだけに</small></span></li>
-      <li><b>5</b><span>GitHub で PR を作る</span></li>
-      <li><b>6</b><span>組の相手の PR を見て Approve<small>組は先生が決める</small></span></li>
-      <li><b>7</b><span>自分の PR を、自分でマージ<small>Approve と緑の検査がそろったら</small></span></li>
-      <li class="fin goal"><b>8</b><span>サイトに自分の問題が出る<small><code>?id=ニックネーム</code>　<strong>← 今日の到達点</strong></small></span></li>
+      <li><b>4</b><span>セーブして、棚に送る<small>commit と push（自分の下書きだけ）</small></span></li>
+      <li><b>5</b><span>お願いの紙（PR）を出す<small>GitHub の画面で</small></span></li>
+      <li><b>6</b><span>名簿の次の人の紙に、はんこ<small>Approve ＝「見たよ、OK」のはんこ</small></span></li>
+      <li><b>7</b><span>自分の紙を、自分でマージ<small>はんこと緑の検査がそろったら</small></span></li>
+      <li class="fin goal"><b>8</b><span>サイトに自分の問題が出る<small><code>?id=ニックネーム</code>　<strong>← 今日のゴール</strong></small></span></li>
       <li class="fin"><b>9</b><span>main に戻って pull<small>余った時間か、講座のあと</small></span></li>
     </ol>
   </div>
-  <div class="pg" data-n=" 5"></div>
+  <div class="pg" data-n=" 6"></div>
 </section>
 
-<!-- 公開される -->
+<!-- 公開されるもの -->
 <section class="slide">
   <div class="head"><h2>公開されるもの：本名は書かない</h2><span class="tag now">当日</span></div>
   <div class="body">
-    <p class="lead">このリポジトリとサイトは、だれでも見られる。</p>
+    <p class="lead">このリポジトリ（記録帳つきのフォルダ）とサイトは、<br>だれでも見られる。</p>
     <div class="cards">
-      <div class="card"><h3>公開される</h3><p>・GitHub のユーザー名<br>・クイズの作者のニックネーム<br>・commit に残る名前とメール</p></div>
-      <div class="card bad"><h3>書かない</h3><p>・本名<br>・学籍番号<br>・メールアドレスなどの個人情報</p></div>
+      <div class="card"><h3>公開される</h3><p>・GitHub のユーザー名<br>・クイズの作者のニックネーム<br>・セーブ（commit）に残る名前とメール</p></div>
+      <div class="card bad"><h3>書かない</h3><p>・本名<br>・学籍番号<br>・ふだんのメールアドレス</p></div>
     </div>
   </div>
-  <div class="pg" data-n=" 6"></div>
+  <div class="pg" data-n=" 7"></div>
 </section>
 
 <!-- なぜバージョン管理 -->
@@ -221,7 +246,7 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
   <div class="body">
     <div class="cards">
       <div class="card bad">
-        <h3>いまのやり方</h3>
+        <h3>ファイル名で版を管理</h3>
         <div class="files mono" style="font-size:26px">
           <div>app.py</div>
           <div>app_v2.py</div>
@@ -232,16 +257,16 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
         <p style="margin-top:14px" class="warn">どれが最新？ 何を変えた？ 戻せない。</p>
       </div>
       <div class="card good">
-        <h3>Git を使うと</h3>
+        <h3>Git ＝ ゲームのセーブ機能</h3>
         <div class="files mono" style="font-size:26px">
           <div>app.py</div>
         </div>
-        <p style="margin-top:14px">ファイルは1つ。<br>変更は「記録」として積まれる。<br>いつでも、前の状態を見られる。<br>だれが・いつ・何を変えたかが残る。</p>
+        <p style="margin-top:14px">ファイルは1つ。<br>セーブ（記録）が積み重なる。<br>いつでも前のセーブに戻せる。<br>だれが・いつ・何を変えたかも残る。</p>
       </div>
     </div>
     <div class="note blue"><b>ファイル名に _v2 を付けるのは、今日でやめる。</b></div>
   </div>
-  <div class="pg" data-n=" 7"></div>
+  <div class="pg" data-n=" 8"></div>
 </section>
 
 <!-- Git と GitHub -->
@@ -251,40 +276,39 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
     <div class="cards">
       <div class="card hl">
         <h3>Git（ギット）</h3>
-        <p class="big accent" style="font-size:40px;margin-bottom:10px">記録を取る道具</p>
-        <p>自分のパソコンの中で動く。<br>変更を「記録」して、あとで戻せる。<br>ネットがなくても使える。</p>
+        <p class="big accent" style="font-size:38px;margin-bottom:10px">記録をつける道具</p>
+        <p>ゲームのセーブ機能のようなもの。<br>自分の PC の中で動く。<br>ネットがなくても使える。</p>
       </div>
       <div class="card hl">
         <h3>GitHub（ギットハブ）</h3>
-        <p class="big accent" style="font-size:40px;margin-bottom:10px">記録を置く場所</p>
-        <p>インターネット上の置き場。<br>みんなで共有する。<br>見合って、直し合える。<br>サイトも公開できる。</p>
+        <p class="big accent" style="font-size:38px;margin-bottom:10px">記録をみんなで置く場所</p>
+        <p>Google ドライブのようなもの。<br>みんなで共有して、見合える。<br>サイトとして公開もできる。</p>
       </div>
     </div>
-    <div class="note"><b>Git は道具、GitHub は置き場。</b>　記録をまとめて入れる場所が「リポジトリ」。</div>
+    <div class="note"><b>リポジトリ ＝ プロジェクトのフォルダ＋変更の記録帳。</b>　GitHub に置く単位。</div>
   </div>
-  <div class="pg" data-n=" 8"></div>
+  <div class="pg" data-n=" 9"></div>
 </section>
 
 <!-- Codex に頼むときの約束 -->
 <section class="slide">
   <div class="head"><h2>Codex に頼むときの約束</h2><span class="tag pre">事前に読む</span></div>
   <div class="body">
-    <p class="lead">操作は Codex に頼んでよい。ただし、次を毎回添える。</p>
-    <div class="cmd" style="font-size:27px;line-height:1.6">
+    <p class="lead">Codex（作業を手伝う AI）に頼んでよい。<br>ただし、最初の依頼に約束を添える。</p>
+    <div class="cmd" style="font-size:25px;line-height:1.55">
       <span class="c">// 最初の依頼に添える一文</span><br>
       作業は、このリポジトリの中だけで行う。<br>
       main には直接 commit も push もしない。<br>
       force push は使わない。<br>
       git や gh のコマンドは、実行する前に見せる。<br>
-      ブランチ名は <span style="color:#9fd2ae">add-quiz-ニックネーム</span>。<br>
       commit と push は、私が頼んだときだけ。
     </div>
     <div class="note"><b>git や gh を動かすときは、承認を求められることがある。中身を読んでから承認する。</b><br><code>push --force</code>、<code>reset --hard</code>、main への push は承認しない。</div>
   </div>
-  <div class="pg" data-n=" 9"></div>
+  <div class="pg" data-n="10"></div>
 </section>
 
-<!-- Pages -->
+<!-- GitHub Pages -->
 <section class="slide">
   <div class="head"><h2>GitHub Pages：全員の問題がサイトに出る</h2><span class="tag late">公開待ち／最後に</span></div>
   <div class="body">
@@ -292,7 +316,7 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
       <defs><marker id="ah5" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#5a6270"/></marker></defs>
       <g font-size="28">
         <rect x="0" y="30" width="320" height="170" rx="14" fill="#fff" stroke="#d5dbe5" stroke-width="3"/>
-        <text x="160" y="80" text-anchor="middle" font-weight="700">main</text>
+        <text x="160" y="80" text-anchor="middle" font-weight="700">main（本番）</text>
         <text x="160" y="124" text-anchor="middle" font-size="24">questions/ に</text>
         <text x="160" y="158" text-anchor="middle" font-size="24">全員のファイル</text>
         <path d="M326,115 H410" stroke="#5a6270" stroke-width="4" marker-end="url(#ah5)"/>
@@ -305,14 +329,14 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
         <text x="802" y="96" text-anchor="middle" font-size="20" fill="#5a6270">1〜2分</text>
         <rect x="848" y="30" width="320" height="170" rx="14" fill="#eef8f1" stroke="#2a8a4a" stroke-width="3"/>
         <text x="1008" y="80" text-anchor="middle" font-weight="700" fill="#2a8a4a">クイズサイト</text>
-        <text x="1008" y="124" text-anchor="middle" font-size="24">全員の問題が</text>
-        <text x="1008" y="158" text-anchor="middle" font-size="24">1問ずつ出る</text>
+        <text x="1008" y="124" text-anchor="middle" font-size="24">全員の問題が出る</text>
+        <text x="1008" y="158" text-anchor="middle" font-size="24">トップで作者を選べる</text>
       </g>
       <text x="584" y="250" text-anchor="middle" font-size="26" class="mono" fill="#5a6270">kondakaz.github.io/zemi-quiz/</text>
     </svg>
-    <div class="note blue"><b>マージした自分の問題が、そのまま全員のサイトになる。</b><br>続けてマージすると、途中の実行が Cancelled になることがある。<br>最後の実行に全員分が入るので、問題ない。</div>
+    <div class="note blue" style="font-size:25px"><b>GitHub Pages ＝ GitHub に置いたファイルを、Web サイトとして見せる機能。</b><br>続けてマージすると、途中の実行が Cancelled になることがある。最後の実行に全員分が入るので、問題ない。</div>
   </div>
-  <div class="pg" data-n="10"></div>
+  <div class="pg" data-n="11"></div>
 </section>
 
 <!-- 最後: 自分のアプリへ -->
@@ -321,13 +345,13 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
   <div class="body">
     <p class="lead">今日の流れを、自分のアプリでやる。</p>
     <ol class="steps" style="grid-template-columns:1fr;grid-template-rows:repeat(4,1fr);height:430px">
-      <li><b>1</b><span><code>.gitignore</code> を、先に作る</span></li>
-      <li><b>2</b><span>秘密がコードに入っていないか、点検する</span></li>
-      <li><b>3</b><span>新しいリポジトリにして、最初は private で push</span></li>
-      <li><b>4</b><span>機能を足すときは、ブランチ → PR → マージ</span></li>
+      <li><b>1</b><span><code>.gitignore</code> を先に作る<small>「記録に入れないものリスト」</small></span></li>
+      <li><b>2</b><span>秘密がコードに入っていないか、点検する<small>パスワードや API キーなど</small></span></li>
+      <li><b>3</b><span>新しいリポジトリにして、最初は private で push<small>private ＝ 自分だけが見られる</small></span></li>
+      <li><b>4</b><span>機能を足すときは、ブランチ → PR → マージ<small>今日と同じ流れ</small></span></li>
     </ol>
   </div>
-  <div class="pg" data-n="11"></div>
+  <div class="pg" data-n="12"></div>
 </section>
 
 <!-- 秘密を入れない -->
@@ -344,9 +368,9 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
         <div class="cmd" style="font-size:26px;padding:12px 20px;margin-top:6px">.env<br>*.key<br>node_modules/<br>.DS_Store</div>
       </div>
     </div>
-    <div class="note"><b>一度上げたキーは、消しても履歴に残る。</b>　そのときは、キーを作り直す。<br>push の前に <code>git status</code> で、入れるファイルを見る。</div>
+    <div class="note"><b>一度上げたキーは、消しても記録帳（履歴）に残る。</b>　そのときは、キーを作り直す。<br>push の前に <code>git status</code> で、入れるファイルを見る。</div>
   </div>
-  <div class="pg" data-n="12"></div>
+  <div class="pg" data-n="13"></div>
 </section>
 
 <!-- まとめ -->
@@ -354,13 +378,13 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
   <div class="head"><h2>今日のまとめ</h2><span class="tag late">最後に／宿題</span></div>
   <div class="body">
     <div class="cards" style="flex-direction:column;gap:16px">
-      <div class="card hl" style="padding:14px 28px"><p><b>clone → ブランチ → commit → push → PR</b>　の順に進めた。</p></div>
-      <div class="card hl" style="padding:14px 28px"><p><b>main には直接入れない。</b>　見てもらって、Approve をもらってからマージする。</p></div>
+      <div class="card hl" style="padding:14px 28px"><p><b>下書き（ブランチ）で作って、セーブ（commit）して、棚（GitHub）に送る（push）。</b></p></div>
+      <div class="card hl" style="padding:14px 28px"><p><b>本番（main）には直接入れない。</b>　お願いの紙（PR）→ はんこ（Approve）→ マージ。</p></div>
       <div class="card hl" style="padding:14px 28px"><p><b>秘密は入れない。本名も書かない。</b></p></div>
-      <div class="card hl" style="padding:14px 28px"><p>手順は、<b>手順書</b>に全部ある。</p></div>
+      <div class="card hl" style="padding:14px 28px"><p>手順は、<b>手順書</b>に全部ある。困ったら、手順書の「つまずいたとき」。</p></div>
     </div>
   </div>
-  <div class="pg" data-n="13"></div>
+  <div class="pg" data-n="14"></div>
 </section>
 
 </div>
