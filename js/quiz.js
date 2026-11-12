@@ -17,6 +17,14 @@ function showQuestion() {
       element('h2', 'おつかれさまでした！'),
       element('p', `${questions.length}問中 ${score}問正解です。`)
     );
+    const retry = element('button', 'もう一度');
+    retry.addEventListener('click', () => {
+      index = 0;
+      score = 0;
+      showQuestion();
+    });
+    area.append(retry);
+    retry.focus();
     return;
   }
 
@@ -34,7 +42,14 @@ function showQuestion() {
       options.querySelectorAll('button').forEach(b => {
         b.disabled = true;
       });
+      const buttons = options.querySelectorAll('button');
+      buttons[q.answer].classList.add('correct');
+      buttons[q.answer].textContent = `✓ 正解: ${q.choices[q.answer]}`;
       const correct = i === q.answer;
+      if (!correct) {
+        button.classList.add('incorrect');
+        button.textContent = `✗ あなたの回答: ${choice}`;
+      }
       if (correct) score++;
       area.append(
         element('h3', correct ? '正解！' : '不正解'),
@@ -47,14 +62,16 @@ function showQuestion() {
         showQuestion();
       });
       area.append(next);
+      next.focus();
     });
     options.append(button);
   });
   area.append(options);
+  options.querySelector('button').focus();
 }
 
 // ビルドでまとめた問題を読み込む。
-fetch('questions.json')
+fetch('questions.json', { cache: 'no-cache' })
   .then(response => {
     if (!response.ok) throw new Error();
     return response.json();

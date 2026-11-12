@@ -1,5 +1,6 @@
 name: Pages 公開
 on:
+  workflow_dispatch:
   push:
     branches: [main]
 permissions:
@@ -22,7 +23,7 @@ jobs:
         with:
           node-version: '24'
       - run: node scripts/build.mjs
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
       - id: deployment

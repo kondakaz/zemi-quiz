@@ -1,0 +1,32 @@
+/* クイズ部分だけに適用する。 */
+#quiz {
+  overflow-wrap: anywhere;
+}
+#quiz .choices {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .75rem;
+  margin: 1rem 0;
+}
+#quiz button {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  padding: .75rem 1rem;
+  font: inherit;
+}
+#quiz button:disabled {
+  cursor: default;
+}
+#quiz button.correct {
+  color: #13532c;
+  background: #d4f3df;
+  border: 2px solid #267c45;
+  opacity: 1;
+}
+#quiz button.incorrect {
+  color: #79201a;
+  background: #ffe0dc;
+  border: 2px solid #b33128;
+  opacity: 1;
+}

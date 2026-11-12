@@ -1,11 +1,23 @@
 name: 問題の検査
 on: [pull_request]
+permissions:
+  contents: read
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
       - uses: actions/setup-node@v7
         with:
           node-version: '24'
+      - if: startsWith(github.head_ref, 'add-quiz-')
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git show "$BASE_SHA:scripts/check-pr.sh" > "$RUNNER_TEMP/check-pr.sh"
+          bash "$RUNNER_TEMP/check-pr.sh" "$BASE_SHA" "$HEAD_SHA"
       - run: node scripts/build.mjs --check
