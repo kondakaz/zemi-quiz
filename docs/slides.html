@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ゼミ GitHub 講座 説明資料</title>
+<!-- 操作: → / Space / PageDown で次、← / PageUp で前、Home / End で最初・最後。1ファイル自己完結（16:9, 1280x720 を画面に合わせて拡縮）。 -->
+<style>
+:root{--ink:#222;--sub:#5a6270;--accent:#1a5fb4;--bg:#fafafa;--card:#fff;--line:#d5dbe5;--soft:#eaf1fb;--ok:#2a8a4a;--warn:#c4540a;--warnbg:#fff1e3;--code:#1e2430}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#111;overflow:hidden}
+body{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;color:var(--ink)}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:0 0}
+.slide{position:absolute;inset:0;background:var(--bg);display:none;padding:0;overflow:hidden}
+.slide.on{display:block}
+.head{height:88px;background:var(--accent);color:#fff;display:flex;align-items:center;padding:0 56px}
+.head h2{margin:0;font-size:38px;font-weight:700;letter-spacing:.02em}
+.head .tag{margin-left:auto;font-size:20px;opacity:.85;border:2px solid rgba(255,255,255,.7);border-radius:20px;padding:2px 16px}
+.body{position:absolute;left:56px;right:56px;top:112px;bottom:56px}
+.pg{position:absolute;right:28px;bottom:14px;font-size:18px;color:var(--sub)}
+.pg::after{content:attr(data-n)}
+.lead{font-size:34px;line-height:1.55;margin:0 0 16px}
+.sub{font-size:26px;line-height:1.6;color:var(--sub);margin:0}
+.big{font-size:44px;font-weight:700;line-height:1.4}
+.accent{color:var(--accent)}
+.warn{color:var(--warn)}
+code,.mono{font-family:"M PLUS 1 Code","Noto Sans Mono CJK JP",Menlo,Consolas,monospace}
+code{background:#eceff4;padding:0 8px;border-radius:5px;font-size:.88em}
+.cards{display:flex;gap:28px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:22px 28px;flex:1}
+.card h3{margin:0 0 8px;font-size:32px}
+.card p{margin:0;font-size:26px;line-height:1.55}
+.card.hl{border-color:var(--accent);background:var(--soft)}
+.card.bad{border-color:#e0b79a;background:var(--warnbg)}
+.card.good{border-color:#9fd2ae;background:#eef8f1}
+.note{position:absolute;left:0;right:0;bottom:0;background:var(--warnbg);border-left:8px solid #e8a33d;border-radius:8px;padding:14px 24px;font-size:27px;line-height:1.5}
+.note.blue{background:var(--soft);border-left-color:var(--accent)}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;grid-template-rows:repeat(5,1fr);gap:14px 36px;height:100%}
+ol.steps li{display:flex;align-items:center;gap:18px;background:#fff;border:2px solid var(--line);border-radius:12px;padding:0 20px;font-size:28px;line-height:1.3}
+ol.steps li b{flex:none;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px}
+ol.steps li.fin{background:var(--soft);border-color:var(--accent)}
+ol.steps li small{display:block;font-size:21px;color:var(--sub)}
+svg{display:block}
+svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif}
+.files{font-size:28px;line-height:1.5}
+.files div{margin:2px 0}
+.cmd{background:var(--code);color:#e9eefc;border-radius:10px;padding:16px 26px;font-size:28px;line-height:1.6}
+.cmd .c{color:#8ea0c6}
+.cmd .bad{color:#ff9d7a}
+.bar{display:flex;gap:18px;align-items:center}
+.title-slide{background:var(--accent);color:#fff}
+.title-slide h1{position:absolute;left:80px;top:210px;margin:0;font-size:78px;line-height:1.25}
+.title-slide p{position:absolute;left:84px;top:430px;margin:0;font-size:34px;opacity:.92;line-height:1.6}
+.title-slide .pg{color:#cfe0f7}
+.title-slide .url{position:absolute;left:84px;bottom:60px;font-size:26px;opacity:.85}
+.hint{position:fixed;right:10px;bottom:6px;color:#889;font-size:13px;z-index:9}
+@media print{
+  html,body{overflow:visible;height:auto;background:#fff}
+  #stage{position:static;transform:none!important;width:auto;height:auto}
+  .slide{display:block!important;position:relative;width:1280px;height:720px;page-break-after:always}
+  .hint{display:none}
+  @page{size:1280px 720px;margin:0}
+}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 タイトル -->
+<section class="slide title-slide">
+  <h1>自分のアプリを<br>GitHub で管理しよう</h1>
+  <p>ゼミ GitHub 講座（30分）<br>今日は、みんなで1つのクイズサイトをつくる</p>
+  <div class="url mono">kondakaz.github.io/zemi-quiz/</div>
+  <div class="pg" data-n=" 1"></div>
+</section>
+
+<!-- 2 なぜバージョン管理 -->
+<section class="slide">
+  <div class="head"><h2>なぜ、バージョン管理？</h2></div>
+  <div class="body">
+    <div class="cards">
+      <div class="card bad">
+        <h3>いまのやり方</h3>
+        <div class="files mono" style="font-size:26px">
+          <div>app.py</div>
+          <div>app_v2.py</div>
+          <div>app_v2_最終.py</div>
+          <div>app_v2_最終_本当に最終.py</div>
+          <div>app_v3_直した_のコピー.py</div>
+        </div>
+        <p style="margin-top:14px" class="warn">どれが最新？ 何を変えた？ 戻せない。</p>
+      </div>
+      <div class="card good">
+        <h3>Git を使うと</h3>
+        <div class="files mono" style="font-size:26px">
+          <div>app.py</div>
+        </div>
+        <p style="margin-top:14px">ファイルは1つ。<br>変更は「記録」として積まれる。<br>いつでも、前の状態を見られる。<br>だれが・いつ・何を変えたかが残る。</p>
+      </div>
+    </div>
+    <div class="note blue"><b>ファイル名に _v2 を付けるのは、今日でやめる。</b></div>
+  </div>
+  <div class="pg" data-n=" 2"></div>
+</section>
+
+<!-- 3 Git と GitHub -->
+<section class="slide">
+  <div class="head"><h2>Git と GitHub は、別のもの</h2></div>
+  <div class="body">
+    <div class="cards">
+      <div class="card hl">
+        <h3>Git（ギット）</h3>
+        <p class="big accent" style="font-size:40px;margin-bottom:10px">記録を取る道具</p>
+        <p>自分のパソコンの中で動く。<br>変更を「記録」して、あとで戻せる。<br>ネットがなくても使える。</p>
+      </div>
+      <div class="card hl">
+        <h3>GitHub（ギットハブ）</h3>
+        <p class="big accent" style="font-size:40px;margin-bottom:10px">記録を置く場所</p>
+        <p>インターネット上の置き場。<br>みんなで共有する。<br>見合って、直し合える。<br>サイトも公開できる。</p>
+      </div>
+    </div>
+    <div class="note"><b>Git は道具、GitHub は置き場。</b>　記録をまとめて入れる場所が「リポジトリ」。</div>
+  </div>
+  <div class="pg" data-n=" 3"></div>
+</section>
+
+<!-- 4 手元と GitHub -->
+<section class="slide">
+  <div class="head"><h2>手元と GitHub：4つの動き</h2></div>
+  <div class="body">
+    <svg viewBox="0 0 1168 440" width="1168" height="440" role="img" aria-label="clone で GitHub から手元へ、commit で手元に記録、push で手元から GitHub へ、pull で GitHub から手元へ">
+      <defs>
+        <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1a5fb4"/></marker>
+      </defs>
+      <!-- GitHub -->
+      <rect x="10" y="20" width="360" height="330" rx="16" fill="#fff" stroke="#1a5fb4" stroke-width="3"/>
+      <text x="190" y="64" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">GitHub（置き場）</text>
+      <rect x="50" y="100" width="280" height="64" rx="10" fill="#eaf1fb" stroke="#bcd2f0"/>
+      <text x="190" y="142" text-anchor="middle" font-size="26">みんなの記録 (main)</text>
+      <text x="190" y="214" text-anchor="middle" font-size="24" fill="#5a6270">だれでも見られる（public）</text>
+      <text x="190" y="256" text-anchor="middle" font-size="24" fill="#5a6270">ここに入れたものが</text>
+      <text x="190" y="290" text-anchor="middle" font-size="24" fill="#5a6270">サイトになる</text>
+      <!-- 手元 -->
+      <rect x="798" y="20" width="360" height="330" rx="16" fill="#fff" stroke="#222" stroke-width="3"/>
+      <text x="978" y="64" text-anchor="middle" font-size="30" font-weight="700">手元（自分のPC）</text>
+      <rect x="838" y="96" width="280" height="64" rx="10" fill="#f4f4f4" stroke="#ccc"/>
+      <text x="978" y="138" text-anchor="middle" font-size="26">① ファイルを直す</text>
+      <path d="M978,164 v36" stroke="#222" stroke-width="3" marker-end="url(#ah)"/>
+      <rect x="838" y="204" width="280" height="64" rx="10" fill="#eef8f1" stroke="#9fd2ae"/>
+      <text x="978" y="246" text-anchor="middle" font-size="26">② commit（記録）</text>
+      <text x="978" y="312" text-anchor="middle" font-size="22" fill="#5a6270">記録は、まず手元にたまる</text>
+      <!-- 矢印 -->
+      <path d="M380,100 H788" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
+      <text x="584" y="88" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">clone</text>
+      <text x="584" y="132" text-anchor="middle" font-size="22" fill="#5a6270">最初に1回、手元へコピー</text>
+      <path d="M788,230 H380" stroke="#1a5fb4" stroke-width="5" fill="none" marker-end="url(#ah)"/>
+      <text x="584" y="212" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">push</text>
+      <text x="584" y="262" text-anchor="middle" font-size="22" fill="#5a6270">手元の記録を、GitHub へ送る</text>
+      <path d="M380,310 H788" stroke="#1a5fb4" stroke-width="5" marker-end="url(#ah)"/>
+      <text x="584" y="298" text-anchor="middle" font-size="30" font-weight="700" fill="#1a5fb4">pull</text>
+      <text x="584" y="340" text-anchor="middle" font-size="22" fill="#5a6270">更新を、手元へ受け取る</text>
+    </svg>
+    <div class="note blue" style="bottom:0"><b>commit は手元だけ。</b>　push するまで、GitHub には何も出ない。</div>
+  </div>
+  <div class="pg" data-n=" 4"></div>
+</section>
+
+<!-- 5 ブランチ -->
+<section class="slide">
+  <div class="head"><h2>ブランチ：main を壊さずに作業する</h2></div>
+  <div class="body">
+    <svg viewBox="0 0 1168 330" width="1168" height="330" role="img" aria-label="main の線から作業用ブランチが枝分かれし、作業後に main へ合流する">
+      <defs><marker id="ah3" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2a8a4a"/></marker></defs>
+      <text x="0" y="82" font-size="30" font-weight="700" fill="#1a5fb4">main</text>
+      <line x1="110" y1="74" x2="1160" y2="74" stroke="#1a5fb4" stroke-width="6"/>
+      <circle cx="170" cy="74" r="14" fill="#1a5fb4"/>
+      <circle cx="330" cy="74" r="14" fill="#1a5fb4"/>
+      <circle cx="1060" cy="74" r="14" fill="#1a5fb4"/>
+      <text x="750" y="48" text-anchor="middle" font-size="24" fill="#5a6270">この間、main はそのまま（サイトも壊れない）</text>
+      <path d="M330,74 C380,74 390,230 450,230 H790 C850,230 850,74 900,74" fill="none" stroke="#2a8a4a" stroke-width="6" stroke-dasharray="0"/>
+      <circle cx="520" cy="230" r="14" fill="#2a8a4a"/>
+      <circle cx="680" cy="230" r="14" fill="#2a8a4a"/>
+      <circle cx="900" cy="74" r="14" fill="#2a8a4a"/>
+      <text x="600" y="290" text-anchor="middle" font-size="30" font-weight="700" fill="#2a8a4a">add-quiz-ニックネーム</text>
+      <text x="600" y="190" text-anchor="middle" font-size="22" fill="#5a6270">ここで好きなだけ直す</text>
+      <text x="940" y="118" font-size="26" font-weight="700" fill="#2a8a4a">マージ</text>
+    </svg>
+    <div class="note"><b>main には直接 push しない。</b>　ブランチで作って、PR で main に入れる。</div>
+  </div>
+  <div class="pg" data-n=" 5"></div>
+</section>
+
+<!-- 6 PR と相互レビュー -->
+<section class="slide">
+  <div class="head"><h2>Pull Request：見てもらってから、入れる</h2></div>
+  <div class="body">
+    <svg viewBox="0 0 1168 345" width="1168" height="345" role="img" aria-label="ブランチを push、PR を作る、別の人が Approve、本人がマージ">
+      <defs><marker id="ah4" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#5a6270"/></marker></defs>
+      <g font-size="26">
+        <rect x="0" y="40" width="250" height="150" rx="14" fill="#fff" stroke="#d5dbe5" stroke-width="3"/>
+        <text x="125" y="84" text-anchor="middle" font-weight="700">あなた</text>
+        <text x="125" y="124" text-anchor="middle">ブランチを</text>
+        <text x="125" y="158" text-anchor="middle">push して PR</text>
+        <path d="M254,115 H306" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
+        <rect x="310" y="40" width="270" height="150" rx="14" fill="#eaf1fb" stroke="#1a5fb4" stroke-width="3"/>
+        <text x="445" y="84" text-anchor="middle" font-weight="700" fill="#1a5fb4">友だちが見る</text>
+        <text x="445" y="124" text-anchor="middle">Files changed で</text>
+        <text x="445" y="158" text-anchor="middle">中身を読む</text>
+        <path d="M584,115 H636" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
+        <rect x="640" y="40" width="250" height="150" rx="14" fill="#eef8f1" stroke="#2a8a4a" stroke-width="3"/>
+        <text x="765" y="84" text-anchor="middle" font-weight="700" fill="#2a8a4a">OK なら Approve</text>
+        <text x="765" y="124" text-anchor="middle">検査が緑なら</text>
+        <text x="765" y="158" text-anchor="middle">マージできる</text>
+        <path d="M894,115 H946" stroke="#5a6270" stroke-width="4" marker-end="url(#ah4)"/>
+        <rect x="950" y="40" width="218" height="150" rx="14" fill="#fff" stroke="#222" stroke-width="3"/>
+        <text x="1059" y="84" text-anchor="middle" font-weight="700">本人がマージ</text>
+        <text x="1059" y="124" text-anchor="middle">main に入る</text>
+        <text x="1059" y="158" text-anchor="middle">→ サイトへ</text>
+      </g>
+      <text x="0" y="246" font-size="26" fill="#5a6270">・自分の PR は、自分では Approve できない（だから、見合う）</text>
+      <text x="0" y="286" font-size="26" fill="#5a6270">・検査: 「問題ファイル1つの追加だけ」と書き方を機械が確かめる（緑＝OK、赤＝直す）</text>
+      <text x="0" y="326" font-size="26" fill="#5a6270">・Approve が付かないときは、先生に声をかける</text>
+    </svg>
+    <div class="note blue"><b>相互に見て、OK を出し合う。入れるボタンは、作者本人が押す約束。</b></div>
+  </div>
+  <div class="pg" data-n=" 6"></div>
+</section>
+
+<!-- 7 今日の流れ -->
+<section class="slide">
+  <div class="head"><h2>今日の流れ：9ステップ</h2><span class="tag">手順書にも同じ番号</span></div>
+  <div class="body">
+    <ol class="steps">
+      <li><b>1</b><span>clone<small>リポジトリを手元に持ってくる</small></span></li>
+      <li><b>2</b><span>ブランチを作る<small><code>add-quiz-ニックネーム</code>（先生に届けた名前）</small></span></li>
+      <li><b>3</b><span>問題ファイルを書く<small><code>questions/ニックネーム.json</code></small></span></li>
+      <li><b>4</b><span>commit して push<small>自分のブランチだけに</small></span></li>
+      <li><b>5</b><span>GitHub で PR を作る</span></li>
+      <li><b>6</b><span>ほかの人の PR を見て Approve<small>名簿の「次の人」</small></span></li>
+      <li><b>7</b><span>自分の PR を、自分でマージ<small>Approve と緑の検査がそろったら</small></span></li>
+      <li class="fin"><b>8</b><span>サイトで全員の問題を解く<small>1〜2分後</small></span></li>
+      <li class="fin"><b>9</b><span>main に戻って pull<small>手元にも全員分が来る</small></span></li>
+    </ol>
+  </div>
+  <div class="pg" data-n=" 7"></div>
+</section>
+
+<!-- 8 Codex に頼むときの約束 -->
+<section class="slide">
+  <div class="head"><h2>Codex に頼むときの約束</h2></div>
+  <div class="body">
+    <p class="lead">操作は Codex に頼んでよい。ただし、次を毎回添える。</p>
+    <div class="cmd" style="font-size:30px;line-height:1.7">
+      <span class="c">// 最初の依頼に添える一文</span><br>
+      main には直接 commit も push もしない。<br>
+      force push は使わない。<br>
+      ブランチ名は <span style="color:#9fd2ae">add-quiz-ニックネーム</span>。<br>
+      commit と push は、私が頼んだときだけ。
+    </div>
+    <div class="note"><b>実行の前に、何をするか読む。</b>　<code>push --force</code> と <code>reset --hard</code> は承認しない。</div>
+  </div>
+  <div class="pg" data-n=" 8"></div>
+</section>
+
+<!-- 9 公開される -->
+<section class="slide">
+  <div class="head"><h2>公開されるもの：本名は書かない</h2></div>
+  <div class="body">
+    <p class="lead">このリポジトリとサイトは、だれでも見られる。</p>
+    <div class="cards">
+      <div class="card"><h3>公開される</h3><p>・GitHub のユーザー名<br>・クイズの作者のニックネーム<br>・commit に残る名前とメール</p></div>
+      <div class="card bad"><h3>書かない</h3><p>・本名<br>・学籍番号<br>・メールアドレスなどの個人情報</p></div>
+    </div>
+  </div>
+  <div class="pg" data-n=" 9"></div>
+</section>
+
+<!-- 10 Pages -->
+<section class="slide">
+  <div class="head"><h2>GitHub Pages：全員の問題がサイトに出る</h2></div>
+  <div class="body">
+    <svg viewBox="0 0 1168 270" width="1168" height="270" role="img" aria-label="main に入ると自動でサイトが作られ、全員の問題が出る">
+      <defs><marker id="ah5" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#5a6270"/></marker></defs>
+      <g font-size="28">
+        <rect x="0" y="30" width="320" height="170" rx="14" fill="#fff" stroke="#d5dbe5" stroke-width="3"/>
+        <text x="160" y="80" text-anchor="middle" font-weight="700">main</text>
+        <text x="160" y="124" text-anchor="middle" font-size="24">questions/ に</text>
+        <text x="160" y="158" text-anchor="middle" font-size="24">全員のファイル</text>
+        <path d="M326,115 H410" stroke="#5a6270" stroke-width="4" marker-end="url(#ah5)"/>
+        <text x="368" y="96" text-anchor="middle" font-size="20" fill="#5a6270">自動</text>
+        <rect x="414" y="30" width="340" height="170" rx="14" fill="#eaf1fb" stroke="#1a5fb4" stroke-width="3"/>
+        <text x="584" y="80" text-anchor="middle" font-weight="700" fill="#1a5fb4">まとめて、公開</text>
+        <text x="584" y="124" text-anchor="middle" font-size="24">問題を1つの一覧にして</text>
+        <text x="584" y="158" text-anchor="middle" font-size="24">GitHub Pages へ</text>
+        <path d="M760,115 H844" stroke="#5a6270" stroke-width="4" marker-end="url(#ah5)"/>
+        <text x="802" y="96" text-anchor="middle" font-size="20" fill="#5a6270">1〜2分</text>
+        <rect x="848" y="30" width="320" height="170" rx="14" fill="#eef8f1" stroke="#2a8a4a" stroke-width="3"/>
+        <text x="1008" y="80" text-anchor="middle" font-weight="700" fill="#2a8a4a">クイズサイト</text>
+        <text x="1008" y="124" text-anchor="middle" font-size="24">全員の問題が</text>
+        <text x="1008" y="158" text-anchor="middle" font-size="24">1問ずつ出る</text>
+      </g>
+      <text x="584" y="250" text-anchor="middle" font-size="26" class="mono" fill="#5a6270">kondakaz.github.io/zemi-quiz/</text>
+    </svg>
+    <div class="note blue"><b>マージした自分の問題が、そのまま全員のサイトになる。</b><br>続けてマージすると、途中の実行が Cancelled になることがある。<br>最後の実行に全員分が入るので、問題ない。</div>
+  </div>
+  <div class="pg" data-n="10"></div>
+</section>
+
+<!-- 11 最後: 自分のアプリへ -->
+<section class="slide">
+  <div class="head"><h2>最後に：自分のアプリへ</h2><span class="tag">宿題</span></div>
+  <div class="body">
+    <p class="lead">今日の流れを、自分のアプリでやる。</p>
+    <ol class="steps" style="grid-template-columns:1fr;grid-template-rows:repeat(4,1fr);height:430px">
+      <li><b>1</b><span><code>.gitignore</code> を、先に作る</span></li>
+      <li><b>2</b><span>秘密がコードに入っていないか、点検する</span></li>
+      <li><b>3</b><span>新しいリポジトリにして、最初は private で push</span></li>
+      <li><b>4</b><span>機能を足すときは、ブランチ → PR → マージ</span></li>
+    </ol>
+  </div>
+  <div class="pg" data-n="11"></div>
+</section>
+
+<!-- 12 秘密を入れない -->
+<section class="slide">
+  <div class="head" style="background:#a8450a"><h2>秘密は、絶対に入れない</h2></div>
+  <div class="body">
+    <div class="cards">
+      <div class="card bad">
+        <h3>入れてはいけない</h3>
+        <p><code>.env</code><br>API キー、パスワード、トークン<br><code>*.key</code> などの鍵ファイル</p>
+      </div>
+      <div class="card good">
+        <h3>.gitignore に書く</h3>
+        <div class="cmd" style="font-size:26px;padding:12px 20px;margin-top:6px">.env<br>*.key<br>node_modules/<br>.DS_Store</div>
+      </div>
+    </div>
+    <div class="note"><b>一度上げたキーは、消しても履歴に残る。</b>　そのときは、キーを作り直す。<br>push の前に <code>git status</code> で、入れるファイルを見る。</div>
+  </div>
+  <div class="pg" data-n="12"></div>
+</section>
+
+<!-- 13 まとめ -->
+<section class="slide">
+  <div class="head"><h2>今日のまとめ</h2></div>
+  <div class="body">
+    <div class="cards" style="flex-direction:column;gap:16px">
+      <div class="card hl" style="padding:14px 28px"><p><b>clone → ブランチ → commit → push → PR</b>　の順に進めた。</p></div>
+      <div class="card hl" style="padding:14px 28px"><p><b>main には直接入れない。</b>　見てもらって、Approve をもらってからマージする。</p></div>
+      <div class="card hl" style="padding:14px 28px"><p><b>秘密は入れない。本名も書かない。</b></p></div>
+      <div class="card hl" style="padding:14px 28px"><p>手順は、<b>手順書</b>に全部ある。</p></div>
+    </div>
+  </div>
+  <div class="pg" data-n="13"></div>
+</section>
+
+</div>
+<script>
+(function(){
+  var stage=document.getElementById('stage');
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var cur=0;
+  function fit(){
+    var s=Math.min(window.innerWidth/1280,window.innerHeight/720);
+    // 左上を原点に拡縮し、画面の中心に置く
+    stage.style.transform='translate('+(-640*s)+'px,'+(-360*s)+'px) scale('+s+')';
+  }
+  function show(n){
+    cur=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(el,i){el.classList.toggle('on',i===cur);});
+    if(location.hash!=='#'+(cur+1)) history.replaceState(null,'','#'+(cur+1));
+  }
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='ArrowRight'||k===' '||k==='PageDown'||k==='Enter'){e.preventDefault();show(cur+1);}
+    else if(k==='ArrowLeft'||k==='PageUp'||k==='Backspace'){e.preventDefault();show(cur-1);}
+    else if(k==='Home'){show(0);}
+    else if(k==='End'){show(slides.length-1);}
+  });
+  document.addEventListener('click',function(e){ if(e.clientX>window.innerWidth/2) show(cur+1); else show(cur-1); });
+  window.addEventListener('resize',fit);
+  var h=parseInt(location.hash.slice(1),10);
+  fit(); show(isNaN(h)?0:h-1);
+})();
+</script>
+</body>
+</html>
