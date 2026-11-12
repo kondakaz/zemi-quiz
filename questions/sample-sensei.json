@@ -1,0 +1,7 @@
+{
+  "author": "せんせい",
+  "question": "Git で変更を記録する操作はどれでしょう？",
+  "choices": ["commit", "clone", "pull", "fetch"],
+  "answer": 0,
+  "explanation": "commit は変更を履歴として記録します。"
+}
