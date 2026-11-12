@@ -30,7 +30,7 @@
 | 検査（チェック） | ロボットが自動でする点検。緑＝OK、赤＝直す |
 | Codex（コーデックス） | 作業を手伝ってくれる AI アシスタント |
 | ターミナル | 文字で命令を打つ画面。開き方: **Mac** は ⌘（コマンド）キー＋スペースを押して「ターミナル」と入力し、Enter。**Windows** はスタートボタンを押して「PowerShell」と入力し、開きます。 |
-| cd（シーディー） | フォルダに入る命令。`cd Documents` で、「書類」フォルダに入ります |
+| cd（シーディー） | フォルダに入る命令。`cd Documents` で、「書類」（Windows では「ドキュメント」）フォルダに入ります |
 
 全体のイメージは、次のとおりです。
 
@@ -65,26 +65,34 @@
 
 1. **GitHub アカウントを作る**。作ったら、2要素認証（パスワードのほかに、もう1つ確認する仕組み）をオンにします。GitHub の画面で、右上のアイコン → Settings → Password and authentication → Two-factor authentication → Enable two-factor authentication の順に進みます。スマホの認証アプリ（Google Authenticator や GitHub Mobile など）で、画面の QR コードを読み取ります。リカバリーコード（スマホをなくしたときの救済用の番号）は、必ず保存します。
 2. **Git と GitHub CLI（gh）を入れる**。Git は「セーブする道具」、gh は「ターミナルから GitHub を使う道具」です。
-   - **Mac**: ターミナルで `git --version` と打ちます。ツールの導入画面が出たら、「インストール」を選びます。gh は https://cli.github.com から入れます。
-   - **Windows**: https://git-scm.com の「Git for Windows」と、https://cli.github.com の gh を入れます。入れたあと、**PowerShell を開き直します**。
+   - **Mac**: ターミナルで `git --version` と打ちます。ツールの導入画面が出たら、「インストール」を選びます。入れ終わったら、**もう一度 `git --version` を打ちます**。gh は https://cli.github.com から入れます。
+   - **Windows**: https://git-scm.com の「Git for Windows」と、https://cli.github.com の gh を入れます。Git for Windows のインストーラーの質問は、**全部そのまま Next を押して**進めます。入れたあと、**PowerShell を開き直します**。
 
    確認: `git --version` と `gh --version` を打って、どちらもバージョンが出ればOKです。あわせて **Node.js**（検査を手元で動かすための道具）も入れておくと便利です。任意です。入っていなくても、PR の検査で確かめられます。
-3. **Codex デスクトップアプリを入れる**。サインインして、起動できる状態にしておきます。
-4. **自分の名前とメールアドレスを Git に登録する**。セーブ（commit）に書き込まれ、**公開されます**。先に、メールアドレスを公開しない設定にします。
-   1. GitHub の画面で、右上のアイコン → Settings → Emails を開き、**Keep my email addresses private**（メールアドレスを公開しない）を選びます。
-   2. 同じ画面に出る **noreply アドレス**（`…@users.noreply.github.com` の形。公開しても困らない代わりの住所）を控えます。
-   3. ターミナルで、名前はニックネーム、メールは控えた noreply アドレスにして、次を打ちます。
+3. **Codex デスクトップアプリを入れる**。入手先は https://developers.openai.com/codex/app です。ChatGPT のアカウントでサインインして、起動できる状態にしておきます。確認: サインインした状態で Codex が起動し、入力欄が出ればOKです。
+4. **ニックネームを決めて、GitHub のユーザー名と一緒に先生に届ける**。このニックネームを、ファイル名とブランチ名に使います（例: `taro-k`）。使える文字は **半角の英小文字・数字・ハイフンだけ**。**ほかの人と重ならないもの**にします。先生が指定する方法で、**ニックネームと GitHub のユーザー名**を届けます（ユーザー名は、あとの招待に使います）。先生が、重複がないか確かめます。同じニックネームの人がいると、あとから出した PR が止まってしまいます。届けた名前は、当日は変えません（先生から別の名前を頼まれたときだけ、次の5の `user.name` の1行を打ち直します）。
+5. **自分の名前とメールアドレスを Git に登録する**。セーブ（commit）に書き込まれ、**公開されます**。先に、メールアドレスを公開しない設定にします。
+   1. GitHub の画面で、右上のアイコン → Settings → Emails を開き、**Keep my email addresses private**（メールアドレスを公開しない）に**チェックを入れます**。
+   2. 同じ画面に出る **noreply アドレス**（`…@users.noreply.github.com` の形。公開しても困らない代わりの住所）を控えます。**先頭の数字と `+` もふくめて、まるごと**控えます（例: `12345678+taro-k@users.noreply.github.com`）。
+   3. ターミナルで、名前は4で決めたニックネーム、メールは控えた noreply アドレスにして、次を打ちます。
 
    ```
-   git config --global user.name "ニックネーム"
-   git config --global user.email "控えた noreply アドレス"
+   git config --global user.name "<ニックネーム>"
+   git config --global user.email "<控えた noreply アドレス>"
    ```
+
+   `< >` は消して、**`" "`（ダブルクォート）は残します**。例: `git config --global user.name "taro-k"` と `git config --global user.email "12345678+taro-k@users.noreply.github.com"`。先生から別のニックネームを頼まれたときは、`user.name` の1行を、新しい名前で打ち直します。
 
    確認: `git config --global user.name` と `git config --global user.email` で、入れた値が出ればOKです。本名や、ふだんのメールアドレスは入れません（理由は、後ろの「公開されるものに注意」）。
-5. **GitHub へのログインを済ませる**。ターミナルで `gh auth login` を打ち、質問に答えます。質問は、矢印キーで選んで Enter を押します。選ぶものは、GitHub.com、Git の操作は HTTPS、Git の認証に GitHub のログインを使うかには Yes、ログイン方法は Web ブラウザです。途中で **8文字のコード**が出るので、控えます。ブラウザが開いたら、そのコードを貼って、**Authorize**（許可）を押します。確認: `gh auth status` で、ログイン済みと出ればOKです。
-6. **ニックネームを決めて、先生に届ける**。このニックネームを、ファイル名とブランチ名に使います（例: `taro-k`）。使える文字は **半角の英小文字・数字・ハイフンだけ**。**ほかの人と重ならないもの**にします。先生に届けて、重複がないか確かめてもらいます。同じニックネームの人がいると、あとから出した PR が止まってしまいます。届けた名前は、当日は変えません。
-7. **先生からの招待を承認する**。先生が、あなたの GitHub のユーザー名あてに、リポジトリ `kondakaz/zemi-quiz` への collaborator（共同作業者）の招待を送ります。登録したメールに届く招待メールのリンクから開いて、**Accept invitation**（招待を受ける）を押します（メールが見つからないときは、GitHub の通知からも開けます）。承認すると、`https://github.com/kondakaz/zemi-quiz` に書き込めるようになります。招待には期限（7日）があるので、早めに承認します。
-8. **clone する（自分でコマンドを打つ）**。clone は「共有の棚から、自分の PC に丸ごとコピー」です。まず `cd Documents`（cd ＝ フォルダに入る命令）で「書類」フォルダに入ってから、次を打ちます。
+6. **GitHub へのログインを済ませる**。ターミナルで `gh auth login` を打って、Enter を押します。質問は、矢印キーで選んで Enter を押します。選ぶものは、次のとおりです（画面は英語です）。
+   - どこにログインするか: `GitHub.com`
+   - Git の操作に使うプロトコル: `HTTPS`
+   - Git の認証に GitHub のログインを使うか: `Yes`
+   - ログイン方法: `Login with a web browser`
+
+   途中で **8文字のコード**が出るので、控えます。「Press Enter to open github.com in your browser」と出たら、Enter を押します。ブラウザが開いたら、そのコードを貼って、**Continue** を押し、次の画面で **Authorize github**（許可）を押します。確認: `gh auth status` で、`Logged in to github.com account <ユーザー名>`（自分のユーザー名が入ります）と出ればOKです。
+7. **先生からの招待を承認する**。先生が、あなたの GitHub のユーザー名あてに、リポジトリ `kondakaz/zemi-quiz` への collaborator（共同作業者）の招待を送ります。登録したメールに届く招待メールのリンクから開いて、**Accept invitation**（招待を受ける）を押します（メールが見つからないときは、GitHub の通知か、https://github.com/kondakaz/zemi-quiz/invitations からも開けます）。承認すると、`https://github.com/kondakaz/zemi-quiz` に書き込めるようになります。確認: Accept invitation を押したあと、リポジトリの画面（`https://github.com/kondakaz/zemi-quiz`）が開けばOKです。招待には期限（7日）があるので、早めに承認します。
+8. **clone する（自分でコマンドを打つ）**。clone は「共有の棚から、自分の PC に丸ごとコピー」です。ターミナルを開き直してから（開いた直後は、ホームフォルダにいます）、次を打ちます。`cd Documents`（cd ＝ フォルダに入る命令）で、「書類」（Windows では「ドキュメント」）フォルダに入ってから、clone します。
 
    ```
    cd Documents
@@ -93,7 +101,9 @@
    git status
    ```
 
-   確認: `git status` に `On branch main`（いま本番にいる）と出ます。フォルダの中に `index.html` と `questions/` があります。そのあと、**この `zemi-quiz` フォルダを、Codex アプリで開き直します**。`pwd`（いまいる場所を表示する命令）を打って、出てきた場所を**メモします**（当日、`cd` で迷ったときに使います）。Codex アプリで作業フォルダを選ぶところで、その `zemi-quiz` フォルダを選びます。Windows で、OneDrive が「ドキュメント」を預かっているときは、場所が `OneDrive` の中になることがあります。`pwd` の結果を、そのままメモします。
+   確認: `git status` に `On branch main`（いま本番にいる）と出ます。`ls`（フォルダの中身を表示する命令）を打つと、`index.html` と `questions/` が見えます。Mac で、「"ターミナル"が"書類"フォルダ内のファイルへのアクセスを求めています」のような確認が出たら、「許可」を押します。`cd Documents` で「見つからない」と出たら、先生に知らせます。
+
+   そのまま、`pwd`（いまいる場所を表示する命令）を打って、出てきた場所を**メモします**（当日、`cd` で迷ったときに使います）。そのあと、**Codex アプリを起動し、作業フォルダを選ぶところで、メモした場所の `zemi-quiz` フォルダを選びます**。
 9. **問題の文を考えてくる**。次の4つを、メモにまとめておきます。当日は、これを写すだけにします。
    - 問題文
    - 選択肢4つ（どれも違う文にする）
@@ -115,7 +125,7 @@
 
 - **GitHub のユーザー名**（PR やセーブ（commit）に出る）
 - **クイズの作者名として書くニックネーム**
-- **セーブ（commit）に記録された名前とメールアドレス**（`user.name` と `user.email`。だから、事前準備4で noreply アドレスにします）
+- **セーブ（commit）に記録された名前とメールアドレス**（`user.name` と `user.email`。だから、事前準備5で noreply アドレスにします）
 
 だから、次のようにします。
 

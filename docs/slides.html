@@ -409,7 +409,7 @@ svg text{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans
     else if(k==='Home'){show(0);}
     else if(k==='End'){show(slides.length-1);}
   });
-  document.addEventListener('click',function(e){ if(e.target.closest&&e.target.closest('a')) return; if(e.clientX>window.innerWidth/2) show(cur+1); else show(cur-1); });
+  document.addEventListener('click',function(e){ if(e.target.closest&&e.target.closest('a')) return; if(String(window.getSelection())) return; if(e.clientX>window.innerWidth/2) show(cur+1); else show(cur-1); });
   window.addEventListener('resize',fit);
   var h=parseInt(location.hash.slice(1),10);
   fit(); show(isNaN(h)?0:h-1);

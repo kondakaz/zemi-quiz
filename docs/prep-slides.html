@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ゼミ GitHub 講座 事前準備（宿題）</title>
-<!-- 操作: → / Space / PageDown で次、← / PageUp で前、Home / End で最初・最後。1ファイル自己完結（16:9, 1280x720 を画面に合わせて拡縮）。 -->
+<!-- 操作: → / Space / PageDown で次、← / PageUp で前、Home / End で最初・最後。画面の右半分をクリックで次、左半分で前（文字を選択している間は動かない）。1ファイル自己完結（16:9, 1280x720 を画面に合わせて拡縮）。 -->
 <style>
 :root{--ink:#222;--sub:#5a6270;--accent:#1a5fb4;--bg:#fafafa;--card:#fff;--line:#d5dbe5;--soft:#eaf1fb;--ok:#2a8a4a;--warn:#c4540a;--warnbg:#fff1e3;--code:#1e2430}
 *{box-sizing:border-box}
@@ -91,13 +91,25 @@ table.chk td:first-child{font-family:"M PLUS 1 Code","Noto Sans Mono CJK JP",Men
 .tick{list-style:none;margin:0;padding:0;font-size:24px;line-height:1.4}
 .tick li{padding:4px 0 4px 38px;position:relative}
 .tick li::before{content:"□";position:absolute;left:0;color:var(--accent);font-size:26px}
-table.chk{font-size:23px}
-.tick{font-size:23px}
+ol.todo li code{white-space:nowrap}
+ol.todo.sm li{font-size:25px;padding:5px 0 5px 54px;line-height:1.4}
+ol.todo.sm li::before{width:36px;height:36px;font-size:21px;top:6px}
+table.chk{font-size:21px}
+table.chk td{padding:4px 10px}
+table.chk td:first-child{font-size:20px}
+.tick{font-size:21px}
+.tick li{padding:2px 0 2px 36px}
+.cols .card h3{font-size:26px}
 .why b.lb{color:var(--accent);margin-right:14px}
 .why b{color:inherit;margin-right:0}
 ol.todo.lg{margin-top:26px}
-ol.todo.lg li{font-size:32px;padding:12px 0 12px 66px}
+ol.todo.lg li{font-size:30px;padding:12px 0 12px 66px}
 ol.todo.lg li::before{top:14px}
+body{word-break:auto-phrase;line-break:strict}
+a,a:visited{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.title-slide a{color:#fff}
+.cmd{font-family:"M PLUS 1 Code","Noto Sans Mono CJK JP",Menlo,Consolas,monospace}
+.cmd .c{color:#8ea0c6}
 </style>
 </head>
 <body>
@@ -105,9 +117,10 @@ ol.todo.lg li::before{top:14px}
 
 <section class="slide title-slide">
   <h1>事前準備（宿題）</h1>
-  <p style="top:360px">ゼミ GitHub 講座の前に、これを済ませる（10項目）<br>1つずつ、たとえ話と「できた印」つき。<br><span style="font-size:28px">できていない人は、当日は隣の人の画面を一緒に見て、先生に知らせる</span></p>
+  <p style="top:330px">ゼミ GitHub 講座の前に、これを済ませる（10項目）<br>1つずつ、たとえ話と「できた印」つき。<br><span style="font-size:28px">できていない人は、当日は隣の人の画面を一緒に見て、先生に知らせる</span></p>
+  <div class="legend" style="bottom:176px;font-size:24px"><b>操作</b>　→ キー・スペース・画面の右半分をクリックで次へ　／　← キー・左半分のクリックで前へ</div>
   <div class="legend"><b>何を</b> 準備1〜10（手順書の第1部と同じ番号）　／　<b>いつまでに</b> 講座の前に</div>
-  <div class="url mono">kondakaz.github.io/zemi-quiz/docs/handout.html</div>
+  <div class="url mono">kondakaz.github.io/zemi-quiz/docs/prep-slides.html</div>
   <div class="pg" data-n=" 1"></div>
 </section>
 
@@ -117,16 +130,16 @@ ol.todo.lg li::before{top:14px}
     <ol class="steps" style="height:420px;grid-template-rows:repeat(5,1fr)">
       <li><b>1</b><span>GitHub アカウント＋2要素認証<small>パスワードのほかに、もう1つ確認する仕組み</small></span></li>
       <li><b>2</b><span>Git と gh を入れる<small><code>git --version</code> と <code>gh --version</code></small></span></li>
-      <li><b>3</b><span>Codex デスクトップアプリを入れる<small>サインインして、起動できる状態に</small></span></li>
-      <li><b>4</b><span>名前とメールを Git に登録<small>先にメールを非公開にして、noreply を控える</small></span></li>
-      <li><b>5</b><span>GitHub へのログイン<small><code>gh auth login</code> → <code>gh auth status</code></small></span></li>
-      <li><b>6</b><span>ニックネームを先生に届ける<small>ほかの人と重ならないもの</small></span></li>
+      <li><b>3</b><span>Codex デスクトップアプリを入れる<small>ChatGPT のアカウントでサインイン</small></span></li>
+      <li><b>4</b><span>ニックネームを先生に届ける<small>GitHub のユーザー名と一緒に</small></span></li>
+      <li><b>5</b><span>名前とメールを Git に登録<small>先にメールを非公開にして、noreply を控える</small></span></li>
+      <li><b>6</b><span>GitHub へのログイン<small><code>gh auth login</code> → <code>gh auth status</code></small></span></li>
       <li><b>7</b><span>先生からの招待を承認<small>Accept invitation を押す</small></span></li>
       <li><b>8</b><span>clone する（＋ <code>pwd</code> をメモ）<small>共有の棚から、自分の PC に丸ごとコピー</small></span></li>
       <li><b>9</b><span>問題の文を考えてくる<small>メモにまとめる</small></span></li>
       <li><b>10</b><span>「読んでおく」と約束を読む<small>3分</small></span></li>
     </ol>
-    <div class="note blue" style="font-size:25px"><b>番号は手順書の第1部と同じ。</b>　ターミナルは準備2から使う。開き方は、次のスライド。</div>
+    <div class="note blue" style="font-size:25px"><b>番号は手順書の第1部と同じ。</b>　ターミナルは準備2から使う。開き方は、スライド4。</div>
   </div>
   <div class="pg" data-n=" 2"></div>
 </section>
@@ -135,7 +148,7 @@ ol.todo.lg li::before{top:14px}
   <div class="head"><h2>準備1　GitHub アカウントと2要素認証</h2><span class="tag now">事前準備</span></div>
   <div class="body">
     <div class="why"><b class="lb">何のため</b>GitHub ＝ 記録をみんなで置く場所（Google ドライブのようなもの）。2要素認証は、パスワードのほかに、もう1つ確認する仕組み。</div>
-    <ol class="todo">
+    <ol class="todo ">
       <li><b>GitHub アカウントを作る</b><small>本名・学籍番号は、どこにも書かない。すでに本名のユーザー名で作った人は、先生に相談する</small></li>
       <li>GitHub の画面で、右上のアイコン → Settings → Password and authentication → Two-factor authentication → Enable two-factor authentication の順に進む</li>
       <li>スマホの認証アプリ（Google Authenticator や GitHub Mobile など）で、画面の QR コードを読み取る</li>
@@ -153,7 +166,7 @@ ol.todo.lg li::before{top:14px}
     <ol class="todo lg">
       <li><b>Mac</b>：⌘（コマンド）キー＋スペースを押して「ターミナル」と入力し、Enter</li>
       <li><b>Windows</b>：スタートボタンを押して「PowerShell」と入力し、開く</li>
-      <li><code>cd Documents</code> で、「書類」フォルダに入る（準備8でも使う）</li>
+      <li><code>cd Documents</code> で、「書類」（Windows では「ドキュメント」）フォルダに入る（準備8でも使う）</li>
     </ol>
     <div class="note good"><span class="mk">✓ できた印</span>文字を打てる画面が開き、<code>cd Documents</code> を打てた。</div>
   </div>
@@ -169,16 +182,17 @@ ol.todo.lg li::before{top:14px}
         <ol class="todo">
           <li>ターミナルで <code>git --version</code> と打つ</li>
           <li>ツールの導入画面が出たら、「インストール」を選ぶ</li>
+          <li>入れ終わったら、もう一度 <code>git --version</code> を打つ</li>
           <li>gh は <a href="https://cli.github.com">https://cli.github.com</a> から入れる</li>
         </ol></div>
       <div class="card hl"><h3>Windows</h3>
         <ol class="todo">
-          <li><a href="https://git-scm.com">https://git-scm.com</a> の「Git for Windows」を入れる</li>
+          <li><a href="https://git-scm.com">https://git-scm.com</a> の「Git for Windows」を入れる。インストーラーの質問は、<b>全部そのまま Next</b></li>
           <li><a href="https://cli.github.com">https://cli.github.com</a> の gh を入れる</li>
           <li>入れたあと、<b>PowerShell を開き直す</b></li>
         </ol></div>
     </div>
-    <p class="tips">あわせて Node.js（検査を手元で動かすための道具）も入れておくと便利。任意。入っていなくても、PR の検査で確かめられる。</p>
+    <p class="tips" style="font-size:21px;margin-top:4px">あわせて Node.js（検査を手元で動かすための道具）も入れておくと便利。任意。入っていなくても、PR の検査で確かめられる。</p>
     <div class="note good"><span class="mk">✓ できた印</span><code>git --version</code> と <code>gh --version</code> を打って、どちらもバージョンが出ればOK。</div>
   </div>
   <div class="pg" data-n=" 5"></div>
@@ -187,125 +201,142 @@ ol.todo.lg li::before{top:14px}
 <section class="slide">
   <div class="head"><h2>準備3　Codex デスクトップアプリを入れる</h2><span class="tag now">事前準備</span></div>
   <div class="body">
-    <div class="why"><b class="lb">何のため</b>Codex ＝ 作業を手伝ってくれる AI アシスタント。当日は、これに頼んで作業を進める。</div>
-    <ol class="todo">
-      <li>Codex デスクトップアプリを入れる</li>
-      <li>サインインする</li>
+    <div class="why"><b class="lb">何のため</b>Codex ＝ 作業を手伝ってくれる AI アシスタント。当日は、これに頼む。</div>
+    <ol class="todo ">
+      <li><a href="https://developers.openai.com/codex/app">https://developers.openai.com/codex/app</a> から、Codex デスクトップアプリを入れる</li>
+      <li><b>ChatGPT のアカウント</b>でサインインする</li>
       <li>起動できる状態にしておく</li>
     </ol>
-    <p class="tips">このアプリで、あとの準備8で <code>zemi-quiz</code> フォルダを開き直す。頼むときの約束は、準備10で読む。</p>
-    <div class="note good"><span class="mk">✓ できた印</span>Codex が起動できる。</div>
+    <p class="tips">このアプリで、あとの準備8で作業フォルダを選ぶ。頼むときの約束は、準備10で読む。</p>
+    <div class="note good"><span class="mk">✓ できた印</span>サインインした状態で Codex が起動し、入力欄が出る。</div>
   </div>
   <div class="pg" data-n=" 6"></div>
 </section>
 
 <section class="slide">
-  <div class="head"><h2>準備4（1）メールを非公開にして、noreply を控える</h2><span class="tag now">事前準備</span></div>
+  <div class="head"><h2>準備4　ニックネームを決めて、先生に届ける</h2><span class="tag now">事前準備</span></div>
   <div class="body">
-    <div class="why"><b class="lb">何のため</b>セーブ（commit）には、名前とメールアドレスが書き込まれて、<b>公開される</b>。だから先に、メールを公開しない設定にする。</div>
-    <ol class="todo lg">
-      <li>GitHub の画面で、右上のアイコン → Settings → Emails を開く</li>
-      <li><b>Keep my email addresses private</b>（メールアドレスを公開しない）を選ぶ</li>
-      <li>同じ画面に出る <b>noreply アドレス</b>（<code>…@users.noreply.github.com</code> の形。公開しても困らない代わりの住所）を控える</li>
+    <div class="why"><b class="lb">何のため</b>ニックネーム ＝ あなたの名札。ファイル名とブランチ名に使う。GitHub のユーザー名は、あとの招待（準備7）に使う。</div>
+    <ol class="todo sm">
+      <li>ニックネームを決める（例：<code>taro-k</code>）</li>
+      <li>使える文字は、<b>半角の英小文字・数字・ハイフンだけ</b></li>
+      <li><b>ほかの人と重ならないもの</b>にする</li>
+      <li>先生が指定する方法で、<b>ニックネームと GitHub のユーザー名</b>を届ける</li>
+      <li>先生が、重複がないか確かめる</li>
     </ol>
-    <div class="note good"><span class="mk">✓ できた印</span>noreply アドレスを、メモに控えた。</div>
+    <p class="tips"><span class="warn"><b>同じニックネームの人がいると、あとから出した PR が止まってしまう。</b></span>届けた名前は、当日は変えない（先生から別の名前を頼まれたときだけ、次の準備5の <code>user.name</code> の1行を打ち直す）。</p>
+    <div class="note good"><span class="mk">✓ できた印</span>ニックネームとユーザー名を届け、重複がないと確かめてもらった。</div>
   </div>
   <div class="pg" data-n=" 7"></div>
 </section>
 
 <section class="slide">
-  <div class="head"><h2>準備4（2）名前とメールを Git に登録する</h2><span class="tag now">事前準備</span></div>
+  <div class="head"><h2>準備5（1）メールを非公開にして、noreply を控える</h2><span class="tag now">事前準備</span></div>
   <div class="body">
-    <div class="why"><b class="lb">何のため</b>セーブ（commit）に書き込まれる名前とメールを、ニックネームと noreply アドレスにしておく。</div>
-    <ol class="todo">
-      <li>ターミナルで、名前は<b>ニックネーム</b>、メールは控えた<b>noreply アドレス</b>にして、次を打つ（ニックネームの決まりは、準備6）</li>
-      <li>本名や、ふだんのメールアドレスは入れない</li>
+    <div class="why"><b class="lb">何のため</b>セーブ（commit）には、名前とメールアドレスが書き込まれて、<b>公開される</b>。だから先に、メールを公開しない設定にする。</div>
+    <ol class="todo sm">
+      <li>GitHub の画面で、右上のアイコン → Settings → Emails を開く</li>
+      <li><b>Keep my email addresses private</b>（メールアドレスを公開しない）に<b>チェックを入れる</b></li>
+      <li>同じ画面に出る <b>noreply アドレス</b>（<code>…@users.noreply.github.com</code> の形。公開しても困らない代わりの住所）を控える。<b>先頭の数字と <code>+</code> もふくめて、まるごと</b></li>
     </ol>
-    <div class="cmd s">git config --global user.name "ニックネーム"<br>git config --global user.email "控えた noreply アドレス"</div>
-    <div class="note good"><span class="mk">✓ できた印</span><code>git config --global user.name</code> と <code>git config --global user.email</code> で、入れた値が出ればOK。</div>
+    <div class="note good"><span class="mk">✓ できた印</span><code>12345678+taro-k@users.noreply.github.com</code> のような、数字と <code>+</code> のついた noreply アドレスを、まるごとメモに控えた。</div>
   </div>
   <div class="pg" data-n=" 8"></div>
 </section>
 
 <section class="slide">
-  <div class="head"><h2>準備5　GitHub へのログインを済ませる</h2><span class="tag now">事前準備</span></div>
+  <div class="head"><h2>準備5（2）名前とメールを Git に登録する</h2><span class="tag now">事前準備</span></div>
   <div class="body">
-    <div class="why"><b class="lb">何のため</b>ターミナルから GitHub を使えるように、先にログインしておく。</div>
-    <ol class="todo">
-      <li>ターミナルで <code>gh auth login</code> を打つ</li>
-      <li>質問は、矢印キーで選んで Enter。選ぶものは、次の4つ<div class="chips"><span>GitHub.com</span><span>Git の操作は HTTPS</span><span>Git の認証に GitHub のログインを使うか：Yes</span><span>ログイン方法：Web ブラウザ</span></div></li>
-      <li>途中で<b>8文字のコード</b>が出るので、控える</li>
-      <li>ブラウザが開いたら、そのコードを貼って、<b>Authorize</b>（許可）を押す</li>
+    <div class="why"><b class="lb">何のため</b>セーブ（commit）に書き込まれる名前とメールを、ニックネームと noreply アドレスにしておく。</div>
+    <ol class="todo sm">
+      <li>ターミナルで、名前は準備4の<b>ニックネーム</b>、メールは控えた<b>noreply アドレス</b>にして、次を打つ</li>
+      <li><code>&lt; &gt;</code> は<b>消す</b>。<code>" "</code>（ダブルクォート）は<b>残す</b>。例は、次のスライド</li>
+      <li>本名や、ふだんのメールアドレスは入れない</li>
     </ol>
-    <div class="note good"><span class="mk">✓ できた印</span><code>gh auth status</code> で、ログイン済みと出る。</div>
+    <div class="cmd s" style="margin-top:14px">git config --global user.name "&lt;ニックネーム&gt;"<br>git config --global user.email "&lt;控えた noreply アドレス&gt;"</div>
+    <div class="note good"><span class="mk">✓ できた印</span>上の2行を打って、エラーが出なかった。</div>
   </div>
   <div class="pg" data-n=" 9"></div>
 </section>
 
 <section class="slide">
-  <div class="head"><h2>準備6　ニックネームを決めて、先生に届ける</h2><span class="tag now">事前準備</span></div>
+  <div class="head"><h2>準備5（3）例を見て、入れた値を確かめる</h2><span class="tag now">事前準備</span></div>
   <div class="body">
-    <div class="why"><b class="lb">何のため</b>ニックネーム ＝ あなたの名札。ファイル名とブランチ名に使う。</div>
-    <ol class="todo">
-      <li>ニックネームを決める（例：<code>taro-k</code>）</li>
-      <li>使える文字は、<b>半角の英小文字・数字・ハイフンだけ</b></li>
-      <li><b>ほかの人と重ならないもの</b>にする</li>
-      <li>先生に届けて、重複がないか確かめてもらう</li>
+    <div class="why"><b class="lb">何のため</b><code>&lt; &gt;</code> を消して、<code>" "</code> を残すと、どうなるかを見る。</div>
+    <ol class="todo sm">
+      <li>ニックネームが <code>taro-k</code> のときの例は、次の2行</li>
     </ol>
-    <p class="tips"><span class="warn"><b>同じニックネームの人がいると、あとから出した PR が止まってしまう。</b></span>届けた名前は、当日は変えない。</p>
-    <div class="note good"><span class="mk">✓ できた印</span>先生に届けて、重複がないと確かめてもらった。</div>
+    <div class="cmd s" style="font-size:21px;margin-top:6px">git config --global user.name "taro-k"<br>git config --global user.email "12345678+taro-k@users.noreply.github.com"</div>
+    <p class="tips">先生から別のニックネームを頼まれたら、<code>user.name</code> の1行を、新しい名前で打ち直す。</p>
+    <div class="note good"><span class="mk">✓ できた印</span><code>git config --global user.name</code> と <code>git config --global user.email</code> で、入れた値が出ればOK。</div>
   </div>
   <div class="pg" data-n="10"></div>
+</section>
+
+<section class="slide">
+  <div class="head"><h2>準備6　GitHub へのログインを済ませる</h2><span class="tag now">事前準備</span></div>
+  <div class="body">
+    <div class="why"><b class="lb">何のため</b>ターミナルから GitHub を使えるように、先にログインしておく。</div>
+    <ol class="todo sm">
+      <li>ターミナルで <code>gh auth login</code> を打って、Enter を押す</li>
+      <li>質問は、矢印キーで選んで Enter。選ぶものは、次の4つ（画面は英語）<div class="chips"><span>GitHub.com</span><span>HTTPS</span><span>Yes</span><span>Login with a web browser</span></div></li>
+      <li>途中で<b>8文字のコード</b>が出るので、控える。「Press Enter to open github.com in your browser」と出たら、Enter を押す</li>
+      <li>ブラウザが開いたら、そのコードを貼って <b>Continue</b>。次の画面で <b>Authorize github</b>（許可）を押す</li>
+    </ol>
+    <div class="note good"><span class="mk">✓ できた印</span><code>gh auth status</code> で、<code>Logged in to github.com account &lt;ユーザー名&gt;</code> と出る（自分のユーザー名が入る）。</div>
+  </div>
+  <div class="pg" data-n="11"></div>
 </section>
 
 <section class="slide">
   <div class="head"><h2>準備7　先生からの招待を承認する</h2><span class="tag now">事前準備</span></div>
   <div class="body">
     <div class="why"><b class="lb">何のため</b>先生の共有の棚（リポジトリ <code>kondakaz/zemi-quiz</code>）に、書き込めるようにする。</div>
-    <ol class="todo">
+    <ol class="todo sm">
       <li>先生が、あなたの GitHub のユーザー名あてに、collaborator（共同作業者）の招待を送る</li>
-      <li>登録したメールに届く招待メールのリンクから開く（メールが見つからないときは、GitHub の通知からも開ける）</li>
+      <li>登録したメールに届く招待メールのリンクから開く</li>
       <li><b>Accept invitation</b>（招待を受ける）を押す</li>
     </ol>
-    <p class="tips"><span class="warn"><b>招待には期限（7日）がある。</b></span>早めに承認する。</p>
-    <div class="note good"><span class="mk">✓ できた印</span>承認すると、<code>https://github.com/kondakaz/zemi-quiz</code> に書き込めるようになる。</div>
+    <p class="tips">メールが見つからないときは、GitHub の通知か、<a href="https://github.com/kondakaz/zemi-quiz/invitations">https://github.com/kondakaz/zemi-quiz/invitations</a> からも開ける。<span class="warn"><b>招待には期限（7日）がある。</b></span>早めに承認する。</p>
+    <div class="note good"><span class="mk">✓ できた印</span>Accept invitation を押したあと、リポジトリの画面（<code>https://github.com/kondakaz/zemi-quiz</code>）が開く。書き込めるようになる。</div>
   </div>
-  <div class="pg" data-n="11"></div>
+  <div class="pg" data-n="12"></div>
 </section>
 
 <section class="slide">
   <div class="head"><h2>準備8（1）clone する</h2><span class="tag now">事前準備</span></div>
   <div class="body">
     <div class="why"><b class="lb">何のため</b>clone ＝ 共有の棚から、自分の PC に<b>丸ごとコピー</b>。</div>
-    <ol class="todo">
-      <li>まず <code>cd Documents</code>（cd ＝ フォルダに入る命令）で「書類」フォルダに入ってから、次を打つ</li>
+    <ol class="todo sm">
+      <li>ターミナルを<b>開き直す</b>（開いた直後は、ホームフォルダにいる）</li>
+      <li>次を打つ。<code>cd Documents</code> で「書類」（Windows では「ドキュメント」）フォルダに入ってから、clone する</li>
     </ol>
-    <div class="cmd" style="margin-top:14px">cd Documents<br>git clone https://github.com/kondakaz/zemi-quiz.git<br>cd zemi-quiz<br>git status</div>
-    <div class="note good"><span class="mk">✓ できた印</span><code>git status</code> に <code>On branch main</code>（いま本番にいる）と出る。フォルダの中に <code>index.html</code> と <code>questions/</code> がある。</div>
+    <div class="cmd s" style="margin-top:6px;font-size:22px;padding:8px 24px">cd Documents<br>git clone https://github.com/kondakaz/zemi-quiz.git<br>cd zemi-quiz<br>git status</div>
+    <p class="tips" style="font-size:21px;margin-top:4px">Mac で「"ターミナル"が"書類"フォルダ内のファイルへのアクセスを求めています」のような確認が出たら、「許可」。<code>cd Documents</code> で「見つからない」と出たら、先生に知らせる。</p>
+    <div class="note good"><span class="mk">✓ できた印</span><code>git status</code> に <code>On branch main</code>（いま本番にいる）と出る。<code>ls</code>（中身を表示する命令）で、<code>index.html</code> と <code>questions/</code> が見える。</div>
   </div>
-  <div class="pg" data-n="12"></div>
+  <div class="pg" data-n="13"></div>
 </section>
 
 <section class="slide">
-  <div class="head"><h2>準備8（2）Codex で開き直して、pwd をメモする</h2><span class="tag now">事前準備</span></div>
+  <div class="head"><h2>準備8（2）pwd のメモと、作業フォルダ</h2><span class="tag now">事前準備</span></div>
   <div class="body">
     <div class="why"><b class="lb">何のため</b>当日、<code>cd</code> で迷ったときのために、いまいる場所を控えておく。</div>
-    <ol class="todo">
-      <li>この <code>zemi-quiz</code> フォルダを、Codex アプリで開き直す</li>
-      <li><code>pwd</code>（いまいる場所を表示する命令）を打つ。出てきた場所を、<b>メモする</b>（当日、<code>cd</code> で迷ったときに使う）</li>
-      <li>Codex アプリで作業フォルダを選ぶところで、その <code>zemi-quiz</code> フォルダを選ぶ</li>
+    <ol class="todo lg">
+      <li>clone したターミナルのまま、<code>pwd</code>（いまいる場所を表示する命令）を打つ</li>
+      <li>出てきた場所を、<b>メモする</b>（当日、<code>cd</code> で迷ったときに使う）</li>
+      <li>Codex アプリを起動し、作業フォルダを選ぶところで、メモした場所の <code>zemi-quiz</code> フォルダを選ぶ</li>
     </ol>
-    <p class="tips">Windows で、OneDrive が「ドキュメント」を預かっているときは、場所が <code>OneDrive</code> の中になることがある。<code>pwd</code> の結果を、そのままメモする。</p>
-    <div class="note good"><span class="mk">✓ できた印</span><code>pwd</code> の場所をメモした。Codex で <code>zemi-quiz</code> フォルダを開いた。</div>
+    <div class="note good"><span class="mk">✓ できた印</span><code>pwd</code> の場所をメモした。Codex の作業フォルダに <code>zemi-quiz</code> を選んだ。</div>
   </div>
-  <div class="pg" data-n="13"></div>
+  <div class="pg" data-n="14"></div>
 </section>
 
 <section class="slide">
   <div class="head"><h2>準備9　問題の文を考えてくる</h2><span class="tag now">事前準備</span></div>
   <div class="body">
     <div class="why"><b class="lb">何のため</b>当日は、メモを写すだけにして、30分に収める。</div>
-    <ol class="todo">
+    <ol class="todo ">
       <li><b>問題文</b></li>
       <li><b>選択肢4つ</b>（どれも違う文にする）</li>
       <li><b>正解の番号</b>（<b>0から数える</b>。1つ目が正解なら 0、4つ目なら 3）</li>
@@ -314,16 +345,16 @@ ol.todo.lg li::before{top:14px}
     <p class="tips">テーマは自由。Codex に考えてもらってもよいが、<b>答えが本当に正しいかは、自分で確かめる</b>。公開されるので、本名・学籍番号は入れない。</p>
     <div class="note good"><span class="mk">✓ できた印</span>この4つが、メモにそろった。</div>
   </div>
-  <div class="pg" data-n="14"></div>
+  <div class="pg" data-n="15"></div>
 </section>
 
 <section class="slide">
   <div class="head"><h2>準備10　「読んでおく」と約束を読む</h2><span class="tag now">事前準備</span></div>
   <div class="body">
     <div class="why"><b class="lb">何のため</b>当日の説明を、短く済ませるために、先に頭に入れておく（3分）。</div>
-    <ol class="todo">
-      <li>手順書の第1部の最後にある「読んでおく：なぜバージョン管理か／Git と GitHub」を読む</li>
-      <li>第3部の「Codex に頼むときの約束」を読む</li>
+    <ol class="todo ">
+      <li><a href="handout.html#読んでおく-なぜバージョン管理かgit-と-github">手順書の「読んでおく：なぜバージョン管理か／Git と GitHub」</a>を読む<small>第1部の準備10の下にある</small></li>
+      <li><a href="handout.html#dcodex">手順書の第3部「Codex に頼むときの約束」</a>を読む</li>
     </ol>
     <div class="cards" style="margin-top:12px">
       <div class="card" style="padding:14px 22px"><p style="font-size:24px"><b>なぜバージョン管理か</b><br>ファイル名で版を分けると、どれが最新か分からなくなる。Git なら、ファイルは1つのまま、セーブが積み重なる。</p></div>
@@ -331,7 +362,7 @@ ol.todo.lg li::before{top:14px}
     </div>
     <div class="note good"><span class="mk">✓ できた印</span>2つとも、読み終えた。</div>
   </div>
-  <div class="pg" data-n="15"></div>
+  <div class="pg" data-n="16"></div>
 </section>
 
 <section class="slide">
@@ -340,27 +371,25 @@ ol.todo.lg li::before{top:14px}
     <div class="cols" style="margin-top:0">
       <div class="card hl" style="flex:1.8"><h3>ターミナルで打って確かめる</h3>
         <table class="chk">
-          <tr><td>git --version</td><td>バージョンが出る</td></tr>
-          <tr><td>gh --version</td><td>バージョンが出る</td></tr>
-          <tr><td>git config --global user.name</td><td>入れたニックネームが出る</td></tr>
-          <tr><td>git config --global user.email</td><td>入れた noreply アドレスが出る</td></tr>
-          <tr><td>gh auth status</td><td>ログイン済みと出る</td></tr>
-          <tr><td>cd ~/Documents/zemi-quiz<br>git status</td><td><code>On branch main</code> と出る</td></tr>
+          <tr><td>git --version<br>gh --version</td><td>どちらもバージョンが出る</td></tr>
+          <tr><td>git config --global user.name<br>git config --global user.email</td><td>入れたニックネームと noreply アドレスが出る</td></tr>
+          <tr><td>gh auth status</td><td><code>Logged in to github.com account &lt;ユーザー名&gt;</code> と出る</td></tr>
+          <tr><td>cd &lt;準備8でメモした場所&gt;<br>git status<br>ls</td><td><code>On branch main</code> と出る。<code>index.html</code> と <code>questions/</code> が見える</td></tr>
         </table></div>
       <div class="card good" style="flex:1.1"><h3>打たずに確かめる</h3>
         <ul class="tick">
           <li>2要素認証をオンにして、リカバリーコードを保存した</li>
-          <li>Codex が起動できる</li>
-          <li>ニックネームを先生に届けた</li>
-          <li>招待を承認した（Accept invitation）</li>
+          <li>Codex がサインインした状態で起動し、入力欄が出る</li>
+          <li>ニックネームと GitHub のユーザー名を、先生に届けた</li>
+          <li>招待を承認した（リポジトリの画面が開く）</li>
           <li><code>pwd</code> の場所をメモした</li>
           <li>問題の文の4つを、メモにまとめた</li>
           <li>「読んでおく」と約束を読んだ</li>
         </ul></div>
     </div>
-    <div class="note good"><span class="mk">✓ 準備完了</span>左の6つがすべて出て、右の7つにすべてチェックが付いた。</div>
+    <div class="note good"><span class="mk">✓ 準備完了</span>左の4つがすべて出て、右の7つにすべてチェックが付いた。</div>
   </div>
-  <div class="pg" data-n="16"></div>
+  <div class="pg" data-n="17"></div>
 </section>
 
 <section class="slide">
@@ -368,13 +397,13 @@ ol.todo.lg li::before{top:14px}
   <div class="body">
     <div class="cols" style="margin-top:0">
       <div class="card hl" style="flex:1.25"><h3>まず自分で</h3>
-        <p style="font-size:24px;line-height:1.55">・<b>招待メールが見つからない</b>：GitHub の通知からも開ける<br>・<b>権限がない（403）</b>：<code>gh auth status</code> で、ログインしているアカウントを見る。招待の承認は準備7<br>・<b>認証エラー</b>：<code>gh auth status</code> を打つ。できていなければ <code>gh auth login</code> をやり直す（Git の操作は <b>HTTPS</b>）<br>・<b><code>cd</code> で「見つからない」</b>：準備8でメモした場所（<code>pwd</code> の結果）に <code>cd</code> する</p></div>
+        <p style="font-size:24px;line-height:1.55">・<b>招待メールが見つからない</b>：GitHub の通知か、<code>github.com/kondakaz/zemi-quiz/invitations</code> から開ける<br>・<b>権限がない（403）</b>：<code>gh auth status</code> で、ログインしているアカウントを見る。招待の承認は準備7<br>・<b>認証エラー</b>：<code>gh auth status</code> を打つ。できていなければ <code>gh auth login</code> をやり直す（Git の操作は <b>HTTPS</b>）<br>・<b><code>cd</code> で「見つからない」</b>：準備8でメモした場所（<code>pwd</code> の結果）に <code>cd</code> する</p></div>
       <div class="card bad"><h3>先生に知らせる</h3>
-        <p style="font-size:24px;line-height:1.55">・<b>ニックネーム</b>：届けて、重複がないか確かめてもらう<br>・<b>本名のユーザー名</b>でアカウントを作ってしまった<br>・<b>それでも分からない</b>：画面を先生に見せる<br>・<b>当日までにできていない</b>：当日は隣の人の画面を一緒に見て、先生に知らせる</p></div>
+        <p style="font-size:24px;line-height:1.55">・<b>ニックネーム</b>：先生が指定する方法で届けて、重複がないか確かめてもらう<br>・<b>本名のユーザー名</b>でアカウントを作ってしまった<br>・<b><code>cd Documents</code> で「見つからない」</b>と出た<br>・<b>それでも分からない</b>：画面を先生に見せる<br>・<b>当日までにできていない</b>：当日は隣の人の画面を一緒に見て、先生に知らせる</p></div>
     </div>
-    <div class="note blue"><b>迷ったら、先生に画面を見せる。</b>　詳しい直し方は、手順書の第3部「つまずいたとき」。</div>
+    <div class="note blue"><b>迷ったら、先生に画面を見せる。</b>　詳しい直し方は、<a href="handout.html">手順書</a>の第3部「つまずいたとき」。</div>
   </div>
-  <div class="pg" data-n="17"></div>
+  <div class="pg" data-n="18"></div>
 </section>
 
 </div>
@@ -400,7 +429,7 @@ ol.todo.lg li::before{top:14px}
     else if(k==='Home'){show(0);}
     else if(k==='End'){show(slides.length-1);}
   });
-  document.addEventListener('click',function(e){ if(e.target.closest&&e.target.closest('a')) return; if(e.clientX>window.innerWidth/2) show(cur+1); else show(cur-1); });
+  document.addEventListener('click',function(e){ if(e.target.closest&&e.target.closest('a')) return; if(String(window.getSelection())) return; if(e.clientX>window.innerWidth/2) show(cur+1); else show(cur-1); });
   window.addEventListener('resize',fit);
   var h=parseInt(location.hash.slice(1),10);
   fit(); show(isNaN(h)?0:h-1);

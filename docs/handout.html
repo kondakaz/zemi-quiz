@@ -34,7 +34,7 @@ li{margin:.2rem 0}
 <li>この手順書は、演習サイトの <code>docs/</code> にも載ります（だれでも読めます）。個人名や内部の情報は書いていません。</li></ul>
 <h2 id="まず用語のたとえ表">まず、用語のたとえ表</h2>
 <p>読み飛ばしてもよいですが、困ったらここに戻ってください。</p>
-<table><thead><tr><th style="white-space:nowrap">用語</th><th style="white-space:nowrap">ひとことで言うと</th></tr></thead><tbody><tr><td>Git（ギット）</td><td>変更を記録する道具。<strong>ゲームのセーブ機能</strong>のようなもの</td></tr><tr><td>GitHub（ギットハブ）</td><td>記録をみんなで置く場所。<strong>Google ドライブのようなもの</strong>（ただし、自動では同期しません。push したときだけ置かれます）</td></tr><tr><td style="white-space:nowrap">リポジトリ</td><td>プロジェクトのフォルダ＋変更の記録帳</td></tr><tr><td>clone（クローン）</td><td>共有の棚（GitHub）から、自分の PC に<strong>丸ごとコピー</strong>する</td></tr><tr><td>commit（コミット）</td><td><strong>セーブ</strong>する。いつでもその時点に戻れる。メッセージは「セーブデータの名前」</td></tr><tr><td>push（プッシュ）</td><td>自分のセーブを、共有の棚（GitHub）に<strong>置く</strong></td></tr><tr><td>pull（プル）</td><td>共有の棚から、最新のセーブを<strong>持ってくる</strong></td></tr><tr><td>main（メイン）</td><td><strong>本番</strong>のこと。サイトに出るのは、この main の中身</td></tr><tr><td style="white-space:nowrap">ブランチ</td><td>本番を汚さないための<strong>下書き用のコピー</strong>（フォルダは増えません。同じフォルダのまま、下書きに切り替わります）</td></tr><tr><td>Pull Request（PR）</td><td>「この下書きを本番に入れていいですか？」という<strong>お願いの紙</strong></td></tr><tr><td>Approve（アプルーブ）</td><td>「見たよ、OK」の<strong>はんこ</strong></td></tr><tr><td style="white-space:nowrap">マージ</td><td>下書きを、本番に<strong>合流</strong>させる</td></tr><tr><td>GitHub Pages</td><td>GitHub に置いたファイルを、<strong>Web サイトとして見せる</strong>機能</td></tr><tr><td>検査（チェック）</td><td>ロボットが自動でする点検。緑＝OK、赤＝直す</td></tr><tr><td>Codex（コーデックス）</td><td>作業を手伝ってくれる AI アシスタント</td></tr><tr><td style="white-space:nowrap">ターミナル</td><td>文字で命令を打つ画面。開き方: <strong>Mac</strong> は ⌘（コマンド）キー＋スペースを押して「ターミナル」と入力し、Enter。<strong>Windows</strong> はスタートボタンを押して「PowerShell」と入力し、開きます。</td></tr><tr><td>cd（シーディー）</td><td>フォルダに入る命令。<code>cd Documents</code> で、「書類」フォルダに入ります</td></tr></tbody></table>
+<table><thead><tr><th style="white-space:nowrap">用語</th><th style="white-space:nowrap">ひとことで言うと</th></tr></thead><tbody><tr><td>Git（ギット）</td><td>変更を記録する道具。<strong>ゲームのセーブ機能</strong>のようなもの</td></tr><tr><td>GitHub（ギットハブ）</td><td>記録をみんなで置く場所。<strong>Google ドライブのようなもの</strong>（ただし、自動では同期しません。push したときだけ置かれます）</td></tr><tr><td style="white-space:nowrap">リポジトリ</td><td>プロジェクトのフォルダ＋変更の記録帳</td></tr><tr><td>clone（クローン）</td><td>共有の棚（GitHub）から、自分の PC に<strong>丸ごとコピー</strong>する</td></tr><tr><td>commit（コミット）</td><td><strong>セーブ</strong>する。いつでもその時点に戻れる。メッセージは「セーブデータの名前」</td></tr><tr><td>push（プッシュ）</td><td>自分のセーブを、共有の棚（GitHub）に<strong>置く</strong></td></tr><tr><td>pull（プル）</td><td>共有の棚から、最新のセーブを<strong>持ってくる</strong></td></tr><tr><td>main（メイン）</td><td><strong>本番</strong>のこと。サイトに出るのは、この main の中身</td></tr><tr><td style="white-space:nowrap">ブランチ</td><td>本番を汚さないための<strong>下書き用のコピー</strong>（フォルダは増えません。同じフォルダのまま、下書きに切り替わります）</td></tr><tr><td>Pull Request（PR）</td><td>「この下書きを本番に入れていいですか？」という<strong>お願いの紙</strong></td></tr><tr><td>Approve（アプルーブ）</td><td>「見たよ、OK」の<strong>はんこ</strong></td></tr><tr><td style="white-space:nowrap">マージ</td><td>下書きを、本番に<strong>合流</strong>させる</td></tr><tr><td>GitHub Pages</td><td>GitHub に置いたファイルを、<strong>Web サイトとして見せる</strong>機能</td></tr><tr><td>検査（チェック）</td><td>ロボットが自動でする点検。緑＝OK、赤＝直す</td></tr><tr><td>Codex（コーデックス）</td><td>作業を手伝ってくれる AI アシスタント</td></tr><tr><td style="white-space:nowrap">ターミナル</td><td>文字で命令を打つ画面。開き方: <strong>Mac</strong> は ⌘（コマンド）キー＋スペースを押して「ターミナル」と入力し、Enter。<strong>Windows</strong> はスタートボタンを押して「PowerShell」と入力し、開きます。</td></tr><tr><td>cd（シーディー）</td><td>フォルダに入る命令。<code>cd Documents</code> で、「書類」（Windows では「ドキュメント」）フォルダに入ります</td></tr></tbody></table>
 <p>全体のイメージは、次のとおりです。</p>
 <pre><code> GitHub（共有の棚）          ← みんなのセーブが集まる
    ↑ push（置く）   ↓ clone（丸ごとコピー）／ pull（最新を持ってくる）
@@ -48,28 +48,36 @@ li{margin:.2rem 0}
 <p>説明スライドもあります: <a href="prep-slides.html">事前準備のスライド</a>（講座の前に見て、家でも見返せます）。</p>
 <ol><li><strong>GitHub アカウントを作る</strong>。作ったら、2要素認証（パスワードのほかに、もう1つ確認する仕組み）をオンにします。GitHub の画面で、右上のアイコン → Settings → Password and authentication → Two-factor authentication → Enable two-factor authentication の順に進みます。スマホの認証アプリ（Google Authenticator や GitHub Mobile など）で、画面の QR コードを読み取ります。リカバリーコード（スマホをなくしたときの救済用の番号）は、必ず保存します。</li>
 <li><strong>Git と GitHub CLI（gh）を入れる</strong>。Git は「セーブする道具」、gh は「ターミナルから GitHub を使う道具」です。
-<ul><li><strong>Mac</strong>: ターミナルで <code>git --version</code> と打ちます。ツールの導入画面が出たら、「インストール」を選びます。gh は <a href="https://cli.github.com">https://cli.github.com</a> から入れます。</li>
-<li><strong>Windows</strong>: <a href="https://git-scm.com">https://git-scm.com</a> の「Git for Windows」と、<a href="https://cli.github.com">https://cli.github.com</a> の gh を入れます。入れたあと、<strong>PowerShell を開き直します</strong>。</li></ul>
+<ul><li><strong>Mac</strong>: ターミナルで <code>git --version</code> と打ちます。ツールの導入画面が出たら、「インストール」を選びます。入れ終わったら、<strong>もう一度 <code>git --version</code> を打ちます</strong>。gh は <a href="https://cli.github.com">https://cli.github.com</a> から入れます。</li>
+<li><strong>Windows</strong>: <a href="https://git-scm.com">https://git-scm.com</a> の「Git for Windows」と、<a href="https://cli.github.com">https://cli.github.com</a> の gh を入れます。Git for Windows のインストーラーの質問は、<strong>全部そのまま Next を押して</strong>進めます。入れたあと、<strong>PowerShell を開き直します</strong>。</li></ul>
 <p>確認: <code>git --version</code> と <code>gh --version</code> を打って、どちらもバージョンが出ればOKです。あわせて <strong>Node.js</strong>（検査を手元で動かすための道具）も入れておくと便利です。任意です。入っていなくても、PR の検査で確かめられます。</p>
 </li>
-<li><strong>Codex デスクトップアプリを入れる</strong>。サインインして、起動できる状態にしておきます。</li>
+<li><strong>Codex デスクトップアプリを入れる</strong>。入手先は <a href="https://developers.openai.com/codex/app">https://developers.openai.com/codex/app</a> です。ChatGPT のアカウントでサインインして、起動できる状態にしておきます。確認: サインインした状態で Codex が起動し、入力欄が出ればOKです。</li>
+<li><strong>ニックネームを決めて、GitHub のユーザー名と一緒に先生に届ける</strong>。このニックネームを、ファイル名とブランチ名に使います（例: <code>taro-k</code>）。使える文字は <strong>半角の英小文字・数字・ハイフンだけ</strong>。<strong>ほかの人と重ならないもの</strong>にします。先生が指定する方法で、<strong>ニックネームと GitHub のユーザー名</strong>を届けます（ユーザー名は、あとの招待に使います）。先生が、重複がないか確かめます。同じニックネームの人がいると、あとから出した PR が止まってしまいます。届けた名前は、当日は変えません（先生から別の名前を頼まれたときだけ、次の5の <code>user.name</code> の1行を打ち直します）。</li>
 <li><strong>自分の名前とメールアドレスを Git に登録する</strong>。セーブ（commit）に書き込まれ、<strong>公開されます</strong>。先に、メールアドレスを公開しない設定にします。
-<ol><li>GitHub の画面で、右上のアイコン → Settings → Emails を開き、<strong>Keep my email addresses private</strong>（メールアドレスを公開しない）を選びます。</li>
-<li>同じ画面に出る <strong>noreply アドレス</strong>（<code>…@users.noreply.github.com</code> の形。公開しても困らない代わりの住所）を控えます。</li>
-<li>ターミナルで、名前はニックネーム、メールは控えた noreply アドレスにして、次を打ちます。</li></ol>
-<pre><code>git config --global user.name "ニックネーム"
-git config --global user.email "控えた noreply アドレス"</code></pre>
+<ol><li>GitHub の画面で、右上のアイコン → Settings → Emails を開き、<strong>Keep my email addresses private</strong>（メールアドレスを公開しない）に<strong>チェックを入れます</strong>。</li>
+<li>同じ画面に出る <strong>noreply アドレス</strong>（<code>…@users.noreply.github.com</code> の形。公開しても困らない代わりの住所）を控えます。<strong>先頭の数字と <code>+</code> もふくめて、まるごと</strong>控えます（例: <code>12345678+taro-k@users.noreply.github.com</code>）。</li>
+<li>ターミナルで、名前は4で決めたニックネーム、メールは控えた noreply アドレスにして、次を打ちます。</li></ol>
+<pre><code>git config --global user.name "&lt;ニックネーム&gt;"
+git config --global user.email "&lt;控えた noreply アドレス&gt;"</code></pre>
+<p><code>&lt; &gt;</code> は消して、<strong><code>" "</code>（ダブルクォート）は残します</strong>。例: <code>git config --global user.name "taro-k"</code> と <code>git config --global user.email "12345678+taro-k@users.noreply.github.com"</code>。先生から別のニックネームを頼まれたときは、<code>user.name</code> の1行を、新しい名前で打ち直します。</p>
 <p>確認: <code>git config --global user.name</code> と <code>git config --global user.email</code> で、入れた値が出ればOKです。本名や、ふだんのメールアドレスは入れません（理由は、後ろの「公開されるものに注意」）。</p>
 </li>
-<li><strong>GitHub へのログインを済ませる</strong>。ターミナルで <code>gh auth login</code> を打ち、質問に答えます。質問は、矢印キーで選んで Enter を押します。選ぶものは、GitHub.com、Git の操作は HTTPS、Git の認証に GitHub のログインを使うかには Yes、ログイン方法は Web ブラウザです。途中で <strong>8文字のコード</strong>が出るので、控えます。ブラウザが開いたら、そのコードを貼って、<strong>Authorize</strong>（許可）を押します。確認: <code>gh auth status</code> で、ログイン済みと出ればOKです。</li>
-<li><strong>ニックネームを決めて、先生に届ける</strong>。このニックネームを、ファイル名とブランチ名に使います（例: <code>taro-k</code>）。使える文字は <strong>半角の英小文字・数字・ハイフンだけ</strong>。<strong>ほかの人と重ならないもの</strong>にします。先生に届けて、重複がないか確かめてもらいます。同じニックネームの人がいると、あとから出した PR が止まってしまいます。届けた名前は、当日は変えません。</li>
-<li><strong>先生からの招待を承認する</strong>。先生が、あなたの GitHub のユーザー名あてに、リポジトリ <code>kondakaz/zemi-quiz</code> への collaborator（共同作業者）の招待を送ります。登録したメールに届く招待メールのリンクから開いて、<strong>Accept invitation</strong>（招待を受ける）を押します（メールが見つからないときは、GitHub の通知からも開けます）。承認すると、<code>https://github.com/kondakaz/zemi-quiz</code> に書き込めるようになります。招待には期限（7日）があるので、早めに承認します。</li>
-<li><strong>clone する（自分でコマンドを打つ）</strong>。clone は「共有の棚から、自分の PC に丸ごとコピー」です。まず <code>cd Documents</code>（cd ＝ フォルダに入る命令）で「書類」フォルダに入ってから、次を打ちます。
+<li><strong>GitHub へのログインを済ませる</strong>。ターミナルで <code>gh auth login</code> を打って、Enter を押します。質問は、矢印キーで選んで Enter を押します。選ぶものは、次のとおりです（画面は英語です）。
+<ul><li>どこにログインするか: <code>GitHub.com</code></li>
+<li>Git の操作に使うプロトコル: <code>HTTPS</code></li>
+<li>Git の認証に GitHub のログインを使うか: <code>Yes</code></li>
+<li>ログイン方法: <code>Login with a web browser</code></li></ul>
+<p>途中で <strong>8文字のコード</strong>が出るので、控えます。「Press Enter to open github.com in your browser」と出たら、Enter を押します。ブラウザが開いたら、そのコードを貼って、<strong>Continue</strong> を押し、次の画面で <strong>Authorize github</strong>（許可）を押します。確認: <code>gh auth status</code> で、<code>Logged in to github.com account &lt;ユーザー名&gt;</code>（自分のユーザー名が入ります）と出ればOKです。</p>
+</li>
+<li><strong>先生からの招待を承認する</strong>。先生が、あなたの GitHub のユーザー名あてに、リポジトリ <code>kondakaz/zemi-quiz</code> への collaborator（共同作業者）の招待を送ります。登録したメールに届く招待メールのリンクから開いて、<strong>Accept invitation</strong>（招待を受ける）を押します（メールが見つからないときは、GitHub の通知か、<a href="https://github.com/kondakaz/zemi-quiz/invitations">https://github.com/kondakaz/zemi-quiz/invitations</a> からも開けます）。承認すると、<code>https://github.com/kondakaz/zemi-quiz</code> に書き込めるようになります。確認: Accept invitation を押したあと、リポジトリの画面（<code>https://github.com/kondakaz/zemi-quiz</code>）が開けばOKです。招待には期限（7日）があるので、早めに承認します。</li>
+<li><strong>clone する（自分でコマンドを打つ）</strong>。clone は「共有の棚から、自分の PC に丸ごとコピー」です。ターミナルを開き直してから（開いた直後は、ホームフォルダにいます）、次を打ちます。<code>cd Documents</code>（cd ＝ フォルダに入る命令）で、「書類」（Windows では「ドキュメント」）フォルダに入ってから、clone します。
 <pre><code>cd Documents
 git clone https://github.com/kondakaz/zemi-quiz.git
 cd zemi-quiz
 git status</code></pre>
-<p>確認: <code>git status</code> に <code>On branch main</code>（いま本番にいる）と出ます。フォルダの中に <code>index.html</code> と <code>questions/</code> があります。そのあと、<strong>この <code>zemi-quiz</code> フォルダを、Codex アプリで開き直します</strong>。<code>pwd</code>（いまいる場所を表示する命令）を打って、出てきた場所を<strong>メモします</strong>（当日、<code>cd</code> で迷ったときに使います）。Codex アプリで作業フォルダを選ぶところで、その <code>zemi-quiz</code> フォルダを選びます。Windows で、OneDrive が「ドキュメント」を預かっているときは、場所が <code>OneDrive</code> の中になることがあります。<code>pwd</code> の結果を、そのままメモします。</p>
+<p>確認: <code>git status</code> に <code>On branch main</code>（いま本番にいる）と出ます。<code>ls</code>（フォルダの中身を表示する命令）を打つと、<code>index.html</code> と <code>questions/</code> が見えます。Mac で、「"ターミナル"が"書類"フォルダ内のファイルへのアクセスを求めています」のような確認が出たら、「許可」を押します。<code>cd Documents</code> で「見つからない」と出たら、先生に知らせます。</p>
+<p>そのまま、<code>pwd</code>（いまいる場所を表示する命令）を打って、出てきた場所を<strong>メモします</strong>（当日、<code>cd</code> で迷ったときに使います）。そのあと、<strong>Codex アプリを起動し、作業フォルダを選ぶところで、メモした場所の <code>zemi-quiz</code> フォルダを選びます</strong>。</p>
 </li>
 <li><strong>問題の文を考えてくる</strong>。次の4つを、メモにまとめておきます。当日は、これを写すだけにします。
 <ul><li>問題文</li>
@@ -87,7 +95,7 @@ git status</code></pre>
 <p>このリポジトリと演習サイトは <strong>public（だれでも見られる）</strong> です。次のものが公開されます。</p>
 <ul><li><strong>GitHub のユーザー名</strong>（PR やセーブ（commit）に出る）</li>
 <li><strong>クイズの作者名として書くニックネーム</strong></li>
-<li><strong>セーブ（commit）に記録された名前とメールアドレス</strong>（<code>user.name</code> と <code>user.email</code>。だから、事前準備4で noreply アドレスにします）</li></ul>
+<li><strong>セーブ（commit）に記録された名前とメールアドレス</strong>（<code>user.name</code> と <code>user.email</code>。だから、事前準備5で noreply アドレスにします）</li></ul>
 <p>だから、次のようにします。</p>
 <ul><li><strong>本名・学籍番号は、どこにも書きません</strong>。ニックネームにします。<code>user.name</code> も本名にしません。</li>
 <li>すでに本名のユーザー名でアカウントを作っている人は、先生に相談します。</li></ul>
