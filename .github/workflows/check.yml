@@ -13,11 +13,18 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '24'
-      - if: startsWith(github.head_ref, 'add-quiz-')
+      - name: PR の変更を確認
         env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_REF: ${{ github.head_ref }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          git show "$BASE_SHA:scripts/check-pr.sh" > "$RUNNER_TEMP/check-pr.sh"
-          bash "$RUNNER_TEMP/check-pr.sh" "$BASE_SHA" "$HEAD_SHA"
+          # Bash の比較は大文字と小文字を区別する。
+          if [[ "$HEAD_REF" == issue-* ]]; then
+            echo 'Issue 作業のため問題ファイルの差分検査を省略します'
+          else
+            git check-ref-format "refs/heads/$GITHUB_BASE_REF"
+            git fetch --no-tags origin "+refs/heads/$GITHUB_BASE_REF:refs/remotes/origin/$GITHUB_BASE_REF"
+            git show "origin/$GITHUB_BASE_REF:scripts/check-pr.sh" > "$RUNNER_TEMP/check-pr.sh"
+            bash "$RUNNER_TEMP/check-pr.sh" "origin/$GITHUB_BASE_REF" "$HEAD_SHA"
+          fi
       - run: node scripts/build.mjs --check

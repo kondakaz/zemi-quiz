@@ -30,6 +30,8 @@ try {
   const entries = await readdir(resolve(root, 'questions'), { withFileTypes: true });
   const names = [];
   for (const entry of entries) {
+    // OS が作る隠しファイルは問題として扱わない。
+    if (entry.isFile() && entry.name.startsWith('.')) continue;
     currentFile = `questions/${entry.name}`;
     if (!entry.isFile() || (entry.name !== '_template.json' && !/^[a-z0-9-]+\.json$/.test(entry.name))) {
       throw new Error('ファイル名は半角英小文字・数字・ハイフンと .json にしてください。サブフォルダは置けません');
@@ -85,6 +87,8 @@ try {
   const message = `${currentFile ? currentFile + ': ' : ''}${error.message}`;
   console.error(`エラー: ${message}`);
   const file = currentFile ? ` file=${escapeAnnotation(currentFile).replaceAll(',', '%2C').replaceAll(':', '%3A')}` : '';
-  console.error(`::error${file}::${escapeAnnotation(error.message)}`);
+  if (process.env.GITHUB_ACTIONS) {
+    console.error(`::error${file}::${escapeAnnotation(error.message)}`);
+  }
   process.exitCode = 1;
 }

@@ -14,6 +14,8 @@
 
 詳しい手順は[講座の手順書（Markdown）](docs/handout.md)を参照してください。公開サイトでは[手順書（HTML）](https://kondakaz.github.io/zemi-quiz/docs/handout.html)も読めます。先生向けの設定は [teacher-setup.md](docs/teacher-setup.md) を参照。
 
+Issue の機能追加には `issue-<番号>-<短い名前>` ブランチを使います。この接頭辞のブランチでは、問題ファイル1件だけの差分検査を省略します。
+
 ## 研究室サイトとの関係
 
 演習はこのリポジトリで行います。研究室サイトからリンクするか、ビルド済みの `_site/` の中身を研究室サイトの `zemi/quiz/` にコピーします。学生に研究室サイトの権限を渡す必要はありません。画面の GitHub リポジトリへのリンクは、移設可能な相対パスの例外として絶対 URL を使っています。
