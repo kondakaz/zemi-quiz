@@ -91,7 +91,7 @@
    - ログイン方法: `Login with a web browser`
 
    途中で **8文字のコード**が出るので、控えます。「Press Enter to open github.com in your browser」と出たら、Enter を押します。ブラウザが開いたら、そのコードを貼って、**Continue** を押し、次の画面で **Authorize github**（許可）を押します。確認: `gh auth status` で、`Logged in to github.com account <ユーザー名>`（自分のユーザー名が入ります）と出ればOKです。
-7. **先生からの招待を承認する**。先生が、あなたの GitHub のユーザー名あてに、リポジトリ `kondakaz/zemi-quiz` への collaborator（共同作業者）の招待を送ります。登録したメールに届く招待メールのリンクから開いて、**Accept invitation**（招待を受ける）を押します（メールが見つからないときは、GitHub の通知か、https://github.com/kondakaz/zemi-quiz/invitations からも開けます）。承認すると、`https://github.com/kondakaz/zemi-quiz` に書き込めるようになります。確認: Accept invitation を押したあと、リポジトリの画面（`https://github.com/kondakaz/zemi-quiz`）が開けばOKです。招待には期限（7日）があるので、早めに承認します。
+7. **先生からの招待を承認する**。先生が、あなたの GitHub のユーザー名あてに、リポジトリ `kondakaz/zemi-quiz` への collaborator（共同作業者）の招待を送ります。登録したメールに届く招待メールのリンクから開いて、**Accept invitation**（招待を受ける）を押します（メールが見つからないときは、GitHub の通知か、https://github.com/kondakaz/zemi-quiz/invitations からも開けます）。承認すると、`https://github.com/kondakaz/zemi-quiz` に書き込めるようになります。確認: https://github.com/kondakaz/zemi-quiz/invitations をもう一度開いて、Accept invitation のボタンがもう出なければOKです（このリポジトリはだれでも見られるので、リポジトリの画面が開くだけでは、承認できたかは分かりません）。招待には期限（7日）があるので、早めに承認します。
 8. **clone する（自分でコマンドを打つ）**。clone は「共有の棚から、自分の PC に丸ごとコピー」です。ターミナルを開き直してから（開いた直後は、ホームフォルダにいます）、次を打ちます。`cd Documents`（cd ＝ フォルダに入る命令）で、「書類」（Windows では「ドキュメント」）フォルダに入ってから、clone します。
 
    ```
