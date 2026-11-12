@@ -18,6 +18,7 @@ blockquote{margin:1rem 0;padding:.4rem 1rem;background:var(--warn);border-left:5
 blockquote p{margin:.4rem 0}
 table{border-collapse:collapse;margin:1rem 0;width:100%;break-inside:avoid;display:block;overflow-x:auto}
 td a[href^="#d"]{white-space:nowrap}
+@media (max-width:480px){pre{white-space:pre-wrap}}
 @media (max-width:600px){main{padding:1rem .9rem 3rem}h1{margin:-1rem -.9rem 1rem;font-size:1.15rem}th,td{padding:.3rem .4rem;font-size:.9rem}}
 th,td{border:1px solid var(--line);padding:.35rem .6rem;text-align:left;vertical-align:top}
 th{background:#f3f6fb}
@@ -59,7 +60,7 @@ li{margin:.2rem 0}
 git config --global user.email "控えた noreply アドレス"</code></pre>
 <p>確認: <code>git config --global user.name</code> と <code>git config --global user.email</code> で、入れた値が出ればOKです。本名や、ふだんのメールアドレスは入れません（理由は、後ろの「公開されるものに注意」）。</p>
 </li>
-<li><strong>GitHub へのログインを済ませる</strong>。ターミナルで <code>gh auth login</code> を打ち、質問に答えます。質問は、矢印キーで選んで Enter を押します。選ぶものは、GitHub.com、Git の操作は HTTPS、Git の認証に GitHub のログインを使うかには Yes、ログイン方法は Web ブラウザです。途中で <strong>8文字のコード</strong>が出るので、控えます。ブラウザが開いたら、そのコードを貼って、<strong>Authorize</strong>（許可）を押します。確認: <code>gh auth status</code> で、ログイン済みと出ればOKです。（<code>gh</code> が入っていないときは、GitHub CLI を先に入れます。）</li>
+<li><strong>GitHub へのログインを済ませる</strong>。ターミナルで <code>gh auth login</code> を打ち、質問に答えます。質問は、矢印キーで選んで Enter を押します。選ぶものは、GitHub.com、Git の操作は HTTPS、Git の認証に GitHub のログインを使うかには Yes、ログイン方法は Web ブラウザです。途中で <strong>8文字のコード</strong>が出るので、控えます。ブラウザが開いたら、そのコードを貼って、<strong>Authorize</strong>（許可）を押します。確認: <code>gh auth status</code> で、ログイン済みと出ればOKです。</li>
 <li><strong>ニックネームを決めて、先生に届ける</strong>。このニックネームを、ファイル名とブランチ名に使います（例: <code>taro-k</code>）。使える文字は <strong>半角の英小文字・数字・ハイフンだけ</strong>。<strong>ほかの人と重ならないもの</strong>にします。先生に届けて、重複がないか確かめてもらいます。同じニックネームの人がいると、あとから出した PR が止まってしまいます。届けた名前は、当日は変えません。</li>
 <li><strong>先生からの招待を承認する</strong>。先生が、あなたの GitHub のユーザー名あてに、リポジトリ <code>kondakaz/zemi-quiz</code> への collaborator（共同作業者）の招待を送ります。登録したメールに届く招待メールのリンクから開いて、<strong>Accept invitation</strong>（招待を受ける）を押します（メールが見つからないときは、GitHub の通知からも開けます）。承認すると、<code>https://github.com/kondakaz/zemi-quiz</code> に書き込めるようになります。招待には期限（7日）があるので、早めに承認します。</li>
 <li><strong>clone する（自分でコマンドを打つ）</strong>。clone は「共有の棚から、自分の PC に丸ごとコピー」です。まず <code>cd Documents</code>（cd ＝ フォルダに入る命令）で「書類」フォルダに入ってから、次を打ちます。
@@ -67,7 +68,7 @@ git config --global user.email "控えた noreply アドレス"</code></pre>
 git clone https://github.com/kondakaz/zemi-quiz.git
 cd zemi-quiz
 git status</code></pre>
-<p>確認: <code>git status</code> に <code>On branch main</code>（いま本番にいる）と出ます。フォルダの中に <code>index.html</code> と <code>questions/</code> があります。そのあと、<strong>この <code>zemi-quiz</code> フォルダを、Codex アプリで開き直します</strong>。<code>pwd</code>（いまいる場所を表示する命令）で、フォルダの場所を確かめます。Codex アプリで作業フォルダを選ぶところで、その <code>zemi-quiz</code> フォルダを選びます。</p>
+<p>確認: <code>git status</code> に <code>On branch main</code>（いま本番にいる）と出ます。フォルダの中に <code>index.html</code> と <code>questions/</code> があります。そのあと、<strong>この <code>zemi-quiz</code> フォルダを、Codex アプリで開き直します</strong>。<code>pwd</code>（いまいる場所を表示する命令）を打って、出てきた場所を<strong>メモします</strong>（当日、<code>cd</code> で迷ったときに使います）。Codex アプリで作業フォルダを選ぶところで、その <code>zemi-quiz</code> フォルダを選びます。Windows で、OneDrive が「ドキュメント」を預かっているときは、場所が <code>OneDrive</code> の中になることがあります。<code>pwd</code> の結果を、そのままメモします。</p>
 </li>
 <li><strong>問題の文を考えてくる</strong>。次の4つを、メモにまとめておきます。当日は、これを写すだけにします。
 <ul><li>問題文</li>
@@ -91,7 +92,7 @@ git status</code></pre>
 <li>すでに本名のユーザー名でアカウントを作っている人は、先生に相談します。</li></ul>
 <h2 id="第2部-当日の短い流れ">第2部 当日の短い流れ</h2>
 <a id="part2"></a>
-<p><code>&lt;ニックネーム&gt;</code> は、先生に届けた自分のニックネームに<strong>置き換えます。<code>&lt;</code> と <code>&gt;</code> も消して</strong>置き換えます。例: ニックネームが <code>taro-k</code> なら、<code>git switch -c add-quiz-&lt;ニックネーム&gt;</code> は <code>git switch -c add-quiz-taro-k</code> になります。<strong>どのステップも、「Codex に頼む」「自分で打つ」「GitHub の画面」のどれか1つだけ</strong>でやります。同じことを両方でやりません。「できた印」のコマンドは、どのステップでも、Codex の入力欄ではなく、<strong>ターミナルに自分で打ちます</strong>（見るだけです）。各ステップの「詳しく」は、第3部の同じ番号へのリンクです。</p>
+<p><code>&lt;ニックネーム&gt;</code> は、先生に届けた自分のニックネームに<strong>置き換えます。<code>&lt;</code> と <code>&gt;</code> も消して</strong>置き換えます。例: ニックネームが <code>taro-k</code> なら、<code>git switch -c add-quiz-&lt;ニックネーム&gt;</code> は <code>git switch -c add-quiz-taro-k</code> になります。<strong>どのステップも、「Codex に頼む」「自分で打つ」「GitHub の画面」のどれか1つだけ</strong>でやります。「できた印」のコマンドは、どのステップでも、Codex の入力欄ではなく、<strong>ターミナルに自分で打ちます</strong>（見るだけです）。各ステップの「詳しく」は、第3部の同じ番号へのリンクです。</p>
 <table><thead><tr><th style="white-space:nowrap">#</th><th style="white-space:nowrap">やること</th><th style="white-space:nowrap">やり方</th><th style="white-space:nowrap">目安</th><th style="white-space:nowrap">詳しく</th></tr></thead><tbody><tr><td style="white-space:nowrap">1</td><td>main（本番）を最新にして始める（clone は済んでいる）</td><td style="white-space:nowrap">自分で打つ</td><td style="white-space:nowrap">2分</td><td><a href="#d1">→1</a></td></tr><tr><td style="white-space:nowrap">2</td><td>ブランチ（下書き）<code>add-quiz-&lt;ニックネーム&gt;</code> を作る</td><td style="white-space:nowrap">自分で打つ</td><td style="white-space:nowrap">1分</td><td><a href="#d2">→2</a></td></tr><tr><td style="white-space:nowrap">3</td><td>問題ファイル <code>questions/&lt;ニックネーム&gt;.json</code> を書く</td><td>Codex に頼む</td><td style="white-space:nowrap">5分</td><td><a href="#d3">→3</a></td></tr><tr><td style="white-space:nowrap">4</td><td>セーブ（commit）して、棚に送る（push）</td><td>Codex に頼む</td><td style="white-space:nowrap">3分</td><td><a href="#d4">→4</a></td></tr><tr><td style="white-space:nowrap">5</td><td>Pull Request（PR・お願いの紙）を作る</td><td>GitHub の画面</td><td style="white-space:nowrap">2分</td><td><a href="#d5">→5</a></td></tr><tr><td style="white-space:nowrap">6</td><td>名簿の次の人の PR を見て Approve（はんこ）する</td><td>GitHub の画面</td><td style="white-space:nowrap">3分</td><td><a href="#d6">→6</a></td></tr><tr><td style="white-space:nowrap">7</td><td>自分の PR に Approve が付き、検査が緑なら、<strong>自分で</strong>マージする</td><td>GitHub の画面</td><td style="white-space:nowrap">2分</td><td><a href="#d7">→7</a></td></tr><tr><td style="white-space:nowrap">8</td><td>1〜2分後に、サイトで自分の問題を見る　<strong>← ゴール</strong></td><td style="white-space:nowrap">ブラウザ</td><td style="white-space:nowrap">3分</td><td><a href="#d8">→8</a></td></tr><tr><td style="white-space:nowrap">9</td><td>main に戻って pull する（余った時間か、講座のあと）</td><td style="white-space:nowrap">自分で打つ</td><td style="white-space:nowrap">1分</td><td><a href="#d9">→9</a></td></tr></tbody></table>
 <p><strong>守ること</strong></p>
 <ol><li><strong>main（本番）では作業しません。main に直接 push しません。</strong> 必ず自分のブランチ（下書き）で作業します。</li>
@@ -104,7 +105,7 @@ git status</code></pre>
 <h3 id="ステップ1-main本番を最新にして始める自分で打つ">ステップ1: main（本番）を最新にして始める（自分で打つ）</h3>
 <p><strong>いま何をしているか</strong>: 本番の最新版を、自分の PC に持ってきます。</p>
 <p>次を打ちます。1行目の <code>cd</code> で、clone した <code>zemi-quiz</code> フォルダに入ります（フォルダの外にいると、このあとのコマンドが動きません）。</p>
-<pre><code>cd Documents/zemi-quiz
+<pre><code>cd ~/Documents/zemi-quiz
 git switch main
 git pull</code></pre>
 <p><strong>できた印</strong>: <code>git branch --show-current</code>（いまいるブランチを表示する命令）を打つと <code>main</code> と出ます。<code>git pull</code> に <code>Already up to date.</code>（もう最新です）と出ても、正常です。　→ <a href="#d1">詳しく</a></p>
@@ -173,6 +174,7 @@ git status</code></pre>
 <p><strong>いま何をしているか</strong>: 本番に入った問題が、自動でサイトになります（GitHub Pages）。自分の問題が出るか、確かめます。</p>
 <p>マージの <strong>1〜2分後</strong>に、ブラウザで次を開きます（<code>&lt;ニックネーム&gt;</code> は自分のものです）。</p>
 <pre><code>https://kondakaz.github.io/zemi-quiz/?id=&lt;ニックネーム&gt;</code></pre>
+<p>例: <code>https://kondakaz.github.io/zemi-quiz/?id=taro-k</code></p>
 <p>自分の問題だけが出ます。出ないときは、次の順に試します。</p>
 <ol><li><strong>見つかりませんでした。公開の途中（1〜2分）か、URL のニックネームが違う可能性があります。</strong> と出たら、まず1分待って、再読み込みします。</li>
 <li>2分たっても出ないときは、URL のニックネームの綴り（大文字・小文字も）が合っているか確かめます。</li>
@@ -296,7 +298,8 @@ python3 -m http.server --directory _site 8000</code></pre>
 <a id="trouble-cd"></a>
 <h4 id="fatal-not-a-git-repository-と出た"><code>fatal: not a git repository</code> と出た</h4>
 <ul><li><strong>何が起きたか</strong>: <code>zemi-quiz</code> フォルダの外で、git のコマンドを打ちました。</li>
-<li><strong>どうするか</strong>: <code>cd Documents/zemi-quiz</code> を打って、フォルダに入ってから、もう一度打ちます。<code>pwd</code> で、いまいる場所が見られます。</li></ul>
+<li><strong>どうするか</strong>: <code>cd ~/Documents/zemi-quiz</code> を打って、フォルダに入ってから、もう一度打ちます（<code>~</code> は、自分のホームフォルダのことです）。</li>
+<li><strong><code>cd</code> で「見つからない」と出たとき</strong>: 事前準備8でメモした場所（<code>pwd</code> の結果）に <code>cd</code> します。分からなければ、先生に画面を見せます。</li></ul>
 <a id="trouble-auth"></a>
 <h4 id="認証エラーログインできていない">認証エラー（ログインできていない）</h4>
 <ul><li><code>gh auth status</code> を打って、ログインできているか見ます。</li>
