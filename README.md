@@ -14,7 +14,7 @@
 
 詳しい手順は[講座の手順書（Markdown）](docs/handout.md)を参照してください。公開サイトでは[手順書（HTML）](https://kondakaz.github.io/zemi-quiz/docs/handout.html)も読めます。先生向けの設定は [teacher-setup.md](docs/teacher-setup.md) を参照。
 
-Issue の機能追加には `issue-<番号>-<短い名前>` ブランチを使います。この接頭辞のブランチでは、問題ファイル1件だけの差分検査を省略します。
+Issue の機能追加には `issue-<番号>-<短い名前>` ブランチを使います。この接頭辞のブランチでは、問題ファイル1件だけの差分検査を省略しますが、questions/ の変更は禁止です。
 
 ## 研究室サイトとの関係
 

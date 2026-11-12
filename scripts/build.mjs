@@ -62,7 +62,8 @@ try {
     if (q.choices.some(choice => template.choices.includes(choice.trim()))) throw new Error('choices をテンプレートから書き換えてください');
     if (new Set(q.choices.map(choice => choice.trim())).size !== 4) throw new Error('choices に重複があります');
     if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer > 3) throw new Error('answer は 0 から 3 の整数にしてください');
-    questions.push(q);
+    // ID は作者が書いた値ではなく、ファイル名から決める。
+    questions.push({ ...q, id: name.slice(0, -5) });
   }
   currentFile = '';
   if (!checkOnly) {

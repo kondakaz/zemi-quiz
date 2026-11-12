@@ -10,6 +10,29 @@ function element(tag, text) {
   return el;
 }
 
+
+// 問題を選ぶ入口。作者名はテキストとして表示する。
+function showStart() {
+  area.replaceChildren(element('h2', '問題を選ぶ'));
+  const all = element('button', '全問を解く');
+  all.addEventListener('click', () => {
+    index = 0;
+    score = 0;
+    showQuestion();
+  });
+  area.append(all, element('h3', '作者から選ぶ'));
+  const list = element('ul', '');
+  list.className = 'authors';
+  questions.forEach(q => {
+    const item = element('li', '');
+    const link = element('a', `${q.author}（${q.id}）`);
+    link.href = `?id=${encodeURIComponent(q.id)}`;
+    item.append(link);
+    list.append(item);
+  });
+  area.append(list);
+}
+
 function showQuestion() {
   area.replaceChildren();
   if (index === questions.length) {
@@ -78,12 +101,22 @@ fetch('questions.json', { cache: 'no-cache' })
   })
   .then(data => {
     if (!Array.isArray(data)) throw new Error();
+    const id = new URLSearchParams(window.location.search).get('id');
+    if (id !== null) {
+      questions = data.filter(q => q.id === id);
+      if (!questions.length) {
+        area.replaceChildren(element('p', 'まだ公開されていません。1〜2分おいて再読み込みしてください。'));
+        return;
+      }
+      showQuestion();
+      return;
+    }
     questions = data;
     if (!questions.length) {
       area.replaceChildren(element('p', 'まだ問題がありません。'));
       return;
     }
-    showQuestion();
+    showStart();
   })
   .catch(() => {
     area.replaceChildren(element('p', '問題を読み込めませんでした。時間をおいて再度お試しください。'));
